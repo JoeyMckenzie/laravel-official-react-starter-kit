@@ -39,6 +39,9 @@ class HandleInertiaRequests extends Middleware
     {
         [$message, $author] = str(Inspiring::quotes()->random())->explode('-');
 
+        // Get dark mode preference from cookie or default to system preference
+        $darkMode = $request->cookie('theme', 'system');
+
         return [
             ...parent::share($request),
             'name' => config('app.name'),
@@ -50,6 +53,7 @@ class HandleInertiaRequests extends Middleware
                 ...(new Ziggy)->toArray(),
                 'location' => $request->url(),
             ],
+            'darkMode' => $darkMode,
         ];
     }
 }
