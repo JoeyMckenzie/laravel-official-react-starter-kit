@@ -17,6 +17,13 @@ return Application::configure(basePath: dirname(__DIR__))
             HandleInertiaRequests::class,
             AddLinkHeadersForPreloadedAssets::class,
         ]);
+
+        // By default, shadcn/ui will set a sidebar_state cookie that we need our middleware to encrypt
+        // so we can read it server side to allow for the proper state of it in between page refreshes
+        $middleware->encryptCookies([
+            'sidebar_state',
+            'appearance',
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

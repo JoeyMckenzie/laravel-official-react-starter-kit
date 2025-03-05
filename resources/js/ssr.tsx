@@ -1,3 +1,4 @@
+import { AppearanceProvider } from '@/hooks/use-appearance';
 import { createInertiaApp } from '@inertiajs/react';
 import createServer from '@inertiajs/react/server';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
@@ -24,7 +25,11 @@ createServer((page) =>
                 });
             /* eslint-enable */
 
-            return <App {...props} />;
+            return (
+                <AppearanceProvider defaultAppearance="system" storageKey="inertia-ui-theme">
+                    <App {...props} />
+                </AppearanceProvider>
+            );
         },
     }),
 );
