@@ -17,17 +17,18 @@
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
+        "larastan/larastan": "^3.2",
         "laravel/pail": "^1.2.2",
         "laravel/pint": "^1.18",
         "laravel/sail": "^1.41",
-        "larastan/larastan": "^3.2",
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^8.6",
-        "phpunit/phpunit": "^11.5.3",
         "phpstan/extension-installer": "^1.4",
         "phpstan/phpstan": "^2.1",
         "phpstan/phpstan-deprecation-rules": "^2.0",
-        "phpstan/phpstan-strict-rules": "^2.0"
+        "phpstan/phpstan-strict-rules": "^2.0",
+        "phpunit/phpunit": "^11.5.3",
+        "rector/rector": "^2.0"
     },
     "autoload": {
         "psr-4": {
@@ -66,9 +67,47 @@
             "Composer\\Config::disableProcessTimeout",
             "npx concurrently -c \"#93c5fd,#c4b5fd,#fb7185,#fdba74\" \"php artisan serve\" \"php artisan queue:listen --tries=1\" \"php artisan pail --timeout=0\" \"php artisan inertia:start-ssr\" --names=server,queue,logs,ssr"
         ],
+        "prepare": "git config core.hookspath .githooks",
+        "generate:ide-helpers": [
+            "php artisan ide-helper:generate",
+            "php artisan ide-helper:models -RW",
+            "php artisan ide-helper:meta",
+            "@fmt"
+        ],
+        "fmt": "vendor/bin/pint -vv",
+        "fmt:test": "vendor/bin/pint --test",
+        "refactor": "vendor/bin/rector process",
+        "refactor:test": "vendor/bin/rector process --dry-run",
+        "typos": "vendor/bin/peck",
+        "lint": "XDEBUG_MODE=off vendor/bin/phpstan analyze",
+        "test:unit": "vendor/bin/pest --parallel",
+        "test:uwatch": "vendor/bin/pest --parallel --watch",
+        "test:coverage": "vendor/bin/pest --coverage --parallel",
+        "test:watch": "vendor/bin/pest --watch --parallel --mutate",
+        "test:types": "vendor/bin/pest --type-coverage --min=100 --parallel",
+        "test:mutate": "vendor/bin/pest --mutate --min=100 --parallel",
+        "test:mutate:cache-clear": "vendor/bin/pest --mutate --min=100 --parallel --clear-cache",
+        "test:ci": "vendor/bin/pest --mutate --min=100 --parallel --ci",
         "test": [
             "@php artisan config:clear --ansi",
-            "@php artisan test"
+            "@test:mutate",
+            "@test:types"
+        ],
+        "fix": [
+            "@fmt",
+            "@refactor"
+        ],
+        "ci": [
+            "@lint",
+            "@fmt:test",
+            "@refactor:test",
+            "@test",
+            "@typos"
+        ],
+        "transform": "php artisan typescript:transform --format",
+        "reschema": [
+            "php artisan migrate:fresh --seed",
+            "@generate:ide-helpers"
         ]
     },
     "extra": {
