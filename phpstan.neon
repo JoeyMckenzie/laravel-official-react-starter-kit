@@ -1,0 +1,13 @@
+parameters:
+    level: max
+    paths:
+        - app
+        - database
+        - routes
+        - bootstrap/app.php
+        - bootstrap/providers.php
+    reportUnmatchedIgnoredErrors: true
+    ignoreErrors:
+        -
+            message: '#Dynamic call to static method Illuminate\\Http\\Request::validate\(\).#'
+            path: app/Http/Controllers/**/*.php
