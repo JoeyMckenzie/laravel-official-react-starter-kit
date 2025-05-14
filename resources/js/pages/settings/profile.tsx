@@ -1,16 +1,16 @@
-import type { BreadcrumbItem, SharedData } from "@/types";
-import { Transition } from "@headlessui/react";
-import { Head, Link, useForm, usePage } from "@inertiajs/react";
-import type { FormEventHandler } from "react";
-
 import DeleteUser from "@/components/delete-user";
 import HeadingSmall from "@/components/heading-small";
 import InputError from "@/components/input-error";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import AppLayout from "@/layouts/app-layout";
 import SettingsLayout from "@/layouts/settings/layout";
+import type { BreadcrumbItem, SharedData } from "@/types";
+import { Transition } from "@headlessui/react";
+import { Head, Link, router, useForm, usePage } from "@inertiajs/react";
+import { type FormEventHandler, useRef, useState } from "react";
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
@@ -20,8 +20,11 @@ const breadcrumbs: BreadcrumbItem[] = [
 ];
 
 type ProfileForm = {
-    name: string;
+    _method: string;
+    first_name: string;
+    last_name: string;
     email: string;
+    profile_image?: File | null;
 };
 
 export default function Profile({
@@ -29,17 +32,58 @@ export default function Profile({
     status,
 }: { mustVerifyEmail: boolean; status?: string }) {
     const { auth } = usePage<SharedData>().props;
-
-    const { data, setData, patch, errors, processing, recentlySuccessful } =
+    const [profileImage, setProfileImage] = useState<string | null>(null);
+    const photoInput = useRef<HTMLInputElement>(null);
+    const { data, setData, post, errors, processing, recentlySuccessful } =
         useForm<Required<ProfileForm>>({
-            name: auth.user.name,
+            _method: "patch",
+            first_name: auth.user.first_name,
+            last_name: auth.user.last_name,
             email: auth.user.email,
+            profile_image: null,
         });
+
+    const selectNewPhoto = () => {
+        photoInput.current?.click();
+    };
+
+    const updatePhotoPreview = () => {
+        const photo = photoInput.current?.files?.[0];
+
+        if (!photo) {
+            return;
+        }
+
+        setData("profile_image", photo);
+
+        const reader = new FileReader();
+        reader.onload = (e: ProgressEvent<FileReader>) => {
+            setProfileImage(e.target?.result as string);
+        };
+
+        reader.readAsDataURL(photo);
+    };
+
+    const deletePhoto = () => {
+        router.delete(route("profile-photo.destroy"), {
+            preserveScroll: true,
+            onSuccess: () => {
+                setProfileImage(null);
+                clearPhotoFileInput();
+            },
+        });
+    };
+
+    const clearPhotoFileInput = () => {
+        if (photoInput.current) {
+            photoInput.current.value = "";
+        }
+    };
 
     const submit: FormEventHandler = (e) => {
         e.preventDefault();
 
-        patch(route("profile.update"), {
+        post(route("profile.update"), {
             preserveScroll: true,
         });
     };
@@ -57,24 +101,97 @@ export default function Profile({
 
                     <form onSubmit={submit} className="space-y-6">
                         <div className="grid gap-2">
-                            <Label htmlFor="name">Name</Label>
-
                             <Input
-                                id="name"
-                                className="mt-1 block w-full"
-                                value={data.name}
-                                onChange={(e) =>
-                                    setData("name", e.target.value)
-                                }
-                                required
-                                autoComplete="name"
-                                placeholder="Full name"
+                                type="file"
+                                ref={photoInput}
+                                id="photo"
+                                className="hidden"
+                                onChange={updatePhotoPreview}
+                                accept="image/*"
                             />
+
+                            <div className="flex items-center gap-4">
+                                <Avatar className="h-20 w-20">
+                                    <AvatarImage
+                                        src={
+                                            profileImage ??
+                                            auth.user.profile_image ??
+                                            undefined
+                                        }
+                                        alt={auth.user.full_name}
+                                    />
+                                    <AvatarFallback>
+                                        {auth.user.initials}
+                                    </AvatarFallback>
+                                </Avatar>
+
+                                <Button
+                                    type="button"
+                                    variant="outline"
+                                    onClick={selectNewPhoto}
+                                >
+                                    Select photo
+                                </Button>
+
+                                {auth.user.profile_image && (
+                                    <Button
+                                        type="button"
+                                        variant="outline"
+                                        onClick={deletePhoto}
+                                    >
+                                        Remove photo
+                                    </Button>
+                                )}
+                            </div>
 
                             <InputError
                                 className="mt-2"
-                                message={errors.name}
+                                message={errors.profile_image}
                             />
+                        </div>
+
+                        <div className="grid grid-cols-2 gap-2">
+                            <div className="grid gap-2">
+                                <Label htmlFor="name">First name</Label>
+
+                                <Input
+                                    id="name"
+                                    className="mt-1 block w-full"
+                                    value={data.first_name}
+                                    onChange={(e) =>
+                                        setData("first_name", e.target.value)
+                                    }
+                                    required
+                                    autoComplete="last_name"
+                                    placeholder="First name"
+                                />
+
+                                <InputError
+                                    className="mt-2"
+                                    message={errors.first_name}
+                                />
+                            </div>
+
+                            <div className="grid gap-2">
+                                <Label htmlFor="name">Last name</Label>
+
+                                <Input
+                                    id="name"
+                                    className="mt-1 block w-full"
+                                    value={data.last_name}
+                                    onChange={(e) =>
+                                        setData("last_name", e.target.value)
+                                    }
+                                    required
+                                    autoComplete="first_name"
+                                    placeholder="Last name"
+                                />
+
+                                <InputError
+                                    className="mt-2"
+                                    message={errors.last_name}
+                                />
+                            </div>
                         </div>
 
                         <div className="grid gap-2">
