@@ -30,7 +30,8 @@ export function NavUser() {
                             size="lg"
                             className="group text-sidebar-accent-foreground data-[state=open]:bg-sidebar-accent"
                         >
-                            <UserInfo user={auth.user} />
+                            {/* biome-ignore lint/style/noNonNullAssertion: middleware auth checks prevent empty users */}
+                            <UserInfo user={auth.user!} />
                             <ChevronsUpDown className="ml-auto size-4" />
                         </SidebarMenuButton>
                     </DropdownMenuTrigger>
@@ -45,7 +46,8 @@ export function NavUser() {
                                   : "bottom"
                         }
                     >
-                        <UserMenuContent user={auth.user} />
+                        {/* biome-ignore lint/style/noNonNullAssertion: middleware auth checks prevent empty users */}
+                        <UserMenuContent user={auth.user!} />
                     </DropdownMenuContent>
                 </DropdownMenu>
             </SidebarMenuItem>

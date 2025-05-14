@@ -1,7 +1,3 @@
-import { Head, useForm } from "@inertiajs/react";
-import { LoaderCircle } from "lucide-react";
-import type { FormEventHandler } from "react";
-
 import InputError from "@/components/input-error";
 import TextLink from "@/components/text-link";
 import { Button } from "@/components/ui/button";
@@ -9,6 +5,9 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import AuthLayout from "@/layouts/auth-layout";
+import { Head, useForm } from "@inertiajs/react";
+import { LoaderCircle } from "lucide-react";
+import type { FormEventHandler } from "react";
 
 type LoginForm = {
     email: string;
@@ -53,7 +52,7 @@ export default function Login({ status, canResetPassword }: LoginProps) {
                             type="email"
                             required
                             autoFocus
-                            tabIndex="0"
+                            tabIndex={0}
                             autoComplete="email"
                             value={data.email}
                             onChange={(e) => setData("email", e.target.value)}
@@ -69,7 +68,7 @@ export default function Login({ status, canResetPassword }: LoginProps) {
                                 <TextLink
                                     href={route("password.request")}
                                     className="ml-auto text-sm"
-                                    tabIndex="0"
+                                    tabIndex={0}
                                 >
                                     Forgot password?
                                 </TextLink>
@@ -79,7 +78,7 @@ export default function Login({ status, canResetPassword }: LoginProps) {
                             id="password"
                             type="password"
                             required
-                            tabIndex="0"
+                            tabIndex={0}
                             autoComplete="current-password"
                             value={data.password}
                             onChange={(e) =>
@@ -96,7 +95,7 @@ export default function Login({ status, canResetPassword }: LoginProps) {
                             name="remember"
                             checked={data.remember}
                             onClick={() => setData("remember", !data.remember)}
-                            tabIndex="0"
+                            tabIndex={0}
                         />
                         <Label htmlFor="remember">Remember me</Label>
                     </div>
@@ -104,7 +103,7 @@ export default function Login({ status, canResetPassword }: LoginProps) {
                     <Button
                         type="submit"
                         className="mt-4 w-full"
-                        tabIndex="0"
+                        tabIndex={0}
                         disabled={processing}
                     >
                         {processing && (
@@ -116,7 +115,7 @@ export default function Login({ status, canResetPassword }: LoginProps) {
 
                 <div className="text-center text-muted-foreground text-sm">
                     Don't have an account?{" "}
-                    <TextLink href={route("register")} tabIndex="0">
+                    <TextLink href={route("register")} tabIndex={0}>
                         Sign up
                     </TextLink>
                 </div>

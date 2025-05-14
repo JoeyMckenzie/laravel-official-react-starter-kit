@@ -1,16 +1,16 @@
-import { Head, useForm } from "@inertiajs/react";
-import { LoaderCircle } from "lucide-react";
-import type { FormEventHandler } from "react";
-
 import InputError from "@/components/input-error";
 import TextLink from "@/components/text-link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import AuthLayout from "@/layouts/auth-layout";
+import { Head, useForm } from "@inertiajs/react";
+import { LoaderCircle } from "lucide-react";
+import type { FormEventHandler } from "react";
 
 type RegisterForm = {
-    name: string;
+    first_name: string;
+    last_name: string;
     email: string;
     password: string;
     password_confirmation: string;
@@ -20,7 +20,8 @@ export default function Register() {
     const { data, setData, post, processing, errors, reset } = useForm<
         Required<RegisterForm>
     >({
-        name: "",
+        first_name: "",
+        last_name: "",
         email: "",
         password: "",
         password_confirmation: "",
@@ -42,20 +43,47 @@ export default function Register() {
             <form className="flex flex-col gap-6" onSubmit={submit}>
                 <div className="grid gap-6">
                     <div className="grid gap-2">
-                        <Label htmlFor="name">Name</Label>
+                        <Label htmlFor="first_name">First name</Label>
                         <Input
-                            id="name"
+                            id="first_name"
                             type="text"
                             required
                             autoFocus
-                            tabIndex="0"
-                            autoComplete="name"
-                            value={data.name}
-                            onChange={(e) => setData("name", e.target.value)}
+                            tabIndex={0}
+                            autoComplete="first_name"
+                            value={data.first_name}
+                            onChange={(e) =>
+                                setData("first_name", e.target.value)
+                            }
                             disabled={processing}
-                            placeholder="Full name"
+                            placeholder="First name"
                         />
-                        <InputError message={errors.name} className="mt-2" />
+                        <InputError
+                            message={errors.first_name}
+                            className="mt-2"
+                        />
+                    </div>
+
+                    <div className="grid gap-2">
+                        <Label htmlFor="last_name">Last name</Label>
+                        <Input
+                            id="last_name"
+                            type="text"
+                            required
+                            autoFocus
+                            tabIndex={0}
+                            autoComplete="name"
+                            value={data.last_name}
+                            onChange={(e) =>
+                                setData("last_name", e.target.value)
+                            }
+                            disabled={processing}
+                            placeholder="Last name"
+                        />
+                        <InputError
+                            message={errors.last_name}
+                            className="mt-2"
+                        />
                     </div>
 
                     <div className="grid gap-2">
@@ -64,7 +92,7 @@ export default function Register() {
                             id="email"
                             type="email"
                             required
-                            tabIndex="0"
+                            tabIndex={0}
                             autoComplete="email"
                             value={data.email}
                             onChange={(e) => setData("email", e.target.value)}
@@ -80,7 +108,7 @@ export default function Register() {
                             id="password"
                             type="password"
                             required
-                            tabIndex="0"
+                            tabIndex={0}
                             autoComplete="new-password"
                             value={data.password}
                             onChange={(e) =>
@@ -100,7 +128,7 @@ export default function Register() {
                             id="password_confirmation"
                             type="password"
                             required
-                            tabIndex="0"
+                            tabIndex={0}
                             autoComplete="new-password"
                             value={data.password_confirmation}
                             onChange={(e) =>
@@ -115,7 +143,7 @@ export default function Register() {
                     <Button
                         type="submit"
                         className="mt-2 w-full"
-                        tabIndex="0"
+                        tabIndex={0}
                         disabled={processing}
                     >
                         {processing && (
@@ -127,7 +155,7 @@ export default function Register() {
 
                 <div className="text-center text-muted-foreground text-sm">
                     Already have an account?{" "}
-                    <TextLink href={route("login")} tabIndex="0">
+                    <TextLink href={route("login")} tabIndex={0}>
                         Log in
                     </TextLink>
                 </div>

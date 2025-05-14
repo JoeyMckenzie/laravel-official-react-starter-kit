@@ -2,8 +2,8 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "build": "vite build",
-        "build:ssr": "vite build && vite build --ssr",
+        "build": "tsc && vite build",
+        "build:ssr": "tsc && vite build && vite build --ssr",
         "dev": "vite",
         "fmt": "npx @biomejs/biome format --write resources/",
         "fmt:check": "npx @biomejs/biome format resources/",

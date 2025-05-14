@@ -37,9 +37,9 @@ export default function Profile({
     const { data, setData, post, errors, processing, recentlySuccessful } =
         useForm<Required<ProfileForm>>({
             _method: "patch",
-            first_name: auth.user.first_name,
-            last_name: auth.user.last_name,
-            email: auth.user.email,
+            first_name: auth.user?.firstName ?? "",
+            last_name: auth.user?.lastName ?? "",
+            email: auth.user?.email ?? "",
             profile_image: null,
         });
 
@@ -115,13 +115,13 @@ export default function Profile({
                                     <AvatarImage
                                         src={
                                             profileImage ??
-                                            auth.user.profile_image ??
+                                            auth.user?.profileImage ??
                                             undefined
                                         }
-                                        alt={auth.user.full_name}
+                                        alt={auth.user?.fullName}
                                     />
                                     <AvatarFallback>
-                                        {auth.user.initials}
+                                        {auth.user?.initials}
                                     </AvatarFallback>
                                 </Avatar>
 
@@ -133,7 +133,7 @@ export default function Profile({
                                     Select photo
                                 </Button>
 
-                                {auth.user.profile_image && (
+                                {auth.user?.profileImage && (
                                     <Button
                                         type="button"
                                         variant="outline"
@@ -217,7 +217,7 @@ export default function Profile({
                         </div>
 
                         {mustVerifyEmail &&
-                            auth.user.email_verified_at === null && (
+                            auth.user?.emailVerifiedAt === null && (
                                 <div>
                                     <p className="-mt-4 text-muted-foreground text-sm">
                                         Your email address is unverified.{" "}

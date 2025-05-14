@@ -27,7 +27,6 @@ import {
     TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { UserMenuContent } from "@/components/user-menu-content";
-import { useInitials } from "@/hooks/use-initials";
 import { cn } from "@/lib/utils";
 import type { BreadcrumbItem, NavItem, SharedData } from "@/types";
 import { Link, usePage } from "@inertiajs/react";
@@ -66,7 +65,7 @@ interface AppHeaderProps {
 export function AppHeader({ breadcrumbs = [] }: AppHeaderProps) {
     const page = usePage<SharedData>();
     const { auth } = page.props;
-    const getInitials = useInitials();
+
     return (
         <>
             <div className="border-sidebar-border/80 border-b">
@@ -231,17 +230,21 @@ export function AppHeader({ breadcrumbs = [] }: AppHeaderProps) {
                                 >
                                     <Avatar className="size-8 overflow-hidden rounded-full">
                                         <AvatarImage
-                                            src={auth.user.avatar}
-                                            alt={auth.user.name}
+                                            src={
+                                                auth.user?.profileImage ??
+                                                undefined
+                                            }
+                                            alt={auth.user?.fullName}
                                         />
                                         <AvatarFallback className="rounded-lg bg-neutral-200 text-black dark:bg-neutral-700 dark:text-white">
-                                            {getInitials(auth.user.name)}
+                                            {auth.user?.initials}
                                         </AvatarFallback>
                                     </Avatar>
                                 </Button>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent className="w-56" align="end">
-                                <UserMenuContent user={auth.user} />
+                                {/* biome-ignore lint/style/noNonNullAssertion: middleware auth checks prevent empty users */}
+                                <UserMenuContent user={auth.user!} />
                             </DropdownMenuContent>
                         </DropdownMenu>
                     </div>
