@@ -32,10 +32,7 @@ jobs:
         uses: aglipanci/laravel-pint-action@2.5
 
       - name: Fix JS code style issues
-        run: npm run fmt
-
-      - name: Fix JS lint issues
-        run: npm run lint
+        run: npm run check
 
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v5
