@@ -3,6 +3,7 @@ import createServer from '@inertiajs/react/server';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import ReactDOMServer from 'react-dom/server';
 import { route, type RouteName } from 'ziggy-js';
+import { ThemeProvider } from '@/components/theme-provider';
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
@@ -22,7 +23,11 @@ createServer((page) =>
                     location: new URL(page.props.ziggy.location)
                 });
 
-            return <App {...props} />;
+            return (
+                <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+                    <App {...props} />
+                </ThemeProvider>
+            );
         }
     })
 );
