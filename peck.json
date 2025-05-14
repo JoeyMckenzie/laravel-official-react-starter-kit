@@ -1,0 +1,22 @@
+{
+    "preset": "laravel",
+    "ignore": {
+        "words": [
+            "php",
+            "ssr",
+            "utils",
+            "nav",
+            "dropdown",
+            "js",
+            "filesystems"
+        ],
+        "paths": [
+            "tests",
+            "tsconfig.json",
+            "biome.json",
+            "resources/js/components/ui",
+            "public/favicon.svg",
+            "public/favicon.ico"
+        ]
+    }
+}

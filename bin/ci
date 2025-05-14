@@ -78,6 +78,14 @@ else
   fi
 fi
 
+info "Running frontend CI checks..."
+
+npm run check
+
+info "Auditing npm dependencies..."
+
+npm audit
+
 info "Building assets..."
 
 npm run build:ssr
@@ -89,15 +97,6 @@ composer run ci
 info "Auditing composer dependencies..."
 
 composer audit
-
-info "Running frontend CI checks..."
-
-npm run check
-npm run build:ssr
-
-info "Auditing npm dependencies..."
-
-npm audit
 
 success "CI successful!"
 

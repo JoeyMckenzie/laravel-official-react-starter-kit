@@ -7,38 +7,41 @@ namespace Tests\Feature\Settings;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
-it('can update password', function (): void {
-    $user = User::factory()->create();
+describe('Password update', function (): void {
 
-    $response = $this
-        ->actingAs($user)
-        ->from('/settings/password')
-        ->put('/settings/password', [
-            'current_password' => 'password',
-            'password' => 'new-password',
-            'password_confirmation' => 'new-password',
-        ]);
+    it('can update password', function (): void {
+        $user = User::factory()->create();
 
-    $response
-        ->assertSessionHasNoErrors()
-        ->assertRedirect('/settings/password');
+        $response = $this
+            ->actingAs($user)
+            ->from('/settings/password')
+            ->put('/settings/password', [
+                'current_password' => 'password',
+                'password' => 'new-password',
+                'password_confirmation' => 'new-password',
+            ]);
 
-    $this->assertTrue(Hash::check('new-password', $user->refresh()->password));
-});
+        $response
+            ->assertSessionHasNoErrors()
+            ->assertRedirect('/settings/password');
 
-it('requires correct current password to update password', function (): void {
-    $user = User::factory()->create();
+        $this->assertTrue(Hash::check('new-password', $user->refresh()->password));
+    });
 
-    $response = $this
-        ->actingAs($user)
-        ->from('/settings/password')
-        ->put('/settings/password', [
-            'current_password' => 'wrong-password',
-            'password' => 'new-password',
-            'password_confirmation' => 'new-password',
-        ]);
+    it('requires correct current password to update password', function (): void {
+        $user = User::factory()->create();
 
-    $response
-        ->assertSessionHasErrors('current_password')
-        ->assertRedirect('/settings/password');
+        $response = $this
+            ->actingAs($user)
+            ->from('/settings/password')
+            ->put('/settings/password', [
+                'current_password' => 'wrong-password',
+                'password' => 'new-password',
+                'password_confirmation' => 'new-password',
+            ]);
+
+        $response
+            ->assertSessionHasErrors('current_password')
+            ->assertRedirect('/settings/password');
+    });
 });
