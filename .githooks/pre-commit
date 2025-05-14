@@ -1,0 +1,10 @@
+#!/bin/sh
+
+set -ex
+
+composer run fix
+npm run check
+
+if [ -n "$(git diff --name-only)" ]; then
+    git add .
+fi
