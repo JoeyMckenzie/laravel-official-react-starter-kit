@@ -11,4 +11,4 @@ I'm quite fond of when working within a Laravel + React app:
 - [Peck](https://github.com/peckphp/peck) for spellchecking
 - [TS transformer](https://spatie.be/docs/typescript-transformer/v2/introduction) for types
 - Local-first [CI](bin/ci)
-- 
+
