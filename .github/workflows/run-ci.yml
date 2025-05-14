@@ -1,0 +1,31 @@
+name: Run CI
+
+on:
+  push:
+    branches:
+      - feature/golden-path
+  pull_request:
+    branches:
+      - feature/golden-path
+
+permissions:
+  contents: write
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          coverage: xdebug
+
+      - name: Run CI checks
+        run: bin/ci
+        working-directory: ${{ github.workspace }}
+
+      - name: Notify Laravel Forge for Deployment
+        run: curl -X POST ${{ secrets.FORGE_DEPLOYMENT_URL }}

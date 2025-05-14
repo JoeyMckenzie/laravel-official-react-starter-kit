@@ -23,6 +23,8 @@
         "laravel/sail": "^1.41",
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^8.6",
+        "pestphp/pest": "^3.8",
+        "pestphp/pest-plugin-type-coverage": "^3.5",
         "phpstan/extension-installer": "^1.4",
         "phpstan/phpstan": "^2.1",
         "phpstan/phpstan-deprecation-rules": "^2.0",
@@ -90,7 +92,7 @@
         "test:ci": "vendor/bin/pest --mutate --min=100 --parallel --ci",
         "test": [
             "@php artisan config:clear --ansi",
-            "@test:mutate",
+            "@test:coverage",
             "@test:types"
         ],
         "fix": [
