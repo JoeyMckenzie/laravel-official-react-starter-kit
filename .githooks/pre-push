@@ -1,0 +1,6 @@
+#!/bin/sh
+
+set -ex
+
+composer run audit
+npm run audit
