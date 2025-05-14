@@ -8,7 +8,8 @@
             "nav",
             "dropdown",
             "js",
-            "filesystems"
+            "filesystems",
+            "biome"
         ],
         "paths": [
             "tests",
