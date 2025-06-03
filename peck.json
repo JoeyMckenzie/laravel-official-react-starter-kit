@@ -9,16 +9,18 @@
             "dropdown",
             "js",
             "filesystems",
-            "biome"
+            "biome",
+            "artisense",
+            "debugbar"
         ],
         "paths": [
+            "build",
             "tests",
             "tsconfig.json",
             "biome.json",
             "resources/js/components/ui",
             "public/favicon.svg",
-            "public/favicon.ico",
-            "storage/debugbar"
+            "public/favicon.ico"
         ]
     }
 }

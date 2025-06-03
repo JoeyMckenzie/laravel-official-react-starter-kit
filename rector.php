@@ -19,11 +19,6 @@ return RectorConfig::configure()
             __DIR__.'/app/Models/*.php',
         ],
     ])
-    ->withPreparedSets(
-        deadCode: true,
-        codeQuality: true,
-        typeDeclarations: true,
-        privatization: true,
-        earlyReturn: true,
-        strictBooleans: true,
-    );
+    ->withTypeCoverageLevel(10)
+    ->withDeadCodeLevel(10)
+    ->withCodeQualityLevel(10);

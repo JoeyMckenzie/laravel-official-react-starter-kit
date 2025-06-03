@@ -1,3 +1,10 @@
+<div align="center" style="padding-top: 2rem;">
+    <div style="display: inline-block;">
+        <img src="https://img.shields.io/github/actions/workflow/status/joeymckenzie/laravel-official-react-starter-kit/run-ci.yml?branch=main&label=ci" alt="ci" />
+        <img src="https://img.shields.io/github/actions/workflow/status/joeymckenzie/laravel-official-react-starter-kit/fix-code-styles.yml?branch=main&label=code%20style" alt="fix code styles" />
+    </div>
+</div>
+
 # Laravel + React Starter Kit (Golden Path)
 
 This is my own personal starter kit forked from the official starter kit. I've updated this kit to include some things

@@ -7,12 +7,20 @@ namespace Tests;
 use Illuminate\Contracts\Validation\ValidationRule;
 
 arch()->preset()->laravel();
+arch()->preset()->php();
+arch()->preset()->security();
 
-arch('Rules should be suffixed with rule', fn (): \Pest\Arch\Contracts\ArchExpectation => expect('App\Http\Rules')
+arch('Types and equality are strict')
+    ->expect('App\\')
+    ->toUseStrictTypes()
+    ->toUseStrictEquality();
+
+arch('Rules should be suffixed with rule')
+    ->expect('App\\Http\\Rules')
     ->classes()
     ->toBeFinal()
     ->toHaveSuffix('Rule')
-    ->toImplement(ValidationRule::class));
+    ->toImplement(ValidationRule::class);
 
 arch('All test files are strictly typed')
     ->expect('Tests\\')

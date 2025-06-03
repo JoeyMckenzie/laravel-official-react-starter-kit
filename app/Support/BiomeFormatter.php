@@ -4,23 +4,17 @@ declare(strict_types=1);
 
 namespace App\Support;
 
-use RuntimeException;
+use Illuminate\Support\Facades\Process;
 use Spatie\TypeScriptTransformer\Formatters\Formatter;
 
-final class BiomeFormatter implements Formatter
+final readonly class BiomeFormatter implements Formatter
 {
     public function format(string $file): void
     {
-        exec('npm run fmt', $output, $resultCode);
+        $process = Process::run('npm run fmt');
 
-        if ($resultCode !== 0) {
-            throw new RuntimeException(
-                sprintf(
-                    'Failed to format file %s. Output: %s',
-                    $file,
-                    implode("\n", $output)
-                )
-            );
+        if ($process->failed()) {
+            $process->throw();
         }
     }
 }
