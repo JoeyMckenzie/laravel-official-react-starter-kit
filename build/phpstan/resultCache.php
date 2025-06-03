@@ -1,7 +1,7 @@
 <?php declare(strict_types = 1);
 
 return [
-	'lastFullAnalysisTime' => 1748977612,
+	'lastFullAnalysisTime' => 1748979882,
 	'meta' => array (
   'cacheVersion' => 'v12-linesToIgnore',
   'phpstanVersion' => '2.1.17',
@@ -24,7 +24,7 @@ return [
   ),
   'composerLocks' => 
   array (
-    '/Users/jmckenzie/github.com/joeymckenzie/laravel-official-react-starter-kit/composer.lock' => '5c46bcf25df58bd953c08bdc9d7254aa0744287f',
+    '/Users/jmckenzie/github.com/joeymckenzie/laravel-official-react-starter-kit/composer.lock' => '58d2dde70fe703e6b861ada81f4ea46784c00041',
   ),
   'composerInstalled' => 
   array (
@@ -386,9 +386,9 @@ return [
         ),
         'filp/whoops' => 
         array (
-          'pretty_version' => '2.18.0',
-          'version' => '2.18.0.0',
-          'reference' => 'a7de6c3c6c3c022f5cfc337f8ede6a14460cf77e',
+          'pretty_version' => '2.18.1',
+          'version' => '2.18.1.0',
+          'reference' => '8fcc6a862f2e7b94eb4221fd0819ddba3d30ab26',
           'type' => 'library',
           'install_path' => '/Users/jmckenzie/github.com/joeymckenzie/laravel-official-react-starter-kit/vendor/composer/../filp/whoops',
           'aliases' => 
