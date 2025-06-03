@@ -31,5 +31,5 @@ jobs:
         run: bin/ci
         working-directory: ${{ github.workspace }}
 
-      - name: Notify Laravel Forge for Deployment
-        run: curl -X POST ${{ secrets.FORGE_DEPLOYMENT_URL }}
+      # - name: Notify Laravel Forge for Deployment
+      #   run: curl -X POST ${{ secrets.FORGE_DEPLOYMENT_URL }}
