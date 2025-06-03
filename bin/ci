@@ -88,6 +88,7 @@ npm audit
 
 info "Building assets..."
 
+php artisan ziggy:generate
 npm run build:ssr
 
 info "Running backend CI checks..."
