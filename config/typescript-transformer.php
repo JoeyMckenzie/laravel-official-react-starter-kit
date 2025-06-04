@@ -42,7 +42,6 @@ return [
      */
 
     'default_type_replacements' => [
-        DateTime::class => 'string',
         DateTimeImmutable::class => 'string',
         Carbon\CarbonInterface::class => 'string',
         Carbon\CarbonImmutable::class => 'string',

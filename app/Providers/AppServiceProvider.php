@@ -8,9 +8,12 @@ use Carbon\CarbonImmutable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Vite;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Sleep;
+use Illuminate\Validation\Rules\Password;
 use Override;
 
 final class AppServiceProvider extends ServiceProvider
@@ -34,6 +37,9 @@ final class AppServiceProvider extends ServiceProvider
         self::configureSchema();
         self::configureCommands();
         self::configureDates();
+        self::configureHttpFake();
+        self::configureSleepFake();
+        self::configurePasswordDefaults();
     }
 
     private function configureModels(): void
@@ -50,18 +56,37 @@ final class AppServiceProvider extends ServiceProvider
 
     private function configureSchema(): void
     {
-        URL::forceScheme('https');
+        URL::forceHttps();
     }
 
     private function configureCommands(): void
     {
         DB::prohibitDestructiveCommands(
-            $this->app->environment('production') === true,
+            app()->isProduction(),
         );
     }
 
     private function configureDates(): void
     {
         Date::use(CarbonImmutable::class);
+    }
+
+    private function configureHttpFake(): void
+    {
+        if (app()->runningInConsole()) {
+            Http::preventStrayRequests();
+        }
+    }
+
+    private function configureSleepFake(): void
+    {
+        if (app()->runningUnitTests()) {
+            Sleep::fake();
+        }
+    }
+
+    private function configurePasswordDefaults(): void
+    {
+        Password::defaults(fn (): ?Password => app()->isProduction() ? Password::min(12)->max(255)->uncompromised() : null);
     }
 }

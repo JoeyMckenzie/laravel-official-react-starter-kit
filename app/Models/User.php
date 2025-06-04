@@ -101,8 +101,8 @@ final class User extends Authenticatable implements MustVerifyEmail
      */
     protected function initials(): Attribute
     {
-        $firstNameInitial = substr($this->first_name ?? '', 0, 1);
-        $lastNameInitial = substr($this->last_name ?? '', 0, 1);
+        $firstNameInitial = mb_substr($this->first_name ?? '', 0, 1);
+        $lastNameInitial = mb_substr($this->last_name ?? '', 0, 1);
 
         return Attribute::make(fn (): string => $firstNameInitial.$lastNameInitial);
     }

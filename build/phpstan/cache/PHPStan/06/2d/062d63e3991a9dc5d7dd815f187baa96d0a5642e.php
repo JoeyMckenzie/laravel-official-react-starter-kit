@@ -7,7 +7,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
   array (
     '/Users/jmckenzie/github.com/joeymckenzie/laravel-official-react-starter-kit/app/Providers/AppServiceProvider.php' => 
     array (
-      0 => '29e2e36a2764f42f9fe2a4e380d3c23c67b35604',
+      0 => 'fc0195bf43fd2b31414949f1cde515643f9905b4',
       1 => 
       array (
         0 => 'app\\providers\\appserviceprovider',
@@ -21,6 +21,9 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
         4 => 'app\\providers\\configureschema',
         5 => 'app\\providers\\configurecommands',
         6 => 'app\\providers\\configuredates',
+        7 => 'app\\providers\\configurehttpfake',
+        8 => 'app\\providers\\configuresleepfake',
+        9 => 'app\\providers\\configurepassworddefaults',
       ),
       3 => 
       array (
@@ -28,7 +31,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/jmckenzie/github.com/joeymckenzie/laravel-official-react-starter-kit/app/Models/User.php' => 
     array (
-      0 => '221779e6264dbca3eb2b6ac916f718b82ac69858',
+      0 => 'cc2bcaff1391020ef78747d7a7995488f3074cea',
       1 => 
       array (
         0 => 'app\\models\\user',
@@ -61,7 +64,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/jmckenzie/github.com/joeymckenzie/laravel-official-react-starter-kit/app/Http/Middleware/HandleInertiaRequests.php' => 
     array (
-      0 => '5cc86ea3038dbc8ab7cf4d956325afae19971326',
+      0 => 'f1fd78a8713cf9db1394155f19c068276a970676',
       1 => 
       array (
         0 => 'app\\http\\middleware\\handleinertiarequests',

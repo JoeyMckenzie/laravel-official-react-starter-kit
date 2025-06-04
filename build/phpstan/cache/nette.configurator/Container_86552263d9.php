@@ -15,7 +15,7 @@
 
 declare(strict_types=1);
 
-class Container_2123b0ecfc extends _PHPStan_ac6dae9b0\Nette\DI\Container
+class Container_86552263d9 extends _PHPStan_ac6dae9b0\Nette\DI\Container
 {
 	protected $tags = [
 		'phpstan.parser.richParserNodeVisitor' => [
@@ -2903,7 +2903,7 @@ class Container_2123b0ecfc extends _PHPStan_ac6dae9b0\Nette\DI\Container
 			private $container;
 
 
-			public function __construct(Container_2123b0ecfc $container)
+			public function __construct(Container_86552263d9 $container)
 			{
 				$this->container = $container;
 			}
@@ -3191,7 +3191,7 @@ class Container_2123b0ecfc extends _PHPStan_ac6dae9b0\Nette\DI\Container
 			private $container;
 
 
-			public function __construct(Container_2123b0ecfc $container)
+			public function __construct(Container_86552263d9 $container)
 			{
 				$this->container = $container;
 			}
@@ -3260,7 +3260,7 @@ class Container_2123b0ecfc extends _PHPStan_ac6dae9b0\Nette\DI\Container
 			private $container;
 
 
-			public function __construct(Container_2123b0ecfc $container)
+			public function __construct(Container_86552263d9 $container)
 			{
 				$this->container = $container;
 			}
@@ -3386,7 +3386,7 @@ class Container_2123b0ecfc extends _PHPStan_ac6dae9b0\Nette\DI\Container
 			private $container;
 
 
-			public function __construct(Container_2123b0ecfc $container)
+			public function __construct(Container_86552263d9 $container)
 			{
 				$this->container = $container;
 			}
@@ -3406,7 +3406,7 @@ class Container_2123b0ecfc extends _PHPStan_ac6dae9b0\Nette\DI\Container
 			private $container;
 
 
-			public function __construct(Container_2123b0ecfc $container)
+			public function __construct(Container_86552263d9 $container)
 			{
 				$this->container = $container;
 			}
@@ -3510,7 +3510,7 @@ class Container_2123b0ecfc extends _PHPStan_ac6dae9b0\Nette\DI\Container
 			private $container;
 
 
-			public function __construct(Container_2123b0ecfc $container)
+			public function __construct(Container_86552263d9 $container)
 			{
 				$this->container = $container;
 			}
@@ -5265,7 +5265,7 @@ class Container_2123b0ecfc extends _PHPStan_ac6dae9b0\Nette\DI\Container
 			private $container;
 
 
-			public function __construct(Container_2123b0ecfc $container)
+			public function __construct(Container_86552263d9 $container)
 			{
 				$this->container = $container;
 			}
@@ -7157,7 +7157,7 @@ class Container_2123b0ecfc extends _PHPStan_ac6dae9b0\Nette\DI\Container
 	}
 
 
-	public function createServiceContainer(): Container_2123b0ecfc
+	public function createServiceContainer(): Container_86552263d9
 	{
 		return $this;
 	}
@@ -9391,107 +9391,63 @@ class Container_2123b0ecfc extends _PHPStan_ac6dae9b0\Nette\DI\Container
 			'usedLevel' => 'max',
 			'cliAutoloadFile' => null,
 			'env' => [
-				'APP_FAKER_LOCALE' => 'en_US',
+				'XDEBUG_MODE' => 'off',
 				'NVM_INC' => '/Users/jmckenzie/Library/Application Support/Herd/config/nvm/versions/node/v22.15.0/include/node',
 				'CAML_LD_LIBRARY_PATH' => '/Users/jmckenzie/.opam/test_project/lib/stublibs:/Users/jmckenzie/.opam/test_project/lib/ocaml/stublibs:/Users/jmckenzie/.opam/test_project/lib/ocaml',
-				'MAIL_FROM_ADDRESS' => 'hello@example.com',
-				'MAIL_PORT' => '2525',
 				'HERD_PHP_81_INI_SCAN_DIR' => '/Users/jmckenzie/Library/Application Support/Herd/config/php/81/',
-				'XDEBUG_MODE' => 'off',
-				'AWS_USE_PATH_STYLE_ENDPOINT' => 'false',
-				'LOG_STACK' => 'single',
 				'PHP_BINARY' => '/Users/jmckenzie/Library/Application Support/Herd/bin/php84',
 				'PYENV_ROOT' => '/Users/jmckenzie/.pyenv',
 				'NVM_CD_FLAGS' => '-q',
+				'COMPOSER_BINARY' => '/Users/jmckenzie/Library/Application Support/Herd/bin/composer',
 				'ASDF_DIR' => '/Users/jmckenzie/.asdf',
 				'TERM' => 'xterm-256color',
 				'SHELL' => '/bin/zsh',
-				'COMPOSER_BINARY' => '/Users/jmckenzie/Library/Application Support/Herd/bin/composer',
-				'SESSION_DOMAIN' => 'null',
-				'CACHE_STORE' => 'database',
 				'HOMEBREW_REPOSITORY' => '/opt/homebrew',
 				'TMPDIR' => '/var/folders/1g/dzt9k_gn65ncbj7pfrxq9pj80000gn/T/',
-				'SESSION_DRIVER' => 'database',
-				'APP_FALLBACK_LOCALE' => 'en',
-				'LOG_DEPRECATIONS_CHANNEL' => 'null',
-				'XDEBUG_HANDLER_SETTINGS' => '/private/var/folders/1g/dzt9k_gn65ncbj7pfrxq9pj80000gn/T/6sc880rja0s8an2sfU4|1|*|*|:/Users/jmckenzie/Library/Application Support/Herd/config/php/84/php.ini|3.4.0alpha2-dev',
-				'APP_NAME' => 'Laravel',
+				'XDEBUG_HANDLER_SETTINGS' => '/private/var/folders/1g/dzt9k_gn65ncbj7pfrxq9pj80000gn/T/857ueq4a4ghkcPXJ7IV|1|*|*|:/Users/jmckenzie/Library/Application Support/Herd/config/php/84/php.ini|3.4.0alpha2-dev',
 				'OPAM_SWITCH_PREFIX' => '/Users/jmckenzie/.opam/test_project',
 				'TERM_SESSION_ID' => 'e28f193d-387c-454e-90af-d7f0b5aefacf',
 				'HERD_PHP_83_INI_SCAN_DIR' => '/Users/jmckenzie/Library/Application Support/Herd/config/php/83/',
 				'ZSH' => '/Users/jmckenzie/.oh-my-zsh',
-				'AWS_BUCKET' => '',
-				'MAIL_USERNAME' => 'null',
 				'OCAML_TOPLEVEL_PATH' => '/Users/jmckenzie/.opam/test_project/lib/toplevel',
 				'NVM_DIR' => '/Users/jmckenzie/Library/Application Support/Herd/config/nvm',
 				'USER' => 'jmckenzie',
 				'LS_COLORS' => 'di=1;36:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43',
 				'COMMAND_MODE' => 'unix2003',
 				'INTELEPHENSE_LICENSE_KEY' => '00I7LU4VYEZ5AP8',
-				'MEMCACHED_HOST' => '127.0.0.1',
 				'SSH_AUTH_SOCK' => '/private/tmp/com.apple.launchd.wgbcGntsPQ/Listeners',
-				'FILESYSTEM_DISK' => 'local',
-				'APP_URL' => 'https://laravel-official-react-starter-kit.test',
 				'__CF_USER_TEXT_ENCODING' => '0x1F5:0x0:0x0',
 				'HERD_PHP_82_INI_SCAN_DIR' => '/Users/jmckenzie/Library/Application Support/Herd/config/php/82/',
-				'REDIS_CLIENT' => 'phpredis',
-				'COLUMNS' => '203',
 				'PAGER' => 'less',
-				'REDIS_HOST' => '127.0.0.1',
-				'MAIL_PASSWORD' => 'null',
 				'LSCOLORS' => 'Gxfxcxdxbxegedabagacad',
-				'MAIL_MAILER' => 'log',
-				'DB_CONNECTION' => 'sqlite',
 				'PATH' => '/Users/jmckenzie/github.com/joeymckenzie/laravel-official-react-starter-kit/vendor/bin:/Users/jmckenzie/.opam/test_project/bin:/Users/jmckenzie/Library/Application Support/Herd/bin:/Users/jmckenzie/.local/bin:/Users/jmckenzie/.pyenv/shims:/Users/jmckenzie/.codeium/windsurf/bin:/Users/jmckenzie/go/bin:/Users/jmckenzie/Library/Application Support/Herd/config/nvm/versions/node/v22.15.0/bin:/Users/jmckenzie/.asdf/shims:/Users/jmckenzie/.asdf/bin:/Users/jmckenzie/.bun/bin:/opt/homebrew/opt/mysql-client/bin:/Users/jmckenzie/.composer/vendor/bin:/Users/jmckenzie/Library/Application Support/Herd/bin/:/usr/local/opt/llvm/bin:/Users/jmckenzie/bin:/usr/local/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Library/Apple/usr/bin:/usr/local/share/dotnet:~/.dotnet/tools:/usr/local/go/bin:/Users/jmckenzie/.cargo/bin:/Users/jmckenzie/github.com/joeymckenzie/laravel-official-react-starter-kit/node_modules/.bin:/Users/jmckenzie/Library/Application Support/JetBrains/Toolbox/scripts',
 				'HERD_PHP_84_INI_SCAN_DIR' => '/Users/jmckenzie/Library/Application Support/Herd/config/php/84/',
 				'TERMINAL_EMULATOR' => 'JetBrains-JediTerm',
-				'REDIS_PASSWORD' => 'null',
-				'_' => '/Users/jmckenzie/Library/Application Support/Herd/bin/php84',
-				'AWS_DEFAULT_REGION' => 'us-east-1',
+				'_' => 'vendor/bin/phpstan',
 				'__CFBundleIdentifier' => 'com.jetbrains.PhpStorm',
 				'PWD' => '/Users/jmckenzie/github.com/joeymckenzie/laravel-official-react-starter-kit',
-				'MAIL_FROM_NAME' => 'Laravel',
-				'SESSION_ENCRYPT' => 'false',
-				'APP_LOCALE' => 'en',
-				'AWS_SECRET_ACCESS_KEY' => '',
-				'PHP_CLI_SERVER_WORKERS' => '4',
-				'BROADCAST_CONNECTION' => 'log',
 				'COMPOSER_DEV_MODE' => '1',
-				'SESSION_PATH' => '/',
 				'OPAM_LAST_ENV' => '/Users/jmckenzie/.opam/.last-env/env-fe8c3d501e6ce46a780066d87b8fd6b5-0',
 				'XPC_FLAGS' => '0x0',
-				'APP_DEBUG' => 'true',
-				'APP_KEY' => 'base64:Cl0yvAnGSszI82KvdGB7NtzDRHk3Gxke/KvCl/Ew7lo=',
-				'LINES' => '10',
 				'XPC_SERVICE_NAME' => '0',
-				'AWS_ACCESS_KEY_ID' => '',
 				'SHELL_VERBOSITY' => '0',
-				'REDIS_PORT' => '6379',
-				'LOG_LEVEL' => 'debug',
 				'PYENV_SHELL' => 'zsh',
-				'SHLVL' => '4',
+				'SHLVL' => '2',
 				'HOME' => '/Users/jmckenzie',
 				'LANGUAGE' => 'C',
-				'VITE_APP_NAME' => 'Laravel',
 				'HOMEBREW_PREFIX' => '/opt/homebrew',
-				'LOG_CHANNEL' => 'stack',
 				'COMPOSER_ORIGINAL_INIS' => ':/Users/jmckenzie/Library/Application Support/Herd/config/php/84/php.ini',
 				'LESS' => '-R',
 				'LOGNAME' => 'jmckenzie',
-				'MAIL_SCHEME' => 'null',
 				'LC_CTYPE' => 'UTF-8',
-				'SESSION_LIFETIME' => '120',
 				'NVM_BIN' => '/Users/jmckenzie/Library/Application Support/Herd/config/nvm/versions/node/v22.15.0/bin',
 				'BUN_INSTALL' => '/Users/jmckenzie/.bun',
-				'QUEUE_CONNECTION' => 'database',
-				'APP_ENV' => 'local',
+				'GIT_ASKPASS' => 'echo',
 				'INFOPATH' => '/opt/homebrew/share/info:',
 				'HOMEBREW_CELLAR' => '/opt/homebrew/Cellar',
-				'GIT_ASKPASS' => 'echo',
-				'BCRYPT_ROUNDS' => '12',
 				'OPAMNOENVNOTICE' => 'true',
-				'MAIL_HOST' => '127.0.0.1',
-				'APP_MAINTENANCE_DRIVER' => 'file',
+				'LINES' => '10',
+				'COLUMNS' => '203',
 			],
 		];
 	}

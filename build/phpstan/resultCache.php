@@ -3618,13 +3618,25 @@ return [
       array (
         0 => 'Illuminate\\Support\\Facades\\Vite',
         1 => 'useAggressivePrefetching',
-        2 => 48,
+        2 => 54,
       ),
       1 => 
       array (
         0 => 'Illuminate\\Support\\Facades\\Date',
         1 => 'use',
-        2 => 65,
+        2 => 71,
+      ),
+      2 => 
+      array (
+        0 => 'Illuminate\\Support\\Facades\\Http',
+        1 => 'preventStrayRequests',
+        2 => 77,
+      ),
+      3 => 
+      array (
+        0 => 'Illuminate\\Validation\\Rules\\Password',
+        1 => 'defaults',
+        2 => 90,
       ),
     ),
     'TomasVotruba\\TypeCoverage\\Collectors\\ConstantTypeDeclarationCollector' => 
@@ -3696,6 +3708,27 @@ return [
         ),
       ),
       6 => 
+      array (
+        0 => 1,
+        1 => 
+        array (
+        ),
+      ),
+      7 => 
+      array (
+        0 => 1,
+        1 => 
+        array (
+        ),
+      ),
+      8 => 
+      array (
+        0 => 1,
+        1 => 
+        array (
+        ),
+      ),
+      9 => 
       array (
         0 => 1,
         1 => 
@@ -4263,7 +4296,7 @@ return [
   ),
   '/Users/jmckenzie/github.com/joeymckenzie/laravel-official-react-starter-kit/app/Http/Middleware/HandleInertiaRequests.php' => 
   array (
-    'fileHash' => '5cc86ea3038dbc8ab7cf4d956325afae19971326',
+    'fileHash' => 'f1fd78a8713cf9db1394155f19c068276a970676',
     'dependentFiles' => 
     array (
       0 => '/Users/jmckenzie/github.com/joeymckenzie/laravel-official-react-starter-kit/bootstrap/app.php',
@@ -4287,7 +4320,7 @@ return [
   ),
   '/Users/jmckenzie/github.com/joeymckenzie/laravel-official-react-starter-kit/app/Models/User.php' => 
   array (
-    'fileHash' => '221779e6264dbca3eb2b6ac916f718b82ac69858',
+    'fileHash' => 'cc2bcaff1391020ef78747d7a7995488f3074cea',
     'dependentFiles' => 
     array (
       0 => '/Users/jmckenzie/github.com/joeymckenzie/laravel-official-react-starter-kit/app/Http/Controllers/Auth/ConfirmablePasswordController.php',
@@ -4307,7 +4340,7 @@ return [
   ),
   '/Users/jmckenzie/github.com/joeymckenzie/laravel-official-react-starter-kit/app/Providers/AppServiceProvider.php' => 
   array (
-    'fileHash' => '29e2e36a2764f42f9fe2a4e380d3c23c67b35604',
+    'fileHash' => 'fc0195bf43fd2b31414949f1cde515643f9905b4',
     'dependentFiles' => 
     array (
       0 => '/Users/jmckenzie/github.com/joeymckenzie/laravel-official-react-starter-kit/bootstrap/providers.php',
@@ -4322,7 +4355,7 @@ return [
   ),
   '/Users/jmckenzie/github.com/joeymckenzie/laravel-official-react-starter-kit/bootstrap/app.php' => 
   array (
-    'fileHash' => 'cb4bd7c4073eff5b68387ded8f608e304eeefd11',
+    'fileHash' => 'f9fe93f00ad4d2984fa1b12d1394da7ee5ae7624',
     'dependentFiles' => 
     array (
     ),
@@ -6841,9 +6874,12 @@ return [
               'model' => 'Illuminate\\Database\\Eloquent\\Model',
               'date' => 'Illuminate\\Support\\Facades\\Date',
               'db' => 'Illuminate\\Support\\Facades\\DB',
+              'http' => 'Illuminate\\Support\\Facades\\Http',
               'url' => 'Illuminate\\Support\\Facades\\URL',
               'vite' => 'Illuminate\\Support\\Facades\\Vite',
               'serviceprovider' => 'Illuminate\\Support\\ServiceProvider',
+              'sleep' => 'Illuminate\\Support\\Sleep',
+              'password' => 'Illuminate\\Validation\\Rules\\Password',
               'override' => 'Override',
             ),
              'constUses' => 
@@ -6886,9 +6922,12 @@ return [
               'model' => 'Illuminate\\Database\\Eloquent\\Model',
               'date' => 'Illuminate\\Support\\Facades\\Date',
               'db' => 'Illuminate\\Support\\Facades\\DB',
+              'http' => 'Illuminate\\Support\\Facades\\Http',
               'url' => 'Illuminate\\Support\\Facades\\URL',
               'vite' => 'Illuminate\\Support\\Facades\\Vite',
               'serviceprovider' => 'Illuminate\\Support\\ServiceProvider',
+              'sleep' => 'Illuminate\\Support\\Sleep',
+              'password' => 'Illuminate\\Validation\\Rules\\Password',
               'override' => 'Override',
             ),
              'constUses' => 
