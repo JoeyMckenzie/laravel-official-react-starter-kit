@@ -49,4 +49,45 @@ describe('Email verification', function (): void {
 
         $this->assertFalse($user->fresh()->hasVerifiedEmail());
     });
+
+    it('can resend verification notification', function (): void {
+        $user = User::factory()->unverified()->create();
+
+        $response = $this->actingAs($user)
+            ->post('/email/verification-notification');
+
+        $response->assertSessionHas('status', 'verification-link-sent');
+    });
+
+    it('redirects to dashboard if email already verified when requesting verification notification', function (): void {
+        $user = User::factory()->create();
+
+        $response = $this->actingAs($user)
+            ->post('/email/verification-notification');
+
+        $response->assertRedirect(route('dashboard', absolute: false));
+    });
+
+    it('redirects to dashboard if email already verified when visiting verification prompt', function (): void {
+        $user = User::factory()->create();
+
+        $response = $this->actingAs($user)
+            ->get('/verify-email');
+
+        $response->assertRedirect(route('dashboard', absolute: false));
+    });
+
+    it('redirects to dashboard if email already verified when verifying email', function (): void {
+        $user = User::factory()->create();
+
+        $verificationUrl = URL::temporarySignedRoute(
+            'verification.verify',
+            now()->addMinutes(60),
+            ['id' => $user->id, 'hash' => sha1((string) $user->email)]
+        );
+
+        $response = $this->actingAs($user)->get($verificationUrl);
+
+        $response->assertRedirect(route('dashboard', absolute: false).'?verified=1');
+    });
 });

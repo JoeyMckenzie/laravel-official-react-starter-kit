@@ -63,4 +63,17 @@ describe('Password reset', function (): void {
             return true;
         });
     });
+
+    it('cannot reset password with invalid token', function (): void {
+        $user = User::factory()->create();
+
+        $response = $this->from('/reset-password/invalid-token')->post('/reset-password', [
+            'token' => 'invalid-token',
+            'email' => $user->email,
+            'password' => 'password',
+            'password_confirmation' => 'password',
+        ]);
+
+        $response->assertSessionHasErrors('email');
+    });
 });

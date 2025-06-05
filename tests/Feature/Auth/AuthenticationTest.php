@@ -36,6 +36,29 @@ describe('Authentication', function (): void {
         $this->assertGuest();
     });
 
+    it('throttles login attempts after too many failed attempts', function (): void {
+        $user = User::factory()->create();
+
+        // Attempt to login with wrong password multiple times to trigger rate limiting
+        collect(range(1, 5))
+            ->each(fn () => $this->post('/login', [
+                'email' => $user->email,
+                'password' => 'wrong-password',
+            ]));
+
+        // The next attempt should be throttled
+        $response = $this->post('/login', [
+            'email' => $user->email,
+            'password' => 'wrong-password',
+        ]);
+
+        $response->assertSessionHasErrors('email');
+        $this->assertStringContainsString(
+            'Too many login attempts',
+            collect($response->exception->errors())->flatten()->first()
+        );
+    });
+
     it('allows users to logout', function (): void {
         $user = User::factory()->create();
 
