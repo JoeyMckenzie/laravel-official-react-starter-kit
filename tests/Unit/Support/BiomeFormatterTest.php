@@ -9,14 +9,12 @@ use Illuminate\Process\PendingProcess;
 use Illuminate\Support\Facades\Process;
 use Mockery;
 use Mockery\MockInterface;
-use PHPUnit\Framework\Attributes\Test;
-use Tests\TestCase;
 
-final class BiomeFormatterTest extends TestCase
-{
-    #[Test]
-    public function it_formats_using_npm_run_fmt(): void
-    {
+covers(BiomeFormatter::class);
+
+describe(BiomeFormatter::class, function (): void {
+    it('formats using npm run fmt', function (): void {
+
         // Mock the Process facade
         Process::shouldReceive('run')
             ->once()
@@ -30,13 +28,9 @@ final class BiomeFormatterTest extends TestCase
         // Create an instance of BiomeFormatter and call format
         $formatter = new BiomeFormatter();
         $formatter->format('some-file.ts');
+    });
 
-        // No assertion needed as we're verifying the mock expectations
-    }
-
-    #[Test]
-    public function it_throws_exception_when_process_fails(): void
-    {
+    it('throws an exception when process fails', function (): void {
         // Mock the Process facade
         $pendingProcess = Mockery::mock(PendingProcess::class);
         $pendingProcess->shouldReceive('failed')->once()->andReturn(true);
@@ -50,7 +44,5 @@ final class BiomeFormatterTest extends TestCase
         // Create an instance of BiomeFormatter and call format
         $formatter = new BiomeFormatter();
         $formatter->format('some-file.ts');
-
-        // No assertion needed as we're verifying the mock expectations
-    }
-}
+    });
+});
