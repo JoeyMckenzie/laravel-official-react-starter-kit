@@ -14,24 +14,25 @@ covers(BiomeFormatter::class);
 
 describe(BiomeFormatter::class, function (): void {
     it('formats using npm run fmt', function (): void {
+        // Arrange
+        $mockReturnProcess = Mockery::mock(PendingProcess::class, function (MockInterface $mock): void {
+            $mock->shouldReceive('failed')
+                ->once()
+                ->andReturn(false);
+        });
 
-        // Mock the Process facade
         Process::shouldReceive('run')
             ->once()
             ->with('npm run fmt')
-            ->andReturn(
-                Mockery::mock(PendingProcess::class, function (MockInterface $mock): void {
-                    $mock->shouldReceive('failed')->once()->andReturn(false);
-                })
-            );
+            ->andReturn($mockReturnProcess);
 
-        // Create an instance of BiomeFormatter and call format
+        // Act & Assert
         $formatter = new BiomeFormatter();
         $formatter->format('some-file.ts');
     });
 
     it('throws an exception when process fails', function (): void {
-        // Mock the Process facade
+        // Arrange
         $pendingProcess = Mockery::mock(PendingProcess::class);
         $pendingProcess->shouldReceive('failed')->once()->andReturn(true);
         $pendingProcess->shouldReceive('throw')->once();
@@ -41,7 +42,7 @@ describe(BiomeFormatter::class, function (): void {
             ->with('npm run fmt')
             ->andReturn($pendingProcess);
 
-        // Create an instance of BiomeFormatter and call format
+        // Act & Assert
         $formatter = new BiomeFormatter();
         $formatter->format('some-file.ts');
     });

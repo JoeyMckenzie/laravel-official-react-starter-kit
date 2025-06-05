@@ -15,3 +15,6 @@ parameters:
         -
             message: '#Dynamic call to static method Illuminate\\Http\\Request::validate\(\).#'
             path: app/Http/Controllers/**/*.php
+        -
+            message: '#Out of 37 possible param types, only 35 - 94.5 \% actually have it. Add more param types to get over 99 \%#'
+            path: app/Console/Commands/MakeActionCommand.php

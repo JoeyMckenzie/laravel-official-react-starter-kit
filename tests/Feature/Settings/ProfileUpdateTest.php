@@ -134,6 +134,7 @@ describe('Profile update', function (): void {
 
         $user->refresh();
         $this->assertNotNull($user->avatar);
+        $this->assertNotNull($user->profile_image);
         $this->assertTrue(Storage::disk('public')->exists($user->avatar));
 
         $oldPath = $user->avatar;
@@ -145,6 +146,7 @@ describe('Profile update', function (): void {
 
         $user->refresh();
         $this->assertNull($user->avatar);
+        $this->assertNull($user->profile_image);
         $this->assertFalse(Storage::disk('public')->exists($oldPath));
     });
 });
