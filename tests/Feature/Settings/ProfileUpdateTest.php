@@ -14,9 +14,7 @@ class ProfileUpdateTest extends TestCase
     {
         $user = User::factory()->create();
 
-        $response = $this
-            ->actingAs($user)
-            ->get(route('profile.edit'));
+        $response = $this->actingAs($user)->get(route('profile.edit'));
 
         $response->assertOk();
     }
@@ -25,16 +23,12 @@ class ProfileUpdateTest extends TestCase
     {
         $user = User::factory()->create();
 
-        $response = $this
-            ->actingAs($user)
-            ->patch(route('profile.update'), [
-                'name' => 'Test User',
-                'email' => 'test@example.com',
-            ]);
+        $response = $this->actingAs($user)->patch(route('profile.update'), [
+            'name' => 'Test User',
+            'email' => 'test@example.com',
+        ]);
 
-        $response
-            ->assertSessionHasNoErrors()
-            ->assertRedirect(route('profile.edit'));
+        $response->assertSessionHasNoErrors()->assertRedirect(route('profile.edit'));
 
         $user->refresh();
 
@@ -47,16 +41,12 @@ class ProfileUpdateTest extends TestCase
     {
         $user = User::factory()->create();
 
-        $response = $this
-            ->actingAs($user)
-            ->patch(route('profile.update'), [
-                'name' => 'Test User',
-                'email' => $user->email,
-            ]);
+        $response = $this->actingAs($user)->patch(route('profile.update'), [
+            'name' => 'Test User',
+            'email' => $user->email,
+        ]);
 
-        $response
-            ->assertSessionHasNoErrors()
-            ->assertRedirect(route('profile.edit'));
+        $response->assertSessionHasNoErrors()->assertRedirect(route('profile.edit'));
 
         $this->assertNotNull($user->refresh()->email_verified_at);
     }
@@ -65,15 +55,11 @@ class ProfileUpdateTest extends TestCase
     {
         $user = User::factory()->create();
 
-        $response = $this
-            ->actingAs($user)
-            ->delete(route('profile.destroy'), [
-                'password' => 'password',
-            ]);
+        $response = $this->actingAs($user)->delete(route('profile.destroy'), [
+            'password' => 'password',
+        ]);
 
-        $response
-            ->assertSessionHasNoErrors()
-            ->assertRedirect(route('home'));
+        $response->assertSessionHasNoErrors()->assertRedirect(route('home'));
 
         $this->assertGuest();
         $this->assertNull($user->fresh());
@@ -83,16 +69,11 @@ class ProfileUpdateTest extends TestCase
     {
         $user = User::factory()->create();
 
-        $response = $this
-            ->actingAs($user)
-            ->from(route('profile.edit'))
-            ->delete(route('profile.destroy'), [
-                'password' => 'wrong-password',
-            ]);
+        $response = $this->actingAs($user)->from(route('profile.edit'))->delete(route('profile.destroy'), [
+            'password' => 'wrong-password',
+        ]);
 
-        $response
-            ->assertSessionHasErrors('password')
-            ->assertRedirect(route('profile.edit'));
+        $response->assertSessionHasErrors('password')->assertRedirect(route('profile.edit'));
 
         $this->assertNotNull($user->fresh());
     }

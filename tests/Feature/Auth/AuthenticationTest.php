@@ -60,9 +60,11 @@ class AuthenticationTest extends TestCase
             $this->post(route('login.store'), [
                 'email' => $user->email,
                 'password' => 'wrong-password',
-            ])->assertStatus(302)->assertSessionHasErrors([
-                'email' => 'These credentials do not match our records.',
-            ]);
+            ])
+                ->assertStatus(302)
+                ->assertSessionHasErrors([
+                    'email' => 'These credentials do not match our records.',
+                ]);
         }
 
         $response = $this->post(route('login.store'), [

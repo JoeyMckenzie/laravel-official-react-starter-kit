@@ -15,9 +15,7 @@ class PasswordUpdateTest extends TestCase
     {
         $user = User::factory()->create();
 
-        $response = $this
-            ->actingAs($user)
-            ->get(route('password.edit'));
+        $response = $this->actingAs($user)->get(route('password.edit'));
 
         $response->assertStatus(200);
     }
@@ -26,18 +24,13 @@ class PasswordUpdateTest extends TestCase
     {
         $user = User::factory()->create();
 
-        $response = $this
-            ->actingAs($user)
-            ->from(route('password.edit'))
-            ->put(route('password.update'), [
-                'current_password' => 'password',
-                'password' => 'new-password',
-                'password_confirmation' => 'new-password',
-            ]);
+        $response = $this->actingAs($user)->from(route('password.edit'))->put(route('password.update'), [
+            'current_password' => 'password',
+            'password' => 'new-password',
+            'password_confirmation' => 'new-password',
+        ]);
 
-        $response
-            ->assertSessionHasNoErrors()
-            ->assertRedirect(route('password.edit'));
+        $response->assertSessionHasNoErrors()->assertRedirect(route('password.edit'));
 
         $this->assertTrue(Hash::check('new-password', $user->refresh()->password));
     }
@@ -46,17 +39,12 @@ class PasswordUpdateTest extends TestCase
     {
         $user = User::factory()->create();
 
-        $response = $this
-            ->actingAs($user)
-            ->from(route('password.edit'))
-            ->put(route('password.update'), [
-                'current_password' => 'wrong-password',
-                'password' => 'new-password',
-                'password_confirmation' => 'new-password',
-            ]);
+        $response = $this->actingAs($user)->from(route('password.edit'))->put(route('password.update'), [
+            'current_password' => 'wrong-password',
+            'password' => 'new-password',
+            'password_confirmation' => 'new-password',
+        ]);
 
-        $response
-            ->assertSessionHasErrors('current_password')
-            ->assertRedirect(route('password.edit'));
+        $response->assertSessionHasErrors('current_password')->assertRedirect(route('password.edit'));
     }
 }
