@@ -14,6 +14,8 @@ class HandleInertiaRequests extends Middleware
      * @see https://inertiajs.com/server-side-setup#root-template
      *
      * @var string
+     *
+     * @mago-expect lint:property-type
      */
     protected $rootView = 'app';
 

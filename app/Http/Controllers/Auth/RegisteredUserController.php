@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\AbstractController;
 use App\Models\User;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
@@ -10,23 +10,16 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
+use Illuminate\Validation\ValidationException;
 use Inertia\Inertia;
 use Inertia\Response;
 
-class RegisteredUserController extends Controller
+final class RegisteredUserController extends AbstractController
 {
-    /**
-     * Show the registration page.
-     */
-    public function create(): Response
-    {
-        return Inertia::render('auth/register');
-    }
-
     /**
      * Handle an incoming registration request.
      *
-     * @throws \Illuminate\Validation\ValidationException
+     * @throws ValidationException
      */
     public function store(Request $request): RedirectResponse
     {
@@ -47,5 +40,13 @@ class RegisteredUserController extends Controller
         Auth::login($user);
 
         return redirect()->intended(route('dashboard', absolute: false));
+    }
+
+    /**
+     * Show the registration page.
+     */
+    public function create(): Response
+    {
+        return Inertia::render('auth/register');
     }
 }

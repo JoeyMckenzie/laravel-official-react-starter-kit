@@ -3,13 +3,15 @@
 namespace Tests\Unit;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\TestCase;
+use PHPUnit\Framework\Attributes\Test;
+use Tests\AbstractTestCase;
 
-class ExampleTest extends TestCase
+class ExampleTest extends AbstractTestCase
 {
     use RefreshDatabase;
 
-    public function test_that_true_is_true()
+    #[Test]
+    public function that_true_is_true(): void
     {
         static::assertTrue(true);
     }

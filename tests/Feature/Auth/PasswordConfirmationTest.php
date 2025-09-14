@@ -2,15 +2,20 @@
 
 namespace Tests\Feature\Auth;
 
+use App\Http\Controllers\Auth\ConfirmablePasswordController;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\TestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
+use Tests\AbstractTestCase;
 
-class PasswordConfirmationTest extends TestCase
+#[CoversClass(ConfirmablePasswordController::class)]
+class PasswordConfirmationTest extends AbstractTestCase
 {
     use RefreshDatabase;
 
-    public function test_confirm_password_screen_can_be_rendered()
+    #[Test]
+    public function confirm_password_screen_can_be_rendered(): void
     {
         $user = User::factory()->create();
 
@@ -19,11 +24,13 @@ class PasswordConfirmationTest extends TestCase
         $response->assertStatus(200);
     }
 
-    public function test_password_can_be_confirmed()
+    #[Test]
+    public function password_can_be_confirmed(): void
     {
         $user = User::factory()->create();
 
         $response = $this->actingAs($user)->post(route('password.confirm.store'), [
+            // @mago-expect lint:no-literal-password
             'password' => 'password',
         ]);
 
@@ -31,11 +38,13 @@ class PasswordConfirmationTest extends TestCase
         $response->assertSessionHasNoErrors();
     }
 
-    public function test_password_is_not_confirmed_with_invalid_password()
+    #[Test]
+    public function password_is_not_confirmed_with_invalid_password(): void
     {
         $user = User::factory()->create();
 
         $response = $this->actingAs($user)->post(route('password.confirm.store'), [
+            // @mago-expect lint:no-literal-password
             'password' => 'wrong-password',
         ]);
 
