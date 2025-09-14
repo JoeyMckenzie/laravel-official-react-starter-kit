@@ -1,227 +1,7 @@
-[[entries."app/Providers/AppServiceProvider.php".issues]]
-code = "missing-override-attribute"
-start_line = 11
-end_line = 11
-
-[[entries."tests/Feature/Auth/PasswordConfirmationTest.php".issues]]
+[[entries."database/seeders/DatabaseSeeder.php".issues]]
 code = "invalid-method-access"
-start_line = 14
-end_line = 14
-
-[[entries."tests/Feature/Auth/PasswordConfirmationTest.php".issues]]
-code = "mixed-assignment"
-start_line = 14
-end_line = 14
-
-[[entries."tests/Feature/Auth/PasswordConfirmationTest.php".issues]]
-code = "mixed-argument"
-start_line = 16
-end_line = 16
-
-[[entries."tests/Feature/Auth/PasswordConfirmationTest.php".issues]]
-code = "invalid-method-access"
-start_line = 23
-end_line = 23
-
-[[entries."tests/Feature/Auth/PasswordConfirmationTest.php".issues]]
-code = "mixed-assignment"
-start_line = 23
-end_line = 23
-
-[[entries."tests/Feature/Auth/PasswordConfirmationTest.php".issues]]
-code = "mixed-argument"
-start_line = 25
-end_line = 25
-
-[[entries."tests/Feature/Auth/PasswordConfirmationTest.php".issues]]
-code = "invalid-method-access"
-start_line = 35
-end_line = 35
-
-[[entries."tests/Feature/Auth/PasswordConfirmationTest.php".issues]]
-code = "mixed-assignment"
-start_line = 35
-end_line = 35
-
-[[entries."tests/Feature/Auth/PasswordConfirmationTest.php".issues]]
-code = "mixed-argument"
-start_line = 37
-end_line = 37
-
-[[entries."app/Http/Controllers/Auth/PasswordResetLinkController.php".issues]]
-code = "non-existent-method"
-start_line = 19
-end_line = 19
-
-[[entries."app/Http/Controllers/Auth/PasswordResetLinkController.php".issues]]
-code = "mixed-return-statement"
-start_line = 19
-end_line = 21
-
-[[entries."app/Http/Controllers/Auth/PasswordResetLinkController.php".issues]]
-code = "unhandled-thrown-type"
-start_line = 20
-end_line = 20
-
-[[entries."app/Http/Controllers/Auth/PasswordResetLinkController.php".issues]]
-code = "non-existent-method"
-start_line = 31
-end_line = 31
-
-[[entries."app/Http/Controllers/Auth/PasswordResetLinkController.php".issues]]
-code = "non-existent-method"
-start_line = 35
-end_line = 35
-
-[[entries."app/Http/Controllers/Auth/EmailVerificationNotificationController.php".issues]]
-code = "mixed-method-access"
-start_line = 15
-end_line = 15
-
-[[entries."app/Http/Controllers/Auth/EmailVerificationNotificationController.php".issues]]
-code = "mixed-method-access"
-start_line = 19
-end_line = 19
-
-[[entries."tests/Feature/Auth/VerificationNotificationTest.php".issues]]
-code = "invalid-method-access"
-start_line = 18
-end_line = 18
-
-[[entries."tests/Feature/Auth/VerificationNotificationTest.php".issues]]
-code = "mixed-assignment"
-start_line = 18
-end_line = 18
-
-[[entries."tests/Feature/Auth/VerificationNotificationTest.php".issues]]
-code = "mixed-argument"
-start_line = 22
-end_line = 22
-
-[[entries."tests/Feature/Auth/VerificationNotificationTest.php".issues]]
-code = "non-existent-method"
-start_line = 24
-end_line = 24
-
-[[entries."tests/Feature/Auth/VerificationNotificationTest.php".issues]]
-code = "invalid-method-access"
-start_line = 31
-end_line = 31
-
-[[entries."tests/Feature/Auth/VerificationNotificationTest.php".issues]]
-code = "mixed-assignment"
-start_line = 31
-end_line = 31
-
-[[entries."tests/Feature/Auth/VerificationNotificationTest.php".issues]]
-code = "mixed-argument"
-start_line = 35
-end_line = 35
-
-[[entries."tests/Feature/Auth/VerificationNotificationTest.php".issues]]
-code = "non-existent-method"
-start_line = 37
-end_line = 37
-
-[[entries."app/Http/Controllers/Auth/NewPasswordController.php".issues]]
-code = "non-existent-method"
-start_line = 24
-end_line = 24
-
-[[entries."app/Http/Controllers/Auth/NewPasswordController.php".issues]]
-code = "non-existent-property"
-start_line = 25
-end_line = 25
-
-[[entries."app/Http/Controllers/Auth/NewPasswordController.php".issues]]
-code = "mixed-return-statement"
-start_line = 24
-end_line = 27
-
-[[entries."app/Http/Controllers/Auth/NewPasswordController.php".issues]]
-code = "non-existent-method"
-start_line = 37
-end_line = 37
-
-[[entries."app/Http/Controllers/Auth/NewPasswordController.php".issues]]
-code = "non-existent-method"
-start_line = 46
-end_line = 46
-
-[[entries."app/Http/Controllers/Auth/NewPasswordController.php".issues]]
-code = "too-many-arguments"
-start_line = 47
-end_line = 47
-
-[[entries."app/Http/Controllers/Auth/NewPasswordController.php".issues]]
-code = "non-existent-method"
-start_line = 50
-end_line = 50
-
-[[entries."app/Http/Controllers/Auth/NewPasswordController.php".issues]]
-code = "non-existent-property"
-start_line = 50
-end_line = 50
-
-[[entries."app/Http/Controllers/Auth/NewPasswordController.php".issues]]
-code = "mixed-assignment"
-start_line = 46
-end_line = 46
-
-[[entries."app/Http/Controllers/Auth/NewPasswordController.php".issues]]
-code = "mixed-operand"
-start_line = 61
-end_line = 61
-
-[[entries."app/Http/Controllers/Auth/NewPasswordController.php".issues]]
-code = "mixed-argument"
-start_line = 62
-end_line = 62
-
-[[entries."app/Http/Controllers/Auth/NewPasswordController.php".issues]]
-code = "mixed-argument"
-start_line = 66
-end_line = 66
-
-[[entries."app/Http/Controllers/Auth/ConfirmablePasswordController.php".issues]]
-code = "non-existent-method"
-start_line = 19
-end_line = 19
-
-[[entries."app/Http/Controllers/Auth/ConfirmablePasswordController.php".issues]]
-code = "mixed-return-statement"
-start_line = 19
-end_line = 19
-
-[[entries."app/Http/Controllers/Auth/ConfirmablePasswordController.php".issues]]
-code = "non-existent-method"
-start_line = 27
-end_line = 27
-
-[[entries."app/Http/Controllers/Auth/ConfirmablePasswordController.php".issues]]
-code = "mixed-method-access"
-start_line = 27
-end_line = 27
-
-[[entries."app/Http/Controllers/Auth/ConfirmablePasswordController.php".issues]]
-code = "mixed-property-access"
-start_line = 28
-end_line = 28
-
-[[entries."app/Http/Controllers/Auth/ConfirmablePasswordController.php".issues]]
-code = "non-existent-property"
-start_line = 29
-end_line = 29
-
-[[entries."app/Http/Controllers/Auth/ConfirmablePasswordController.php".issues]]
-code = "unhandled-thrown-type"
-start_line = 31
-end_line = 33
-
-[[entries."app/Http/Controllers/Auth/ConfirmablePasswordController.php".issues]]
-code = "unhandled-thrown-type"
-start_line = 36
-end_line = 36
+start_line = 17
+end_line = 17
 
 [[entries."database/factories/UserFactory.php".issues]]
 code = "non-existent-method"
@@ -258,30 +38,30 @@ code = "missing-override-attribute"
 start_line = 24
 end_line = 24
 
-[[entries."tests/Unit/ExampleTest.php".issues]]
+[[entries."app/Http/Controllers/Auth/PasswordResetLinkController.php".issues]]
+code = "non-existent-method"
+start_line = 19
+end_line = 19
+
+[[entries."app/Http/Controllers/Auth/PasswordResetLinkController.php".issues]]
+code = "mixed-return-statement"
+start_line = 19
+end_line = 21
+
+[[entries."app/Http/Controllers/Auth/PasswordResetLinkController.php".issues]]
 code = "unhandled-thrown-type"
-start_line = 13
-end_line = 13
+start_line = 20
+end_line = 20
 
-[[entries."app/Http/Controllers/Auth/VerifyEmailController.php".issues]]
-code = "mixed-method-access"
-start_line = 15
-end_line = 15
+[[entries."app/Http/Controllers/Auth/PasswordResetLinkController.php".issues]]
+code = "non-existent-method"
+start_line = 31
+end_line = 31
 
-[[entries."tests/Feature/DashboardTest.php".issues]]
-code = "invalid-method-access"
-start_line = 19
-end_line = 19
-
-[[entries."tests/Feature/DashboardTest.php".issues]]
-code = "mixed-assignment"
-start_line = 19
-end_line = 19
-
-[[entries."tests/Feature/DashboardTest.php".issues]]
-code = "mixed-argument"
-start_line = 19
-end_line = 19
+[[entries."app/Http/Controllers/Auth/PasswordResetLinkController.php".issues]]
+code = "non-existent-method"
+start_line = 35
+end_line = 35
 
 [[entries."app/Http/Controllers/Settings/ProfileController.php".issues]]
 code = "non-existent-method"
@@ -340,118 +120,188 @@ end_line = 55
 
 [[entries."app/Http/Controllers/Settings/ProfileController.php".issues]]
 code = "unhandled-thrown-type"
-start_line = 58
-end_line = 58
+start_line = 57
+end_line = 57
 
-[[entries."app/Http/Controllers/Settings/PasswordController.php".issues]]
+[[entries."app/Http/Controllers/Auth/RegisteredUserController.php".issues]]
+code = "non-existent-method"
+start_line = 25
+end_line = 25
+
+[[entries."app/Http/Controllers/Auth/RegisteredUserController.php".issues]]
+code = "non-existent-method"
+start_line = 31
+end_line = 31
+
+[[entries."app/Http/Controllers/Auth/RegisteredUserController.php".issues]]
+code = "non-existent-property"
+start_line = 32
+end_line = 32
+
+[[entries."app/Http/Controllers/Auth/RegisteredUserController.php".issues]]
+code = "non-existent-property"
+start_line = 33
+end_line = 33
+
+[[entries."app/Http/Controllers/Auth/RegisteredUserController.php".issues]]
+code = "non-existent-method"
+start_line = 34
+end_line = 34
+
+[[entries."app/Http/Controllers/Auth/RegisteredUserController.php".issues]]
+code = "non-existent-property"
+start_line = 34
+end_line = 34
+
+[[entries."app/Http/Controllers/Auth/RegisteredUserController.php".issues]]
+code = "mixed-assignment"
+start_line = 31
+end_line = 31
+
+[[entries."app/Http/Controllers/Auth/RegisteredUserController.php".issues]]
+code = "mixed-argument"
+start_line = 37
+end_line = 37
+
+[[entries."app/Http/Controllers/Auth/RegisteredUserController.php".issues]]
+code = "non-existent-method"
+start_line = 39
+end_line = 39
+
+[[entries."app/Http/Controllers/Auth/RegisteredUserController.php".issues]]
+code = "non-existent-method"
+start_line = 49
+end_line = 49
+
+[[entries."app/Http/Controllers/Auth/RegisteredUserController.php".issues]]
+code = "mixed-return-statement"
+start_line = 49
+end_line = 49
+
+[[entries."app/Http/Requests/Auth/LoginRequest.php".issues]]
+code = "non-existent-method"
+start_line = 42
+end_line = 42
+
+[[entries."app/Http/Requests/Auth/LoginRequest.php".issues]]
+code = "too-many-arguments"
+start_line = 42
+end_line = 42
+
+[[entries."app/Http/Requests/Auth/LoginRequest.php".issues]]
+code = "non-existent-method"
+start_line = 43
+end_line = 43
+
+[[entries."app/Http/Requests/Auth/LoginRequest.php".issues]]
+code = "non-existent-method"
+start_line = 50
+end_line = 50
+
+[[entries."app/Http/Requests/Auth/LoginRequest.php".issues]]
+code = "non-existent-method"
+start_line = 60
+end_line = 60
+
+[[entries."app/Http/Requests/Auth/LoginRequest.php".issues]]
+code = "non-existent-method"
+start_line = 66
+end_line = 66
+
+[[entries."app/Http/Requests/Auth/LoginRequest.php".issues]]
+code = "mixed-assignment"
+start_line = 66
+end_line = 66
+
+[[entries."app/Http/Requests/Auth/LoginRequest.php".issues]]
+code = "mixed-operand"
+start_line = 71
+end_line = 71
+
+[[entries."app/Http/Requests/Auth/LoginRequest.php".issues]]
+code = "mixed-argument"
+start_line = 71
+end_line = 71
+
+[[entries."app/Http/Requests/Auth/LoginRequest.php".issues]]
+code = "possibly-null-operand"
+start_line = 83
+end_line = 83
+
+[[entries."app/Http/Controllers/Auth/ConfirmablePasswordController.php".issues]]
 code = "non-existent-method"
 start_line = 19
 end_line = 19
 
-[[entries."app/Http/Controllers/Settings/PasswordController.php".issues]]
+[[entries."app/Http/Controllers/Auth/ConfirmablePasswordController.php".issues]]
 code = "mixed-return-statement"
 start_line = 19
 end_line = 19
 
-[[entries."app/Http/Controllers/Settings/PasswordController.php".issues]]
+[[entries."app/Http/Controllers/Auth/ConfirmablePasswordController.php".issues]]
 code = "non-existent-method"
 start_line = 27
 end_line = 27
 
-[[entries."app/Http/Controllers/Settings/PasswordController.php".issues]]
-code = "mixed-assignment"
+[[entries."app/Http/Controllers/Auth/ConfirmablePasswordController.php".issues]]
+code = "mixed-method-access"
 start_line = 27
 end_line = 27
 
-[[entries."app/Http/Controllers/Settings/PasswordController.php".issues]]
-code = "mixed-method-access"
-start_line = 34
-end_line = 34
-
-[[entries."app/Http/Controllers/Settings/PasswordController.php".issues]]
-code = "non-existent-method"
-start_line = 35
-end_line = 35
-
-[[entries."app/Http/Controllers/Settings/PasswordController.php".issues]]
-code = "mixed-array-access"
-start_line = 35
-end_line = 35
-
-[[entries."tests/Feature/Settings/PasswordUpdateTest.php".issues]]
-code = "invalid-method-access"
-start_line = 15
-end_line = 15
-
-[[entries."tests/Feature/Settings/PasswordUpdateTest.php".issues]]
-code = "mixed-assignment"
-start_line = 15
-end_line = 15
-
-[[entries."tests/Feature/Settings/PasswordUpdateTest.php".issues]]
-code = "mixed-argument"
-start_line = 17
-end_line = 17
-
-[[entries."tests/Feature/Settings/PasswordUpdateTest.php".issues]]
-code = "invalid-method-access"
-start_line = 24
-end_line = 24
-
-[[entries."tests/Feature/Settings/PasswordUpdateTest.php".issues]]
-code = "mixed-assignment"
-start_line = 24
-end_line = 24
-
-[[entries."tests/Feature/Settings/PasswordUpdateTest.php".issues]]
-code = "mixed-argument"
-start_line = 26
-end_line = 26
-
-[[entries."tests/Feature/Settings/PasswordUpdateTest.php".issues]]
-code = "non-existent-method"
-start_line = 34
-end_line = 34
-
-[[entries."tests/Feature/Settings/PasswordUpdateTest.php".issues]]
-code = "mixed-method-access"
-start_line = 34
-end_line = 34
-
-[[entries."tests/Feature/Settings/PasswordUpdateTest.php".issues]]
+[[entries."app/Http/Controllers/Auth/ConfirmablePasswordController.php".issues]]
 code = "mixed-property-access"
-start_line = 34
-end_line = 34
+start_line = 28
+end_line = 28
 
-[[entries."tests/Feature/Settings/PasswordUpdateTest.php".issues]]
+[[entries."app/Http/Controllers/Auth/ConfirmablePasswordController.php".issues]]
+code = "non-existent-property"
+start_line = 29
+end_line = 29
+
+[[entries."app/Http/Controllers/Auth/ConfirmablePasswordController.php".issues]]
 code = "unhandled-thrown-type"
-start_line = 34
-end_line = 34
+start_line = 31
+end_line = 33
 
-[[entries."tests/Feature/Settings/PasswordUpdateTest.php".issues]]
+[[entries."app/Http/Controllers/Auth/ConfirmablePasswordController.php".issues]]
+code = "unhandled-thrown-type"
+start_line = 36
+end_line = 36
+
+[[entries."tests/Feature/DashboardTest.php".issues]]
 code = "invalid-method-access"
-start_line = 39
-end_line = 39
+start_line = 21
+end_line = 21
 
-[[entries."tests/Feature/Settings/PasswordUpdateTest.php".issues]]
+[[entries."tests/Feature/DashboardTest.php".issues]]
 code = "mixed-assignment"
-start_line = 39
-end_line = 39
+start_line = 21
+end_line = 21
 
-[[entries."tests/Feature/Settings/PasswordUpdateTest.php".issues]]
+[[entries."tests/Feature/DashboardTest.php".issues]]
 code = "mixed-argument"
-start_line = 41
-end_line = 41
+start_line = 21
+end_line = 21
 
-[[entries."app/Http/Middleware/HandleAppearance.php".issues]]
-code = "non-existent-method"
-start_line = 18
-end_line = 18
-
-[[entries."database/seeders/DatabaseSeeder.php".issues]]
-code = "invalid-method-access"
+[[entries."app/Http/Controllers/Auth/EmailVerificationPromptController.php".issues]]
+code = "mixed-method-access"
 start_line = 17
 end_line = 17
+
+[[entries."app/Http/Controllers/Auth/EmailVerificationPromptController.php".issues]]
+code = "non-existent-method"
+start_line = 19
+end_line = 19
+
+[[entries."app/Http/Controllers/Auth/EmailVerificationPromptController.php".issues]]
+code = "mixed-return-statement"
+start_line = 17
+end_line = 19
+
+[[entries."app/Http/Controllers/Auth/EmailVerificationPromptController.php".issues]]
+code = "unhandled-thrown-type"
+start_line = 19
+end_line = 19
 
 [[entries."app/Http/Controllers/Auth/AuthenticatedSessionController.php".issues]]
 code = "non-existent-method"
@@ -495,93 +345,733 @@ end_line = 43
 
 [[entries."app/Http/Controllers/Auth/AuthenticatedSessionController.php".issues]]
 code = "unhandled-thrown-type"
-start_line = 46
-end_line = 46
+start_line = 45
+end_line = 45
 
-[[entries."tests/Feature/Auth/PasswordResetTest.php".issues]]
-code = "invalid-method-access"
-start_line = 25
-end_line = 25
-
-[[entries."tests/Feature/Auth/PasswordResetTest.php".issues]]
-code = "mixed-assignment"
-start_line = 25
-end_line = 25
-
-[[entries."tests/Feature/Auth/PasswordResetTest.php".issues]]
-code = "mixed-property-access"
-start_line = 27
-end_line = 27
-
-[[entries."tests/Feature/Auth/PasswordResetTest.php".issues]]
-code = "non-existent-method"
-start_line = 29
-end_line = 29
-
-[[entries."tests/Feature/Auth/PasswordResetTest.php".issues]]
-code = "invalid-method-access"
-start_line = 36
-end_line = 36
-
-[[entries."tests/Feature/Auth/PasswordResetTest.php".issues]]
-code = "mixed-assignment"
-start_line = 36
-end_line = 36
-
-[[entries."tests/Feature/Auth/PasswordResetTest.php".issues]]
-code = "mixed-property-access"
-start_line = 38
-end_line = 38
-
-[[entries."tests/Feature/Auth/PasswordResetTest.php".issues]]
-code = "non-existent-method"
+[[entries."app/Http/Middleware/HandleInertiaRequests.php".issues]]
+code = "mixed-argument"
 start_line = 40
 end_line = 40
 
-[[entries."tests/Feature/Auth/PasswordResetTest.php".issues]]
+[[entries."app/Http/Middleware/HandleInertiaRequests.php".issues]]
+code = "ambiguous-object-method-access"
+start_line = 40
+end_line = 40
+
+[[entries."app/Http/Middleware/HandleInertiaRequests.php".issues]]
+code = "invalid-destructuring-source"
+start_line = 40
+end_line = 40
+
+[[entries."app/Http/Middleware/HandleInertiaRequests.php".issues]]
+code = "impossible-assignment"
+start_line = 40
+end_line = 40
+
+[[entries."app/Http/Middleware/HandleInertiaRequests.php".issues]]
+code = "impossible-assignment"
+start_line = 40
+end_line = 40
+
+[[entries."app/Http/Middleware/HandleInertiaRequests.php".issues]]
+code = "no-value"
+start_line = 45
+end_line = 45
+
+[[entries."app/Http/Middleware/HandleInertiaRequests.php".issues]]
+code = "no-value"
+start_line = 45
+end_line = 45
+
+[[entries."app/Http/Middleware/HandleInertiaRequests.php".issues]]
+code = "unhandled-thrown-type"
+start_line = 40
+end_line = 40
+
+[[entries."app/Http/Middleware/HandleInertiaRequests.php".issues]]
+code = "missing-override-attribute"
+start_line = 26
+end_line = 26
+
+[[entries."app/Http/Middleware/HandleInertiaRequests.php".issues]]
+code = "missing-override-attribute"
+start_line = 38
+end_line = 38
+
+[[entries."tests/Feature/Settings/ProfileUpdateTest.php".issues]]
+code = "invalid-method-access"
+start_line = 19
+end_line = 19
+
+[[entries."tests/Feature/Settings/ProfileUpdateTest.php".issues]]
+code = "mixed-assignment"
+start_line = 19
+end_line = 19
+
+[[entries."tests/Feature/Settings/ProfileUpdateTest.php".issues]]
+code = "mixed-argument"
+start_line = 21
+end_line = 21
+
+[[entries."tests/Feature/Settings/ProfileUpdateTest.php".issues]]
+code = "invalid-method-access"
+start_line = 29
+end_line = 29
+
+[[entries."tests/Feature/Settings/ProfileUpdateTest.php".issues]]
+code = "mixed-assignment"
+start_line = 29
+end_line = 29
+
+[[entries."tests/Feature/Settings/ProfileUpdateTest.php".issues]]
+code = "mixed-argument"
+start_line = 31
+end_line = 31
+
+[[entries."tests/Feature/Settings/ProfileUpdateTest.php".issues]]
+code = "mixed-method-access"
+start_line = 38
+end_line = 38
+
+[[entries."tests/Feature/Settings/ProfileUpdateTest.php".issues]]
+code = "mixed-property-access"
+start_line = 40
+end_line = 40
+
+[[entries."tests/Feature/Settings/ProfileUpdateTest.php".issues]]
 code = "mixed-property-access"
 start_line = 41
 end_line = 41
 
-[[entries."tests/Feature/Auth/PasswordResetTest.php".issues]]
-code = "invalid-method-access"
-start_line = 53
-end_line = 53
-
-[[entries."tests/Feature/Auth/PasswordResetTest.php".issues]]
-code = "mixed-assignment"
-start_line = 53
-end_line = 53
-
-[[entries."tests/Feature/Auth/PasswordResetTest.php".issues]]
+[[entries."tests/Feature/Settings/ProfileUpdateTest.php".issues]]
 code = "mixed-property-access"
-start_line = 55
-end_line = 55
+start_line = 42
+end_line = 42
 
-[[entries."tests/Feature/Auth/PasswordResetTest.php".issues]]
-code = "non-existent-method"
+[[entries."tests/Feature/Settings/ProfileUpdateTest.php".issues]]
+code = "unhandled-thrown-type"
+start_line = 40
+end_line = 40
+
+[[entries."tests/Feature/Settings/ProfileUpdateTest.php".issues]]
+code = "invalid-method-access"
+start_line = 48
+end_line = 48
+
+[[entries."tests/Feature/Settings/ProfileUpdateTest.php".issues]]
+code = "mixed-assignment"
+start_line = 48
+end_line = 48
+
+[[entries."tests/Feature/Settings/ProfileUpdateTest.php".issues]]
+code = "mixed-argument"
+start_line = 50
+end_line = 50
+
+[[entries."tests/Feature/Settings/ProfileUpdateTest.php".issues]]
+code = "mixed-property-access"
+start_line = 52
+end_line = 52
+
+[[entries."tests/Feature/Settings/ProfileUpdateTest.php".issues]]
+code = "mixed-method-access"
 start_line = 57
 end_line = 57
 
-[[entries."tests/Feature/Auth/PasswordResetTest.php".issues]]
+[[entries."tests/Feature/Settings/ProfileUpdateTest.php".issues]]
 code = "mixed-property-access"
-start_line = 59
-end_line = 59
+start_line = 57
+end_line = 57
 
-[[entries."tests/Feature/Auth/PasswordResetTest.php".issues]]
+[[entries."tests/Feature/Settings/ProfileUpdateTest.php".issues]]
+code = "unhandled-thrown-type"
+start_line = 57
+end_line = 57
+
+[[entries."tests/Feature/Settings/ProfileUpdateTest.php".issues]]
 code = "invalid-method-access"
-start_line = 73
-end_line = 73
+start_line = 63
+end_line = 63
 
-[[entries."tests/Feature/Auth/PasswordResetTest.php".issues]]
+[[entries."tests/Feature/Settings/ProfileUpdateTest.php".issues]]
 code = "mixed-assignment"
+start_line = 63
+end_line = 63
+
+[[entries."tests/Feature/Settings/ProfileUpdateTest.php".issues]]
+code = "mixed-argument"
+start_line = 65
+end_line = 65
+
+[[entries."tests/Feature/Settings/ProfileUpdateTest.php".issues]]
+code = "mixed-method-access"
 start_line = 73
 end_line = 73
 
-[[entries."tests/Feature/Auth/PasswordResetTest.php".issues]]
+[[entries."tests/Feature/Settings/ProfileUpdateTest.php".issues]]
+code = "unhandled-thrown-type"
+start_line = 73
+end_line = 73
+
+[[entries."tests/Feature/Settings/ProfileUpdateTest.php".issues]]
+code = "invalid-method-access"
+start_line = 79
+end_line = 79
+
+[[entries."tests/Feature/Settings/ProfileUpdateTest.php".issues]]
+code = "mixed-assignment"
+start_line = 79
+end_line = 79
+
+[[entries."tests/Feature/Settings/ProfileUpdateTest.php".issues]]
+code = "mixed-argument"
+start_line = 81
+end_line = 81
+
+[[entries."tests/Feature/Settings/ProfileUpdateTest.php".issues]]
+code = "mixed-method-access"
+start_line = 88
+end_line = 88
+
+[[entries."tests/Feature/Settings/ProfileUpdateTest.php".issues]]
+code = "unhandled-thrown-type"
+start_line = 88
+end_line = 88
+
+[[entries."app/Http/Middleware/HandleAppearance.php".issues]]
+code = "non-existent-method"
+start_line = 18
+end_line = 18
+
+[[entries."app/Http/Controllers/Auth/EmailVerificationNotificationController.php".issues]]
+code = "mixed-method-access"
+start_line = 15
+end_line = 15
+
+[[entries."app/Http/Controllers/Auth/EmailVerificationNotificationController.php".issues]]
+code = "mixed-method-access"
+start_line = 19
+end_line = 19
+
+[[entries."app/Providers/AppServiceProvider.php".issues]]
+code = "missing-override-attribute"
+start_line = 11
+end_line = 11
+
+[[entries."tests/Feature/Auth/PasswordConfirmationTest.php".issues]]
+code = "invalid-method-access"
+start_line = 19
+end_line = 19
+
+[[entries."tests/Feature/Auth/PasswordConfirmationTest.php".issues]]
+code = "mixed-assignment"
+start_line = 19
+end_line = 19
+
+[[entries."tests/Feature/Auth/PasswordConfirmationTest.php".issues]]
+code = "mixed-argument"
+start_line = 21
+end_line = 21
+
+[[entries."tests/Feature/Auth/PasswordConfirmationTest.php".issues]]
+code = "invalid-method-access"
+start_line = 29
+end_line = 29
+
+[[entries."tests/Feature/Auth/PasswordConfirmationTest.php".issues]]
+code = "mixed-assignment"
+start_line = 29
+end_line = 29
+
+[[entries."tests/Feature/Auth/PasswordConfirmationTest.php".issues]]
+code = "mixed-argument"
+start_line = 31
+end_line = 31
+
+[[entries."tests/Feature/Auth/PasswordConfirmationTest.php".issues]]
+code = "invalid-method-access"
+start_line = 43
+end_line = 43
+
+[[entries."tests/Feature/Auth/PasswordConfirmationTest.php".issues]]
+code = "mixed-assignment"
+start_line = 43
+end_line = 43
+
+[[entries."tests/Feature/Auth/PasswordConfirmationTest.php".issues]]
+code = "mixed-argument"
+start_line = 45
+end_line = 45
+
+[[entries."app/Http/Controllers/Auth/NewPasswordController.php".issues]]
+code = "non-existent-method"
+start_line = 24
+end_line = 24
+
+[[entries."app/Http/Controllers/Auth/NewPasswordController.php".issues]]
+code = "non-existent-property"
+start_line = 25
+end_line = 25
+
+[[entries."app/Http/Controllers/Auth/NewPasswordController.php".issues]]
+code = "mixed-return-statement"
+start_line = 24
+end_line = 27
+
+[[entries."app/Http/Controllers/Auth/NewPasswordController.php".issues]]
+code = "non-existent-method"
+start_line = 37
+end_line = 37
+
+[[entries."app/Http/Controllers/Auth/NewPasswordController.php".issues]]
+code = "non-existent-method"
+start_line = 47
+end_line = 47
+
+[[entries."app/Http/Controllers/Auth/NewPasswordController.php".issues]]
+code = "too-many-arguments"
+start_line = 48
+end_line = 48
+
+[[entries."app/Http/Controllers/Auth/NewPasswordController.php".issues]]
+code = "non-existent-method"
+start_line = 51
+end_line = 51
+
+[[entries."app/Http/Controllers/Auth/NewPasswordController.php".issues]]
+code = "non-existent-property"
+start_line = 51
+end_line = 51
+
+[[entries."app/Http/Controllers/Auth/NewPasswordController.php".issues]]
+code = "mixed-assignment"
+start_line = 47
+end_line = 47
+
+[[entries."app/Http/Controllers/Auth/NewPasswordController.php".issues]]
+code = "mixed-argument"
+start_line = 67
+end_line = 67
+
+[[entries."app/Http/Controllers/Settings/PasswordController.php".issues]]
+code = "non-existent-method"
+start_line = 19
+end_line = 19
+
+[[entries."app/Http/Controllers/Settings/PasswordController.php".issues]]
+code = "mixed-return-statement"
+start_line = 19
+end_line = 19
+
+[[entries."app/Http/Controllers/Settings/PasswordController.php".issues]]
+code = "non-existent-method"
+start_line = 27
+end_line = 27
+
+[[entries."app/Http/Controllers/Settings/PasswordController.php".issues]]
+code = "mixed-assignment"
+start_line = 27
+end_line = 27
+
+[[entries."app/Http/Controllers/Settings/PasswordController.php".issues]]
+code = "mixed-method-access"
+start_line = 34
+end_line = 34
+
+[[entries."app/Http/Controllers/Settings/PasswordController.php".issues]]
+code = "non-existent-method"
+start_line = 35
+end_line = 35
+
+[[entries."app/Http/Controllers/Settings/PasswordController.php".issues]]
+code = "mixed-array-access"
+start_line = 35
+end_line = 35
+
+[[entries."tests/Feature/Settings/PasswordUpdateTest.php".issues]]
+code = "invalid-method-access"
+start_line = 20
+end_line = 20
+
+[[entries."tests/Feature/Settings/PasswordUpdateTest.php".issues]]
+code = "mixed-assignment"
+start_line = 20
+end_line = 20
+
+[[entries."tests/Feature/Settings/PasswordUpdateTest.php".issues]]
+code = "mixed-argument"
+start_line = 22
+end_line = 22
+
+[[entries."tests/Feature/Settings/PasswordUpdateTest.php".issues]]
+code = "invalid-method-access"
+start_line = 30
+end_line = 30
+
+[[entries."tests/Feature/Settings/PasswordUpdateTest.php".issues]]
+code = "mixed-assignment"
+start_line = 30
+end_line = 30
+
+[[entries."tests/Feature/Settings/PasswordUpdateTest.php".issues]]
+code = "mixed-argument"
+start_line = 32
+end_line = 32
+
+[[entries."tests/Feature/Settings/PasswordUpdateTest.php".issues]]
+code = "non-existent-method"
+start_line = 42
+end_line = 42
+
+[[entries."tests/Feature/Settings/PasswordUpdateTest.php".issues]]
+code = "mixed-method-access"
+start_line = 42
+end_line = 42
+
+[[entries."tests/Feature/Settings/PasswordUpdateTest.php".issues]]
 code = "mixed-property-access"
+start_line = 42
+end_line = 42
+
+[[entries."tests/Feature/Settings/PasswordUpdateTest.php".issues]]
+code = "unhandled-thrown-type"
+start_line = 42
+end_line = 42
+
+[[entries."tests/Feature/Settings/PasswordUpdateTest.php".issues]]
+code = "invalid-method-access"
+start_line = 48
+end_line = 48
+
+[[entries."tests/Feature/Settings/PasswordUpdateTest.php".issues]]
+code = "mixed-assignment"
+start_line = 48
+end_line = 48
+
+[[entries."tests/Feature/Settings/PasswordUpdateTest.php".issues]]
+code = "mixed-argument"
+start_line = 50
+end_line = 50
+
+[[entries."app/Models/User.php".issues]]
+code = "incompatible-property-type"
+start_line = 31
+end_line = 31
+
+[[entries."app/Models/User.php".issues]]
+code = "incompatible-property-type"
+start_line = 18
+end_line = 18
+
+[[entries."app/Models/User.php".issues]]
+code = "missing-override-attribute"
+start_line = 45
+end_line = 45
+
+[[entries."tests/Unit/ExampleTest.php".issues]]
+code = "unhandled-thrown-type"
+start_line = 15
+end_line = 15
+
+[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+code = "invalid-method-access"
+start_line = 22
+end_line = 22
+
+[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+code = "mixed-method-access"
+start_line = 22
+end_line = 22
+
+[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+code = "mixed-assignment"
+start_line = 22
+end_line = 22
+
+[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+code = "mixed-argument"
+start_line = 24
+end_line = 24
+
+[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+code = "invalid-method-access"
+start_line = 32
+end_line = 32
+
+[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+code = "mixed-method-access"
+start_line = 32
+end_line = 32
+
+[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+code = "mixed-assignment"
+start_line = 32
+end_line = 32
+
+[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+code = "non-existent-method"
+start_line = 36
+end_line = 36
+
+[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+code = "non-existent-method"
+start_line = 36
+end_line = 36
+
+[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+code = "mixed-property-access"
+start_line = 37
+end_line = 37
+
+[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+code = "mixed-property-access"
+start_line = 38
+end_line = 38
+
+[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+code = "mixed-argument"
+start_line = 38
+end_line = 38
+
+[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+code = "mixed-assignment"
+start_line = 36
+end_line = 36
+
+[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+code = "mixed-argument"
+start_line = 41
+end_line = 41
+
+[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+code = "mixed-argument"
+start_line = 41
+end_line = 41
+
+[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+code = "non-existent-method"
+start_line = 43
+end_line = 43
+
+[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+code = "mixed-method-access"
+start_line = 44
+end_line = 44
+
+[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+code = "mixed-method-access"
+start_line = 44
+end_line = 44
+
+[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+code = "unhandled-thrown-type"
+start_line = 44
+end_line = 44
+
+[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+code = "invalid-method-access"
+start_line = 51
+end_line = 51
+
+[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+code = "mixed-method-access"
+start_line = 51
+end_line = 51
+
+[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+code = "mixed-assignment"
+start_line = 51
+end_line = 51
+
+[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+code = "non-existent-method"
+start_line = 53
+end_line = 53
+
+[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+code = "non-existent-method"
+start_line = 53
+end_line = 53
+
+[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+code = "mixed-property-access"
+start_line = 54
+end_line = 54
+
+[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+code = "mixed-assignment"
+start_line = 53
+end_line = 53
+
+[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+code = "mixed-argument"
+start_line = 58
+end_line = 58
+
+[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+code = "mixed-argument"
+start_line = 58
+end_line = 58
+
+[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+code = "mixed-method-access"
+start_line = 60
+end_line = 60
+
+[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+code = "mixed-method-access"
+start_line = 60
+end_line = 60
+
+[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+code = "unhandled-thrown-type"
+start_line = 60
+end_line = 60
+
+[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+code = "invalid-method-access"
+start_line = 66
+end_line = 66
+
+[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+code = "mixed-assignment"
+start_line = 66
+end_line = 66
+
+[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+code = "non-existent-method"
+start_line = 70
+end_line = 70
+
+[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+code = "non-existent-method"
+start_line = 70
+end_line = 70
+
+[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+code = "mixed-property-access"
+start_line = 72
+end_line = 72
+
+[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+code = "mixed-argument"
+start_line = 72
+end_line = 72
+
+[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+code = "mixed-assignment"
+start_line = 70
+end_line = 70
+
+[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+code = "mixed-argument"
+start_line = 75
+end_line = 75
+
+[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+code = "mixed-argument"
+start_line = 75
+end_line = 75
+
+[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+code = "mixed-method-access"
 start_line = 77
 end_line = 77
+
+[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+code = "mixed-method-access"
+start_line = 77
+end_line = 77
+
+[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+code = "unhandled-thrown-type"
+start_line = 77
+end_line = 77
+
+[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+code = "invalid-method-access"
+start_line = 83
+end_line = 83
+
+[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+code = "mixed-assignment"
+start_line = 83
+end_line = 83
+
+[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+code = "mixed-argument"
+start_line = 87
+end_line = 87
+
+[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+code = "invalid-method-access"
+start_line = 95
+end_line = 95
+
+[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+code = "mixed-assignment"
+start_line = 95
+end_line = 95
+
+[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+code = "non-existent-method"
+start_line = 101
+end_line = 101
+
+[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+code = "non-existent-method"
+start_line = 101
+end_line = 101
+
+[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+code = "mixed-property-access"
+start_line = 102
+end_line = 102
+
+[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+code = "mixed-property-access"
+start_line = 103
+end_line = 103
+
+[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+code = "mixed-argument"
+start_line = 103
+end_line = 103
+
+[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+code = "mixed-assignment"
+start_line = 101
+end_line = 101
+
+[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+code = "mixed-argument"
+start_line = 106
+end_line = 106
+
+[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+code = "mixed-argument"
+start_line = 107
+end_line = 107
+
+[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+code = "mixed-method-access"
+start_line = 110
+end_line = 110
+
+[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+code = "mixed-method-access"
+start_line = 110
+end_line = 110
+
+[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+code = "non-existent-method"
+start_line = 111
+end_line = 111
+
+[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+code = "unhandled-thrown-type"
+start_line = 110
+end_line = 110
 
 [[entries."tests/Feature/Auth/AuthenticationTest.php".issues]]
 code = "invalid-method-access"
@@ -663,637 +1153,127 @@ code = "unhandled-thrown-type"
 start_line = 91
 end_line = 91
 
-[[entries."app/Models/User.php".issues]]
-code = "incompatible-property-type"
-start_line = 29
-end_line = 29
-
-[[entries."app/Models/User.php".issues]]
-code = "incompatible-property-type"
-start_line = 18
-end_line = 18
-
-[[entries."app/Models/User.php".issues]]
-code = "missing-override-attribute"
-start_line = 41
-end_line = 41
-
-[[entries."app/Http/Controllers/Auth/RegisteredUserController.php".issues]]
-code = "non-existent-method"
-start_line = 25
-end_line = 25
-
-[[entries."app/Http/Controllers/Auth/RegisteredUserController.php".issues]]
-code = "non-existent-method"
-start_line = 31
-end_line = 31
-
-[[entries."app/Http/Controllers/Auth/RegisteredUserController.php".issues]]
-code = "non-existent-property"
-start_line = 32
-end_line = 32
-
-[[entries."app/Http/Controllers/Auth/RegisteredUserController.php".issues]]
-code = "non-existent-property"
-start_line = 33
-end_line = 33
-
-[[entries."app/Http/Controllers/Auth/RegisteredUserController.php".issues]]
-code = "non-existent-method"
-start_line = 34
-end_line = 34
-
-[[entries."app/Http/Controllers/Auth/RegisteredUserController.php".issues]]
-code = "non-existent-property"
-start_line = 34
-end_line = 34
-
-[[entries."app/Http/Controllers/Auth/RegisteredUserController.php".issues]]
-code = "mixed-assignment"
-start_line = 31
-end_line = 31
-
-[[entries."app/Http/Controllers/Auth/RegisteredUserController.php".issues]]
-code = "mixed-argument"
-start_line = 37
-end_line = 37
-
-[[entries."app/Http/Controllers/Auth/RegisteredUserController.php".issues]]
-code = "non-existent-method"
-start_line = 39
-end_line = 39
-
-[[entries."app/Http/Controllers/Auth/RegisteredUserController.php".issues]]
-code = "non-existent-method"
-start_line = 49
-end_line = 49
-
-[[entries."app/Http/Controllers/Auth/RegisteredUserController.php".issues]]
-code = "mixed-return-statement"
-start_line = 49
-end_line = 49
-
-[[entries."app/Http/Controllers/Auth/EmailVerificationPromptController.php".issues]]
-code = "mixed-method-access"
-start_line = 17
-end_line = 17
-
-[[entries."app/Http/Controllers/Auth/EmailVerificationPromptController.php".issues]]
-code = "non-existent-method"
-start_line = 19
-end_line = 19
-
-[[entries."app/Http/Controllers/Auth/EmailVerificationPromptController.php".issues]]
-code = "mixed-return-statement"
-start_line = 17
-end_line = 19
-
-[[entries."app/Http/Controllers/Auth/EmailVerificationPromptController.php".issues]]
-code = "unhandled-thrown-type"
-start_line = 19
-end_line = 19
-
-[[entries."app/Http/Middleware/HandleInertiaRequests.php".issues]]
-code = "mixed-argument"
-start_line = 40
-end_line = 40
-
-[[entries."app/Http/Middleware/HandleInertiaRequests.php".issues]]
-code = "ambiguous-object-method-access"
-start_line = 40
-end_line = 40
-
-[[entries."app/Http/Middleware/HandleInertiaRequests.php".issues]]
-code = "invalid-destructuring-source"
-start_line = 40
-end_line = 40
-
-[[entries."app/Http/Middleware/HandleInertiaRequests.php".issues]]
-code = "impossible-assignment"
-start_line = 40
-end_line = 40
-
-[[entries."app/Http/Middleware/HandleInertiaRequests.php".issues]]
-code = "impossible-assignment"
-start_line = 40
-end_line = 40
-
-[[entries."app/Http/Middleware/HandleInertiaRequests.php".issues]]
-code = "no-value"
-start_line = 45
-end_line = 45
-
-[[entries."app/Http/Middleware/HandleInertiaRequests.php".issues]]
-code = "no-value"
-start_line = 45
-end_line = 45
-
-[[entries."app/Http/Middleware/HandleInertiaRequests.php".issues]]
-code = "unhandled-thrown-type"
-start_line = 40
-end_line = 40
-
-[[entries."app/Http/Middleware/HandleInertiaRequests.php".issues]]
-code = "missing-override-attribute"
-start_line = 26
-end_line = 26
-
-[[entries."app/Http/Middleware/HandleInertiaRequests.php".issues]]
-code = "missing-override-attribute"
-start_line = 38
-end_line = 38
-
-[[entries."tests/Feature/Settings/ProfileUpdateTest.php".issues]]
-code = "invalid-method-access"
-start_line = 14
-end_line = 14
-
-[[entries."tests/Feature/Settings/ProfileUpdateTest.php".issues]]
-code = "mixed-assignment"
-start_line = 14
-end_line = 14
-
-[[entries."tests/Feature/Settings/ProfileUpdateTest.php".issues]]
-code = "mixed-argument"
-start_line = 16
-end_line = 16
-
-[[entries."tests/Feature/Settings/ProfileUpdateTest.php".issues]]
-code = "invalid-method-access"
-start_line = 23
-end_line = 23
-
-[[entries."tests/Feature/Settings/ProfileUpdateTest.php".issues]]
-code = "mixed-assignment"
-start_line = 23
-end_line = 23
-
-[[entries."tests/Feature/Settings/ProfileUpdateTest.php".issues]]
-code = "mixed-argument"
-start_line = 25
-end_line = 25
-
-[[entries."tests/Feature/Settings/ProfileUpdateTest.php".issues]]
-code = "mixed-method-access"
-start_line = 32
-end_line = 32
-
-[[entries."tests/Feature/Settings/ProfileUpdateTest.php".issues]]
-code = "mixed-property-access"
-start_line = 34
-end_line = 34
-
-[[entries."tests/Feature/Settings/ProfileUpdateTest.php".issues]]
-code = "mixed-property-access"
-start_line = 35
-end_line = 35
-
-[[entries."tests/Feature/Settings/ProfileUpdateTest.php".issues]]
-code = "mixed-property-access"
-start_line = 36
-end_line = 36
-
-[[entries."tests/Feature/Settings/ProfileUpdateTest.php".issues]]
-code = "unhandled-thrown-type"
-start_line = 35
-end_line = 35
-
-[[entries."tests/Feature/Settings/ProfileUpdateTest.php".issues]]
-code = "invalid-method-access"
-start_line = 41
-end_line = 41
-
-[[entries."tests/Feature/Settings/ProfileUpdateTest.php".issues]]
-code = "mixed-assignment"
-start_line = 41
-end_line = 41
-
-[[entries."tests/Feature/Settings/ProfileUpdateTest.php".issues]]
-code = "mixed-argument"
-start_line = 43
-end_line = 43
-
-[[entries."tests/Feature/Settings/ProfileUpdateTest.php".issues]]
-code = "mixed-property-access"
-start_line = 45
-end_line = 45
-
-[[entries."tests/Feature/Settings/ProfileUpdateTest.php".issues]]
-code = "mixed-method-access"
-start_line = 50
-end_line = 50
-
-[[entries."tests/Feature/Settings/ProfileUpdateTest.php".issues]]
-code = "mixed-property-access"
-start_line = 50
-end_line = 50
-
-[[entries."tests/Feature/Settings/ProfileUpdateTest.php".issues]]
-code = "unhandled-thrown-type"
-start_line = 50
-end_line = 50
-
-[[entries."tests/Feature/Settings/ProfileUpdateTest.php".issues]]
-code = "invalid-method-access"
-start_line = 55
-end_line = 55
-
-[[entries."tests/Feature/Settings/ProfileUpdateTest.php".issues]]
-code = "mixed-assignment"
-start_line = 55
-end_line = 55
-
-[[entries."tests/Feature/Settings/ProfileUpdateTest.php".issues]]
-code = "mixed-argument"
-start_line = 57
-end_line = 57
-
-[[entries."tests/Feature/Settings/ProfileUpdateTest.php".issues]]
-code = "mixed-method-access"
-start_line = 64
-end_line = 64
-
-[[entries."tests/Feature/Settings/ProfileUpdateTest.php".issues]]
-code = "unhandled-thrown-type"
-start_line = 64
-end_line = 64
-
-[[entries."tests/Feature/Settings/ProfileUpdateTest.php".issues]]
-code = "invalid-method-access"
-start_line = 69
-end_line = 69
-
-[[entries."tests/Feature/Settings/ProfileUpdateTest.php".issues]]
-code = "mixed-assignment"
-start_line = 69
-end_line = 69
-
-[[entries."tests/Feature/Settings/ProfileUpdateTest.php".issues]]
-code = "mixed-argument"
-start_line = 71
-end_line = 71
-
-[[entries."tests/Feature/Settings/ProfileUpdateTest.php".issues]]
-code = "mixed-method-access"
-start_line = 77
-end_line = 77
-
-[[entries."tests/Feature/Settings/ProfileUpdateTest.php".issues]]
-code = "unhandled-thrown-type"
-start_line = 77
-end_line = 77
-
-[[entries."app/Http/Requests/Auth/LoginRequest.php".issues]]
-code = "non-existent-method"
-start_line = 42
-end_line = 42
-
-[[entries."app/Http/Requests/Auth/LoginRequest.php".issues]]
-code = "too-many-arguments"
-start_line = 42
-end_line = 42
-
-[[entries."app/Http/Requests/Auth/LoginRequest.php".issues]]
-code = "non-existent-method"
-start_line = 43
-end_line = 43
-
-[[entries."app/Http/Requests/Auth/LoginRequest.php".issues]]
-code = "non-existent-method"
-start_line = 50
-end_line = 50
-
-[[entries."app/Http/Requests/Auth/LoginRequest.php".issues]]
-code = "non-existent-method"
-start_line = 60
-end_line = 60
-
-[[entries."app/Http/Requests/Auth/LoginRequest.php".issues]]
-code = "non-existent-method"
-start_line = 66
-end_line = 66
-
-[[entries."app/Http/Requests/Auth/LoginRequest.php".issues]]
-code = "mixed-assignment"
-start_line = 66
-end_line = 66
-
-[[entries."app/Http/Requests/Auth/LoginRequest.php".issues]]
-code = "mixed-operand"
-start_line = 71
-end_line = 71
-
-[[entries."app/Http/Requests/Auth/LoginRequest.php".issues]]
-code = "mixed-argument"
-start_line = 71
-end_line = 71
-
-[[entries."app/Http/Requests/Auth/LoginRequest.php".issues]]
-code = "possibly-null-operand"
-start_line = 83
-end_line = 83
-
 [[entries."app/Http/Requests/Settings/ProfileUpdateRequest.php".issues]]
 code = "mixed-property-access"
 start_line = 26
 end_line = 26
 
-[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+[[entries."tests/Feature/Auth/VerificationNotificationTest.php".issues]]
 code = "invalid-method-access"
-start_line = 17
-end_line = 17
+start_line = 23
+end_line = 23
 
-[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
-code = "mixed-method-access"
-start_line = 17
-end_line = 17
-
-[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+[[entries."tests/Feature/Auth/VerificationNotificationTest.php".issues]]
 code = "mixed-assignment"
-start_line = 17
-end_line = 17
+start_line = 23
+end_line = 23
 
-[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+[[entries."tests/Feature/Auth/VerificationNotificationTest.php".issues]]
 code = "mixed-argument"
-start_line = 19
-end_line = 19
+start_line = 27
+end_line = 27
 
-[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+[[entries."tests/Feature/Auth/VerificationNotificationTest.php".issues]]
+code = "non-existent-method"
+start_line = 29
+end_line = 29
+
+[[entries."tests/Feature/Auth/VerificationNotificationTest.php".issues]]
 code = "invalid-method-access"
-start_line = 26
-end_line = 26
-
-[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
-code = "mixed-method-access"
-start_line = 26
-end_line = 26
-
-[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
-code = "mixed-assignment"
-start_line = 26
-end_line = 26
-
-[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
-code = "non-existent-method"
-start_line = 30
-end_line = 30
-
-[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
-code = "non-existent-method"
-start_line = 30
-end_line = 30
-
-[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
-code = "mixed-property-access"
-start_line = 31
-end_line = 31
-
-[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
-code = "mixed-property-access"
-start_line = 32
-end_line = 32
-
-[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
-code = "mixed-argument"
-start_line = 32
-end_line = 32
-
-[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
-code = "mixed-assignment"
-start_line = 30
-end_line = 30
-
-[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
-code = "mixed-argument"
-start_line = 35
-end_line = 35
-
-[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
-code = "mixed-argument"
-start_line = 35
-end_line = 35
-
-[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
-code = "non-existent-method"
 start_line = 37
 end_line = 37
 
-[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+[[entries."tests/Feature/Auth/VerificationNotificationTest.php".issues]]
+code = "mixed-assignment"
+start_line = 37
+end_line = 37
+
+[[entries."tests/Feature/Auth/VerificationNotificationTest.php".issues]]
+code = "mixed-argument"
+start_line = 41
+end_line = 41
+
+[[entries."tests/Feature/Auth/VerificationNotificationTest.php".issues]]
+code = "non-existent-method"
+start_line = 43
+end_line = 43
+
+[[entries."app/Http/Controllers/Auth/VerifyEmailController.php".issues]]
 code = "mixed-method-access"
-start_line = 38
-end_line = 38
+start_line = 15
+end_line = 15
 
-[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
-code = "mixed-method-access"
-start_line = 38
-end_line = 38
+[[entries."tests/Feature/Auth/PasswordResetTest.php".issues]]
+code = "invalid-method-access"
+start_line = 32
+end_line = 32
 
-[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
-code = "unhandled-thrown-type"
-start_line = 38
-end_line = 38
+[[entries."tests/Feature/Auth/PasswordResetTest.php".issues]]
+code = "mixed-assignment"
+start_line = 32
+end_line = 32
 
-[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+[[entries."tests/Feature/Auth/PasswordResetTest.php".issues]]
+code = "mixed-property-access"
+start_line = 34
+end_line = 34
+
+[[entries."tests/Feature/Auth/PasswordResetTest.php".issues]]
+code = "non-existent-method"
+start_line = 36
+end_line = 36
+
+[[entries."tests/Feature/Auth/PasswordResetTest.php".issues]]
 code = "invalid-method-access"
 start_line = 44
 end_line = 44
 
-[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
-code = "mixed-method-access"
-start_line = 44
-end_line = 44
-
-[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+[[entries."tests/Feature/Auth/PasswordResetTest.php".issues]]
 code = "mixed-assignment"
 start_line = 44
 end_line = 44
 
-[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
-code = "non-existent-method"
+[[entries."tests/Feature/Auth/PasswordResetTest.php".issues]]
+code = "mixed-property-access"
 start_line = 46
 end_line = 46
 
-[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+[[entries."tests/Feature/Auth/PasswordResetTest.php".issues]]
 code = "non-existent-method"
-start_line = 46
-end_line = 46
+start_line = 48
+end_line = 48
 
-[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
-code = "mixed-property-access"
-start_line = 47
-end_line = 47
-
-[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
-code = "mixed-assignment"
-start_line = 46
-end_line = 46
-
-[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
-code = "mixed-argument"
-start_line = 51
-end_line = 51
-
-[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
-code = "mixed-argument"
-start_line = 51
-end_line = 51
-
-[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
-code = "mixed-method-access"
-start_line = 53
-end_line = 53
-
-[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
-code = "mixed-method-access"
-start_line = 53
-end_line = 53
-
-[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
-code = "unhandled-thrown-type"
-start_line = 53
-end_line = 53
-
-[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+[[entries."tests/Feature/Auth/PasswordResetTest.php".issues]]
 code = "invalid-method-access"
-start_line = 58
-end_line = 58
+start_line = 66
+end_line = 66
 
-[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+[[entries."tests/Feature/Auth/PasswordResetTest.php".issues]]
 code = "mixed-assignment"
-start_line = 58
-end_line = 58
+start_line = 66
+end_line = 66
 
-[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
-code = "non-existent-method"
-start_line = 62
-end_line = 62
-
-[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
-code = "non-existent-method"
-start_line = 62
-end_line = 62
-
-[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+[[entries."tests/Feature/Auth/PasswordResetTest.php".issues]]
 code = "mixed-property-access"
-start_line = 64
-end_line = 64
+start_line = 68
+end_line = 68
 
-[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
-code = "mixed-argument"
-start_line = 64
-end_line = 64
+[[entries."tests/Feature/Auth/PasswordResetTest.php".issues]]
+code = "non-existent-method"
+start_line = 70
+end_line = 70
 
-[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
-code = "mixed-assignment"
-start_line = 62
-end_line = 62
-
-[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
-code = "mixed-argument"
-start_line = 67
-end_line = 67
-
-[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
-code = "mixed-argument"
-start_line = 67
-end_line = 67
-
-[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
-code = "mixed-method-access"
-start_line = 69
-end_line = 69
-
-[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
-code = "mixed-method-access"
-start_line = 69
-end_line = 69
-
-[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
-code = "unhandled-thrown-type"
-start_line = 69
-end_line = 69
-
-[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+[[entries."tests/Feature/Auth/PasswordResetTest.php".issues]]
 code = "invalid-method-access"
-start_line = 74
-end_line = 74
+start_line = 90
+end_line = 90
 
-[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+[[entries."tests/Feature/Auth/PasswordResetTest.php".issues]]
 code = "mixed-assignment"
-start_line = 74
-end_line = 74
+start_line = 90
+end_line = 90
 
-[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
-code = "mixed-argument"
-start_line = 78
-end_line = 78
-
-[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
-code = "invalid-method-access"
-start_line = 85
-end_line = 85
-
-[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
-code = "mixed-assignment"
-start_line = 85
-end_line = 85
-
-[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
-code = "non-existent-method"
-start_line = 91
-end_line = 91
-
-[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
-code = "non-existent-method"
-start_line = 91
-end_line = 91
-
-[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
+[[entries."tests/Feature/Auth/PasswordResetTest.php".issues]]
 code = "mixed-property-access"
-start_line = 92
-end_line = 92
-
-[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
-code = "mixed-property-access"
-start_line = 93
-end_line = 93
-
-[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
-code = "mixed-argument"
-start_line = 93
-end_line = 93
-
-[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
-code = "mixed-assignment"
-start_line = 91
-end_line = 91
-
-[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
-code = "mixed-argument"
-start_line = 96
-end_line = 96
-
-[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
-code = "mixed-argument"
-start_line = 97
-end_line = 97
-
-[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
-code = "mixed-method-access"
-start_line = 100
-end_line = 100
-
-[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
-code = "mixed-method-access"
-start_line = 100
-end_line = 100
-
-[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
-code = "non-existent-method"
-start_line = 101
-end_line = 101
-
-[[entries."tests/Feature/Auth/EmailVerificationTest.php".issues]]
-code = "unhandled-thrown-type"
-start_line = 100
-end_line = 100
+start_line = 95
+end_line = 95
