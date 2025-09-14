@@ -76,6 +76,6 @@ class AuthenticationTest extends TestCase
 
         $errors = session('errors');
 
-        $this->assertStringContainsString('Too many login attempts', $errors->first('email'));
+        static::assertStringContainsString('Too many login attempts', $errors->first('email'));
     }
 }

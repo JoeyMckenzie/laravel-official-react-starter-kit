@@ -32,9 +32,9 @@ class ProfileUpdateTest extends TestCase
 
         $user->refresh();
 
-        $this->assertSame('Test User', $user->name);
-        $this->assertSame('test@example.com', $user->email);
-        $this->assertNull($user->email_verified_at);
+        static::assertSame('Test User', $user->name);
+        static::assertSame('test@example.com', $user->email);
+        static::assertNull($user->email_verified_at);
     }
 
     public function test_email_verification_status_is_unchanged_when_the_email_address_is_unchanged()
@@ -48,7 +48,7 @@ class ProfileUpdateTest extends TestCase
 
         $response->assertSessionHasNoErrors()->assertRedirect(route('profile.edit'));
 
-        $this->assertNotNull($user->refresh()->email_verified_at);
+        static::assertNotNull($user->refresh()->email_verified_at);
     }
 
     public function test_user_can_delete_their_account()
@@ -62,7 +62,7 @@ class ProfileUpdateTest extends TestCase
         $response->assertSessionHasNoErrors()->assertRedirect(route('home'));
 
         $this->assertGuest();
-        $this->assertNull($user->fresh());
+        static::assertNull($user->fresh());
     }
 
     public function test_correct_password_must_be_provided_to_delete_account()
@@ -75,6 +75,6 @@ class ProfileUpdateTest extends TestCase
 
         $response->assertSessionHasErrors('password')->assertRedirect(route('profile.edit'));
 
-        $this->assertNotNull($user->fresh());
+        static::assertNotNull($user->fresh());
     }
 }
