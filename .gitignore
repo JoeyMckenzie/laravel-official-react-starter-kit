@@ -25,3 +25,5 @@ yarn-error.log
 /.nova
 /.vscode
 /.zed
+.mcp.json
+.junie/mcp/mcp.json
