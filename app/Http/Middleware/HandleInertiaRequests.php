@@ -7,6 +7,7 @@ namespace App\Http\Middleware;
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
+use Override;
 
 final class HandleInertiaRequests extends Middleware
 {
@@ -24,7 +25,7 @@ final class HandleInertiaRequests extends Middleware
      *
      * @see https://inertiajs.com/asset-versioning
      */
-    #[\Override]
+    #[Override]
     public function version(Request $request): ?string
     {
         return parent::version($request);
@@ -37,15 +38,17 @@ final class HandleInertiaRequests extends Middleware
      *
      * @return array<string, mixed>
      */
-    #[\Override]
+    #[Override]
     public function share(Request $request): array
     {
-        [$message, $author] = str(Inspiring::quotes()->random())->explode('-');
+        /** @var string $random */
+        $random = Inspiring::quotes()->random();
+        [$message, $author] = str($random)->explode('-');
 
         return [
             ...parent::share($request),
             'name' => config('app.name'),
-            'quote' => ['message' => trim((string) $message), 'author' => trim((string) $author)],
+            'quote' => ['message' => mb_trim((string) $message), 'author' => mb_trim((string) $author)],
             'auth' => [
                 'user' => $request->user(),
             ],

@@ -39,7 +39,10 @@ final class EmailVerificationTest extends TestCase
         $verificationUrl = URL::temporarySignedRoute(
             'verification.verify',
             now()->addMinutes(60),
-            ['id' => $user->id, 'hash' => sha1((string) $user->email)]
+            [
+                'id' => $user->id,
+                'hash' => sha1($user->email),
+            ]
         );
 
         $response = $this->actingAs($user)->get($verificationUrl);
@@ -75,7 +78,10 @@ final class EmailVerificationTest extends TestCase
         $verificationUrl = URL::temporarySignedRoute(
             'verification.verify',
             now()->addMinutes(60),
-            ['id' => 123, 'hash' => sha1((string) $user->email)]
+            [
+                'id' => 123,
+                'hash' => sha1($user->email),
+            ]
         );
 
         $this->actingAs($user)->get($verificationUrl);
@@ -107,7 +113,10 @@ final class EmailVerificationTest extends TestCase
         $verificationUrl = URL::temporarySignedRoute(
             'verification.verify',
             now()->addMinutes(60),
-            ['id' => $user->id, 'hash' => sha1((string) $user->email)]
+            [
+                'id' => $user->id,
+                'hash' => sha1($user->email),
+            ]
         );
 
         $this->actingAs($user)

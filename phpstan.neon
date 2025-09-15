@@ -12,3 +12,7 @@ parameters:
     reportUnmatchedIgnoredErrors: true
     checkOctaneCompatibility: true
     checkModelProperties: true
+    ignoreErrors:
+        -
+            message: '#Dynamic call to static method Illuminate\\Http\\Request::validate\(\).#'
+            path: app/Http/Controllers/**/*.php
