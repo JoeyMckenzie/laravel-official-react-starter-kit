@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\AbstractController;
@@ -25,7 +27,7 @@ final class ConfirmablePasswordController extends AbstractController
      */
     public function store(Request $request): RedirectResponse
     {
-        if (!Auth::guard('web')->validate([
+        if (! Auth::guard('web')->validate([
             'email' => $request->user()->email,
             'password' => $request->password,
         ])) {

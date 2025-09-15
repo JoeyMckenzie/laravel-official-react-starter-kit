@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Feature\Auth;
 
 use App\Http\Controllers\Auth\PasswordResetLinkController;
@@ -13,7 +15,7 @@ use PHPUnit\Framework\Attributes\Test;
 use Tests\AbstractTestCase;
 
 #[CoversClass(PasswordResetLinkController::class)]
-class PasswordResetTest extends AbstractTestCase
+final class PasswordResetTest extends AbstractTestCase
 {
     use RefreshDatabase;
 

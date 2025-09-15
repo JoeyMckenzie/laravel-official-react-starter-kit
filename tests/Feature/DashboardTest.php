@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Feature;
 
 use App\Models\User;
@@ -7,7 +9,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use PHPUnit\Framework\Attributes\Test;
 use Tests\AbstractTestCase;
 
-class DashboardTest extends AbstractTestCase
+final class DashboardTest extends AbstractTestCase
 {
     use RefreshDatabase;
 

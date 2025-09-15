@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Feature\Settings;
 
 use App\Http\Controllers\Settings\ProfileController;
@@ -10,7 +12,7 @@ use PHPUnit\Framework\Attributes\Test;
 use Tests\AbstractTestCase;
 
 #[CoversClass(ProfileController::class)]
-class ProfileUpdateTest extends AbstractTestCase
+final class ProfileUpdateTest extends AbstractTestCase
 {
     use RefreshDatabase;
 
@@ -38,9 +40,9 @@ class ProfileUpdateTest extends AbstractTestCase
 
         $user->refresh();
 
-        static::assertSame('Test User', $user->name);
-        static::assertSame('test@example.com', $user->email);
-        static::assertNull($user->email_verified_at);
+        self::assertSame('Test User', $user->name);
+        self::assertSame('test@example.com', $user->email);
+        self::assertNull($user->email_verified_at);
     }
 
     #[Test]
@@ -55,7 +57,7 @@ class ProfileUpdateTest extends AbstractTestCase
 
         $response->assertSessionHasNoErrors()->assertRedirect(route('profile.edit'));
 
-        static::assertNotNull($user->refresh()->email_verified_at);
+        self::assertNotNull($user->refresh()->email_verified_at);
     }
 
     #[Test]
@@ -71,7 +73,7 @@ class ProfileUpdateTest extends AbstractTestCase
         $response->assertSessionHasNoErrors()->assertRedirect(route('home'));
 
         $this->assertGuest();
-        static::assertNull($user->fresh());
+        self::assertNull($user->fresh());
     }
 
     #[Test]
@@ -86,6 +88,6 @@ class ProfileUpdateTest extends AbstractTestCase
 
         $response->assertSessionHasErrors('password')->assertRedirect(route('profile.edit'));
 
-        static::assertNotNull($user->fresh());
+        self::assertNotNull($user->fresh());
     }
 }

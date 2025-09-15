@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Feature\Auth;
 
 use App\Http\Controllers\Auth\EmailVerificationPromptController;
@@ -13,7 +15,7 @@ use PHPUnit\Framework\Attributes\Test;
 use Tests\AbstractTestCase;
 
 #[CoversClass(EmailVerificationPromptController::class)]
-class EmailVerificationTest extends AbstractTestCase
+final class EmailVerificationTest extends AbstractTestCase
 {
     use RefreshDatabase;
 
@@ -36,14 +38,14 @@ class EmailVerificationTest extends AbstractTestCase
 
         $verificationUrl = URL::temporarySignedRoute('verification.verify', now()->addMinutes(60), [
             'id' => $user->id,
-            'hash' => sha1($user->email),
+            'hash' => sha1((string) $user->email),
         ]);
 
         $response = $this->actingAs($user)->get($verificationUrl);
 
         Event::assertDispatched(Verified::class);
-        static::assertTrue($user->fresh()->hasVerifiedEmail());
-        $response->assertRedirect(route('dashboard', absolute: false) . '?verified=1');
+        self::assertTrue($user->fresh()->hasVerifiedEmail());
+        $response->assertRedirect(route('dashboard', absolute: false).'?verified=1');
     }
 
     #[Test]
@@ -58,7 +60,7 @@ class EmailVerificationTest extends AbstractTestCase
 
         $this->actingAs($user)->get($verificationUrl);
 
-        static::assertFalse($user->fresh()->hasVerifiedEmail());
+        self::assertFalse($user->fresh()->hasVerifiedEmail());
     }
 
     #[Test]
@@ -70,12 +72,12 @@ class EmailVerificationTest extends AbstractTestCase
 
         $verificationUrl = URL::temporarySignedRoute('verification.verify', now()->addMinutes(60), [
             'id' => 123,
-            'hash' => sha1($user->email),
+            'hash' => sha1((string) $user->email),
         ]);
 
         $this->actingAs($user)->get($verificationUrl);
 
-        static::assertFalse($user->fresh()->hasVerifiedEmail());
+        self::assertFalse($user->fresh()->hasVerifiedEmail());
     }
 
     #[Test]
@@ -101,14 +103,14 @@ class EmailVerificationTest extends AbstractTestCase
 
         $verificationUrl = URL::temporarySignedRoute('verification.verify', now()->addMinutes(60), [
             'id' => $user->id,
-            'hash' => sha1($user->email),
+            'hash' => sha1((string) $user->email),
         ]);
 
         $this->actingAs($user)
             ->get($verificationUrl)
-            ->assertRedirect(route('dashboard', absolute: false) . '?verified=1');
+            ->assertRedirect(route('dashboard', absolute: false).'?verified=1');
 
-        static::assertTrue($user->fresh()->hasVerifiedEmail());
+        self::assertTrue($user->fresh()->hasVerifiedEmail());
         Event::assertNotDispatched(Verified::class);
     }
 }

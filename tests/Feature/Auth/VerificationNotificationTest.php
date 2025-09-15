@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Feature\Auth;
 
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
@@ -12,7 +14,7 @@ use PHPUnit\Framework\Attributes\Test;
 use Tests\AbstractTestCase;
 
 #[CoversClass(EmailVerificationNotificationController::class)]
-class VerificationNotificationTest extends AbstractTestCase
+final class VerificationNotificationTest extends AbstractTestCase
 {
     use RefreshDatabase;
 

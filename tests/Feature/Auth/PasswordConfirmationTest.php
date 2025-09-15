@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Feature\Auth;
 
 use App\Http\Controllers\Auth\ConfirmablePasswordController;
@@ -10,7 +12,7 @@ use PHPUnit\Framework\Attributes\Test;
 use Tests\AbstractTestCase;
 
 #[CoversClass(ConfirmablePasswordController::class)]
-class PasswordConfirmationTest extends AbstractTestCase
+final class PasswordConfirmationTest extends AbstractTestCase
 {
     use RefreshDatabase;
 

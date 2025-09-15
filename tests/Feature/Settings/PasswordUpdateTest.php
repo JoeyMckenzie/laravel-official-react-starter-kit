@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Feature\Settings;
 
 use App\Http\Controllers\Settings\PasswordController;
@@ -11,7 +13,7 @@ use PHPUnit\Framework\Attributes\Test;
 use Tests\AbstractTestCase;
 
 #[CoversClass(PasswordController::class)]
-class PasswordUpdateTest extends AbstractTestCase
+final class PasswordUpdateTest extends AbstractTestCase
 {
     use RefreshDatabase;
 
@@ -40,7 +42,7 @@ class PasswordUpdateTest extends AbstractTestCase
 
         $response->assertSessionHasNoErrors()->assertRedirect(route('password.edit'));
 
-        static::assertTrue(Hash::check('new-password', $user->refresh()->password));
+        self::assertTrue(Hash::check('new-password', $user->refresh()->password));
     }
 
     #[Test]

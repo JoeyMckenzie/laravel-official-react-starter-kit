@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Feature\Auth;
 
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
@@ -10,7 +12,7 @@ use PHPUnit\Framework\Attributes\Test;
 use Tests\AbstractTestCase;
 
 #[CoversClass(AuthenticatedSessionController::class)]
-class AuthenticationTest extends AbstractTestCase
+final class AuthenticationTest extends AbstractTestCase
 {
     use RefreshDatabase;
 
@@ -89,6 +91,6 @@ class AuthenticationTest extends AbstractTestCase
 
         $errors = session('errors');
 
-        static::assertStringContainsString('Too many login attempts', $errors->first('email'));
+        self::assertStringContainsString('Too many login attempts', $errors->first('email'));
     }
 }

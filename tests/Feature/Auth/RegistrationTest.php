@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Feature\Auth;
 
 use App\Http\Controllers\Auth\RegisteredUserController;
@@ -9,7 +11,7 @@ use PHPUnit\Framework\Attributes\Test;
 use Tests\AbstractTestCase;
 
 #[CoversClass(RegisteredUserController::class)]
-class RegistrationTest extends AbstractTestCase
+final class RegistrationTest extends AbstractTestCase
 {
     use RefreshDatabase;
 
