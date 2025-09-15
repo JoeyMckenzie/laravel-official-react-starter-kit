@@ -2,14 +2,21 @@ pre-push:
   parallel: true
   jobs:
     - name: Audit composer packages
-      tags:
-        - security
       run: composer audit
+      fail_text: "Composer security vulnerabilities found"
 
     - name: Audit npm packages
-      tags:
-        - security
-      run: npm audit
+      run: npm audit --audit-level moderate
+      fail_text: "npm security vulnerabilities found"
+
+    - name: Lint PHP files
+      run: composer lint
+
+    - name: Type check
+      run: npm run tsc
+
+    - name: Lint JS/TS files
+      run: npm run lint
 
 pre-commit:
   parallel: true
