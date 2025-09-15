@@ -41,7 +41,7 @@ final class EmailVerificationTest extends TestCase
             now()->addMinutes(60),
             [
                 'id' => $user->id,
-                'hash' => sha1($user->email),
+                'hash' => sha1((string) $user->email),
             ]
         );
 
@@ -80,7 +80,7 @@ final class EmailVerificationTest extends TestCase
             now()->addMinutes(60),
             [
                 'id' => 123,
-                'hash' => sha1($user->email),
+                'hash' => sha1((string) $user->email),
             ]
         );
 
@@ -115,7 +115,7 @@ final class EmailVerificationTest extends TestCase
             now()->addMinutes(60),
             [
                 'id' => $user->id,
-                'hash' => sha1($user->email),
+                'hash' => sha1((string) $user->email),
             ]
         );
 

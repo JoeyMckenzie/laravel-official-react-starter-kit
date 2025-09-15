@@ -16,3 +16,6 @@ parameters:
         -
             message: '#Dynamic call to static method Illuminate\\Http\\Request::validate\(\).#'
             path: app/Http/Controllers/**/*.php
+        -
+            message: "#Casting to string something that's already string.#"
+            path: tests/Feature/Auth/EmailVerificationTest.php

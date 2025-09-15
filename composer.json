@@ -95,6 +95,17 @@
         "test": [
             "@php artisan config:clear --ansi",
             "@php artisan test --parallel"
+        ],
+        "refactor": "vendor/bin/rector",
+        "refactor:ci": "vendor/bin/rector --dry-run",
+        "fix": [
+            "@refactor",
+            "@fmt"
+        ],
+        "ci": [
+            "@fmt:ci",
+            "@lint:ci",
+            "@refactor:ci"
         ]
     },
     "$schema": "https://getcomposer.org/schema.json"
