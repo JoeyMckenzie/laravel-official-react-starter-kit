@@ -13,7 +13,7 @@ pre-push:
       run: composer lint
 
     - name: Type check
-      run: npm run tsc
+      run: npm run types
 
     - name: Lint JS/TS files
       run: npm run lint
