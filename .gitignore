@@ -28,3 +28,5 @@ yarn-error.log
 /.phpstan
 /.junie/mcp
 .mcp.json
+.phpstorm.meta.php
+_ide_helper.php
