@@ -1,0 +1,24 @@
+pre-push:
+  jobs:
+    - name: Audit composer packages
+      tags:
+        - security
+      run: composer audit
+
+    - name: Audit npm packages
+      tags:
+        - security
+      run: npm audit
+
+pre-commit:
+  parallel: true
+  jobs:
+    - name: Fix PHP files
+      run: composer fix
+      glob: "*.php"
+      stage_fixed: true
+
+    - name: Fix JS/TS files
+      run: npm run fix
+      glob: "*.{js,ts,jsx,tsx}"
+      stage_fixed: true
