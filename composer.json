@@ -15,6 +15,8 @@
         "laravel/wayfinder": "^0.1.9"
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.16",
+        "barryvdh/laravel-ide-helper": "^3.6",
         "brianium/paratest": "^7.13",
         "driftingly/rector-laravel": "^2.0",
         "ergebnis/composer-normalize": "^2.48",
@@ -79,6 +81,11 @@
             "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
             "@php artisan migrate --graceful --ansi"
         ],
+        "ci": [
+            "@fmt:ci",
+            "@lint:ci",
+            "@refactor:ci"
+        ],
         "dev": [
             "Composer\\Config::disableProcessTimeout",
             "npx concurrently -c \"#93c5fd,#c4b5fd,#fb7185,#fdba74\" \"php artisan serve\" \"php artisan queue:listen --tries=1\" \"php artisan pail --timeout=0\" \"npm run dev\" --names=server,queue,logs,vite --kill-others"
@@ -88,24 +95,29 @@
             "Composer\\Config::disableProcessTimeout",
             "npx concurrently -c \"#93c5fd,#c4b5fd,#fb7185,#fdba74\" \"php artisan serve\" \"php artisan queue:listen --tries=1\" \"php artisan pail --timeout=0\" \"php artisan inertia:start-ssr\" --names=server,queue,logs,ssr --kill-others"
         ],
-        "fmt": "vendor/bin/pint -vv --parallel",
-        "fmt:ci": "vendor/bin/pint -vv --parallel --test",
-        "lint": "XDEBUG_MODE=off vendor/bin/phpstan analyze --memory-limit=1G",
-        "lint:ci": "vendor/bin/phpstan analyze --memory-limit=1G --error-format=github",
-        "test": [
-            "@php artisan config:clear --ansi",
-            "@php artisan test --parallel"
-        ],
-        "refactor": "vendor/bin/rector",
-        "refactor:ci": "vendor/bin/rector --dry-run",
         "fix": [
             "@refactor",
             "@fmt"
         ],
-        "ci": [
-            "@fmt:ci",
-            "@lint:ci",
-            "@refactor:ci"
+        "fmt": "vendor/bin/pint -vv --parallel",
+        "fmt:ci": "vendor/bin/pint -vv --parallel --test",
+        "generate:ide-helpers": [
+            "@php artisan ide-helper:generate",
+            "@php artisan ide-helper:models -RW",
+            "@php artisan ide-helper:meta",
+            "@fmt"
+        ],
+        "lint": "XDEBUG_MODE=off vendor/bin/phpstan analyze --memory-limit=1G",
+        "lint:ci": "vendor/bin/phpstan analyze --memory-limit=1G --error-format=github",
+        "refactor": "vendor/bin/rector",
+        "refactor:ci": "vendor/bin/rector --dry-run",
+        "reschema": [
+            "php artisan migrate:fresh --seed",
+            "@generate:ide-helpers"
+        ],
+        "test": [
+            "@php artisan config:clear --ansi",
+            "@php artisan test --parallel"
         ]
     },
     "$schema": "https://getcomposer.org/schema.json"
