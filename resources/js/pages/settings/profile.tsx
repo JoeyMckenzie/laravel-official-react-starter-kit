@@ -31,7 +31,6 @@ export default function Profile({ mustVerifyEmail, status }: { mustVerifyEmail: 
             <SettingsLayout>
                 <div className="space-y-6">
                     <HeadingSmall title="Profile information" description="Update your name and email address" />
-
                     <Form
                         {...ProfileController.update.form()}
                         options={{
@@ -47,7 +46,7 @@ export default function Profile({ mustVerifyEmail, status }: { mustVerifyEmail: 
                                     <Input
                                         id="name"
                                         className="mt-1 block w-full"
-                                        defaultValue={auth.user.name}
+                                        defaultValue={auth.user?.name}
                                         name="name"
                                         required
                                         autoComplete="name"
@@ -64,7 +63,7 @@ export default function Profile({ mustVerifyEmail, status }: { mustVerifyEmail: 
                                         id="email"
                                         type="email"
                                         className="mt-1 block w-full"
-                                        defaultValue={auth.user.email}
+                                        defaultValue={auth.user?.email}
                                         name="email"
                                         required
                                         autoComplete="username"
@@ -74,7 +73,7 @@ export default function Profile({ mustVerifyEmail, status }: { mustVerifyEmail: 
                                     <InputError className="mt-2" message={errors.email} />
                                 </div>
 
-                                {mustVerifyEmail && auth.user.email_verified_at === null ? (
+                                {mustVerifyEmail && auth.user?.email_verified_at === null ? (
                                     <div>
                                         <p className="-mt-4 text-sm text-muted-foreground">
                                             Your email address is unverified.{' '}
