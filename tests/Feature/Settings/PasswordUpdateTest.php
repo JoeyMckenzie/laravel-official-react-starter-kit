@@ -4,16 +4,21 @@ declare(strict_types=1);
 
 namespace Tests\Feature\Settings;
 
+use App\Http\Controllers\Settings\PasswordController;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Hash;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
+#[CoversClass(PasswordController::class)]
 final class PasswordUpdateTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_password_update_page_is_displayed()
+    #[Test]
+    public function password_update_page_is_displayed(): void
     {
         $user = User::factory()->create();
 
@@ -24,7 +29,8 @@ final class PasswordUpdateTest extends TestCase
         $response->assertStatus(200);
     }
 
-    public function test_password_can_be_updated()
+    #[Test]
+    public function password_can_be_updated(): void
     {
         $user = User::factory()->create();
 
@@ -41,10 +47,11 @@ final class PasswordUpdateTest extends TestCase
             ->assertSessionHasNoErrors()
             ->assertRedirect(route('password.edit'));
 
-        $this->assertTrue(Hash::check('new-password', $user->refresh()->password));
+        self::assertTrue(Hash::check('new-password', $user->refresh()->password));
     }
 
-    public function test_correct_password_must_be_provided_to_update_password()
+    #[Test]
+    public function correct_password_must_be_provided_to_update_password(): void
     {
         $user = User::factory()->create();
 
