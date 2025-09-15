@@ -81,7 +81,7 @@ export default function Register() {
                             </div>
 
                             <Button type="submit" className="mt-2 w-full" tabIndex={5} data-test="register-user-button">
-                                {processing && <LoaderCircle className="h-4 w-4 animate-spin" />}
+                                {processing ? <LoaderCircle className="h-4 w-4 animate-spin" /> : null}
                                 Create account
                             </Button>
                         </div>

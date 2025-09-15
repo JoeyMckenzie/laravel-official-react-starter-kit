@@ -16,7 +16,7 @@ const setCookie = (name: string, value: string, days = 365) => {
     }
 
     const maxAge = days * 24 * 60 * 60;
-    document.cookie = `${name}=${value};path=/;max-age=${maxAge};SameSite=Lax`;
+    document.cookie = `${name}=${value};path=/;max-age=${maxAge.toString()};SameSite=Lax`;
 };
 
 const applyTheme = (appearance: Appearance) => {
@@ -35,12 +35,12 @@ const mediaQuery = () => {
 };
 
 const handleSystemThemeChange = () => {
-    const currentAppearance = localStorage.getItem('appearance') as Appearance;
-    applyTheme(currentAppearance || 'system');
+    const currentAppearance = localStorage.getItem('appearance') as Appearance | null;
+    applyTheme(currentAppearance ?? 'system');
 };
 
 export function initializeTheme() {
-    const savedAppearance = (localStorage.getItem('appearance') as Appearance) || 'system';
+    const savedAppearance = (localStorage.getItem('appearance') as Appearance | null) ?? 'system';
 
     applyTheme(savedAppearance);
 
@@ -65,7 +65,7 @@ export function useAppearance() {
 
     useEffect(() => {
         const savedAppearance = localStorage.getItem('appearance') as Appearance | null;
-        updateAppearance(savedAppearance || 'system');
+        updateAppearance(savedAppearance ?? 'system');
 
         return () => mediaQuery()?.removeEventListener('change', handleSystemThemeChange);
     }, [updateAppearance]);

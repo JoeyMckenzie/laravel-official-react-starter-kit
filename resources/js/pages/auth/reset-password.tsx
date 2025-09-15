@@ -59,7 +59,7 @@ export default function ResetPassword({ token, email }: ResetPasswordProps) {
                         </div>
 
                         <Button type="submit" className="mt-4 w-full" disabled={processing} data-test="reset-password-button">
-                            {processing && <LoaderCircle className="h-4 w-4 animate-spin" />}
+                            {processing ? <LoaderCircle className="h-4 w-4 animate-spin" /> : null}
                             Reset password
                         </Button>
                     </div>

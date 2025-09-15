@@ -2,7 +2,7 @@ import { Button } from '@/components/ui/button';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { useAppearance } from '@/hooks/use-appearance';
 import { Monitor, Moon, Sun } from 'lucide-react';
-import { HTMLAttributes } from 'react';
+import type { HTMLAttributes } from 'react';
 
 export default function AppearanceToggleDropdown({ className = '', ...props }: HTMLAttributes<HTMLDivElement>) {
     const { appearance, updateAppearance } = useAppearance();
@@ -28,19 +28,31 @@ export default function AppearanceToggleDropdown({ className = '', ...props }: H
                     </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">
-                    <DropdownMenuItem onClick={() => updateAppearance('light')}>
+                    <DropdownMenuItem
+                        onClick={() => {
+                            updateAppearance('light');
+                        }}
+                    >
                         <span className="flex items-center gap-2">
                             <Sun className="h-5 w-5" />
                             Light
                         </span>
                     </DropdownMenuItem>
-                    <DropdownMenuItem onClick={() => updateAppearance('dark')}>
+                    <DropdownMenuItem
+                        onClick={() => {
+                            updateAppearance('dark');
+                        }}
+                    >
                         <span className="flex items-center gap-2">
                             <Moon className="h-5 w-5" />
                             Dark
                         </span>
                     </DropdownMenuItem>
-                    <DropdownMenuItem onClick={() => updateAppearance('system')}>
+                    <DropdownMenuItem
+                        onClick={() => {
+                            updateAppearance('system');
+                        }}
+                    >
                         <span className="flex items-center gap-2">
                             <Monitor className="h-5 w-5" />
                             System

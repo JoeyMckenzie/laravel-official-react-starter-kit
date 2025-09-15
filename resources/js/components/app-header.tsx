@@ -69,7 +69,7 @@ export function AppHeader({ breadcrumbs = [] }: AppHeaderProps) {
                                         <div className="flex flex-col space-y-4">
                                             {mainNavItems.map((item) => (
                                                 <Link key={item.title} href={item.href} className="flex items-center space-x-2 font-medium">
-                                                    {item.icon && <Icon iconNode={item.icon} className="h-5 w-5" />}
+                                                    {item.icon ? <Icon iconNode={item.icon} className="h-5 w-5" /> : null}
                                                     <span>{item.title}</span>
                                                 </Link>
                                             ))}
@@ -84,7 +84,7 @@ export function AppHeader({ breadcrumbs = [] }: AppHeaderProps) {
                                                     rel="noopener noreferrer"
                                                     className="flex items-center space-x-2 font-medium"
                                                 >
-                                                    {item.icon && <Icon iconNode={item.icon} className="h-5 w-5" />}
+                                                    {item.icon ? <Icon iconNode={item.icon} className="h-5 w-5" /> : null}
                                                     <span>{item.title}</span>
                                                 </a>
                                             ))}
@@ -103,8 +103,8 @@ export function AppHeader({ breadcrumbs = [] }: AppHeaderProps) {
                     <div className="ml-6 hidden h-full items-center space-x-6 lg:flex">
                         <NavigationMenu className="flex h-full items-stretch">
                             <NavigationMenuList className="flex h-full items-stretch space-x-2">
-                                {mainNavItems.map((item, index) => (
-                                    <NavigationMenuItem key={index} className="relative flex h-full items-center">
+                                {mainNavItems.map((item) => (
+                                    <NavigationMenuItem key={`nav-item-${item.title}`} className="relative flex h-full items-center">
                                         <Link
                                             href={item.href}
                                             className={cn(
@@ -113,11 +113,11 @@ export function AppHeader({ breadcrumbs = [] }: AppHeaderProps) {
                                                 'h-9 cursor-pointer px-3',
                                             )}
                                         >
-                                            {item.icon && <Icon iconNode={item.icon} className="mr-2 h-4 w-4" />}
+                                            {item.icon ? <Icon iconNode={item.icon} className="mr-2 h-4 w-4" /> : null}
                                             {item.title}
                                         </Link>
                                         {page.url === item.href && (
-                                            <div className="absolute bottom-0 left-0 h-0.5 w-full translate-y-px bg-black dark:bg-white"></div>
+                                            <div className="absolute bottom-0 left-0 h-0.5 w-full translate-y-px bg-black dark:bg-white" />
                                         )}
                                     </NavigationMenuItem>
                                 ))}
@@ -142,7 +142,9 @@ export function AppHeader({ breadcrumbs = [] }: AppHeaderProps) {
                                                     className="group ml-1 inline-flex h-9 w-9 items-center justify-center rounded-md bg-transparent p-0 text-sm font-medium text-accent-foreground ring-offset-background transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50"
                                                 >
                                                     <span className="sr-only">{item.title}</span>
-                                                    {item.icon && <Icon iconNode={item.icon} className="size-5 opacity-80 group-hover:opacity-100" />}
+                                                    {item.icon ? (
+                                                        <Icon iconNode={item.icon} className="size-5 opacity-80 group-hover:opacity-100" />
+                                                    ) : null}
                                                 </a>
                                             </TooltipTrigger>
                                             <TooltipContent>

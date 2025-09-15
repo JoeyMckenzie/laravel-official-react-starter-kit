@@ -74,7 +74,7 @@ export default function Profile({ mustVerifyEmail, status }: { mustVerifyEmail: 
                                     <InputError className="mt-2" message={errors.email} />
                                 </div>
 
-                                {mustVerifyEmail && auth.user.email_verified_at === null && (
+                                {mustVerifyEmail && auth.user.email_verified_at === null ? (
                                     <div>
                                         <p className="-mt-4 text-sm text-muted-foreground">
                                             Your email address is unverified.{' '}
@@ -93,10 +93,12 @@ export default function Profile({ mustVerifyEmail, status }: { mustVerifyEmail: 
                                             </div>
                                         )}
                                     </div>
-                                )}
+                                ) : null}
 
                                 <div className="flex items-center gap-4">
-                                    <Button disabled={processing} data-test="update-profile-button">Save</Button>
+                                    <Button disabled={processing} data-test="update-profile-button">
+                                        Save
+                                    </Button>
 
                                     <Transition
                                         show={recentlySuccessful}

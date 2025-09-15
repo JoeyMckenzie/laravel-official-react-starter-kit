@@ -43,11 +43,11 @@ export default function Login({ status, canResetPassword }: LoginProps) {
                             <div className="grid gap-2">
                                 <div className="flex items-center">
                                     <Label htmlFor="password">Password</Label>
-                                    {canResetPassword && (
+                                    {canResetPassword ? (
                                         <TextLink href={request()} className="ml-auto text-sm" tabIndex={5}>
                                             Forgot password?
                                         </TextLink>
-                                    )}
+                                    ) : null}
                                 </div>
                                 <Input
                                     id="password"
@@ -67,13 +67,13 @@ export default function Login({ status, canResetPassword }: LoginProps) {
                             </div>
 
                             <Button type="submit" className="mt-4 w-full" tabIndex={4} disabled={processing} data-test="login-button">
-                                {processing && <LoaderCircle className="h-4 w-4 animate-spin" />}
+                                {processing ? <LoaderCircle className="h-4 w-4 animate-spin" /> : null}
                                 Log in
                             </Button>
                         </div>
 
                         <div className="text-center text-sm text-muted-foreground">
-                            Don't have an account?{' '}
+                            Don&apos;t have an account?{' '}
                             <TextLink href={register()} tabIndex={5}>
                                 Sign up
                             </TextLink>
@@ -82,7 +82,7 @@ export default function Login({ status, canResetPassword }: LoginProps) {
                 )}
             </Form>
 
-            {status && <div className="mb-4 text-center text-sm font-medium text-green-600">{status}</div>}
+            {status ? <div className="mb-4 text-center text-sm font-medium text-green-600">{status}</div> : null}
         </AuthLayout>
     );
 }

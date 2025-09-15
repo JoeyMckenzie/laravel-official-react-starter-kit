@@ -23,7 +23,7 @@ export default function VerifyEmail({ status }: { status?: string }) {
                 {({ processing }) => (
                     <>
                         <Button disabled={processing} variant="secondary">
-                            {processing && <LoaderCircle className="h-4 w-4 animate-spin" />}
+                            {processing ? <LoaderCircle className="h-4 w-4 animate-spin" /> : null}
                             Resend verification email
                         </Button>
 
