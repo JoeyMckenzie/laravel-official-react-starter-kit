@@ -115,6 +115,7 @@
             "@php artisan ide-helper:meta",
             "@fmt"
         ],
+        "generate:types": "@php artisan wayfinder:generate --with-form",
         "lint": "XDEBUG_MODE=off vendor/bin/phpstan analyze --memory-limit=1G",
         "lint:ci": "vendor/bin/phpstan analyze --memory-limit=1G --error-format=github",
         "prepare:githooks": "git config core.hookspath .githooks",
