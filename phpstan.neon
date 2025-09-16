@@ -1,3 +1,6 @@
+includes:
+	- vendor/phpstan/phpstan/conf/bleedingEdge.neon
+
 parameters:
     level: max
     paths:
@@ -19,3 +22,6 @@ parameters:
         -
             message: "#Casting to string something that's already string.#"
             path: tests/Feature/Auth/EmailVerificationTest.php
+        -
+            message: '#Method App\\Http\\Requests\\[a-zA-Z]+\\[a-zA-Z]+::authorize\(\) never returns false so the return type can be changed to true.#'
+            path: app/Http/Requests/**/*.php

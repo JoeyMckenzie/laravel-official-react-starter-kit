@@ -7,7 +7,7 @@ pre-push:
     - name: Audit npm packages
       run: npm audit
 
-    - name: Check backend files
+    - name: Check backend code
       run: composer check
 
     - name: Check frontend code
