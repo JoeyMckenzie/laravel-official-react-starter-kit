@@ -1,12 +1,16 @@
 import ProfileController from '@/actions/App/Http/Controllers/Settings/ProfileController';
+import ProfileImageController from '@/actions/App/Http/Controllers/Settings/ProfileImageController';
 import { send } from '@/routes/verification';
 import { type BreadcrumbItem, type SharedData } from '@/types';
 import { Transition } from '@headlessui/react';
-import { Form, Head, Link, usePage } from '@inertiajs/react';
+import { Form, Head, Link, router, usePage } from '@inertiajs/react';
+import { Camera, Trash2 } from 'lucide-react';
+import { useRef, useState } from 'react';
 
 import DeleteUser from '@/components/delete-user';
 import HeadingSmall from '@/components/heading-small';
 import InputError from '@/components/input-error';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -23,6 +27,36 @@ const breadcrumbs: BreadcrumbItem[] = [
 
 export default function Profile({ mustVerifyEmail, status }: { mustVerifyEmail: boolean; status?: string }) {
     const { auth } = usePage<SharedData>().props;
+    const [isUploadingImage, setIsUploadingImage] = useState(false);
+    const fileInputRef = useRef<HTMLInputElement>(null);
+
+    const handleImageCallback = () => {
+        setIsUploadingImage(false);
+        if (fileInputRef.current) {
+            fileInputRef.current.value = '';
+        }
+    };
+
+    const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const file = event.target.files?.[0];
+
+        if (!file) {
+            return;
+        }
+
+        setIsUploadingImage(true);
+        const formData = new FormData();
+        formData.append('image', file);
+
+        router.post(ProfileImageController.store().url, formData, {
+            onSuccess: handleImageCallback,
+            onError: () => handleImageCallback,
+        });
+    };
+
+    const handleImageDelete = () => {
+        router.delete(ProfileImageController.destroy().url);
+    };
 
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
@@ -31,6 +65,44 @@ export default function Profile({ mustVerifyEmail, status }: { mustVerifyEmail: 
             <SettingsLayout>
                 <div className="space-y-6">
                     <HeadingSmall title="Profile information" description="Update your name and email address" />
+
+                    {/* Profile Image Section */}
+                    <div className="space-y-4">
+                        <div className="flex items-center gap-6">
+                            <Avatar className="h-20 w-20">
+                                <AvatarImage src={auth.user?.profile_image} alt={auth.user?.full_name} />
+                                <AvatarFallback className="bg-neutral-200 text-xl text-black dark:bg-neutral-700 dark:text-white">
+                                    {auth.user?.initials}
+                                </AvatarFallback>
+                            </Avatar>
+
+                            <div className="flex gap-2">
+                                <Button
+                                    type="button"
+                                    variant="outline"
+                                    onClick={() => fileInputRef.current?.click()}
+                                    disabled={isUploadingImage}
+                                    className="flex items-center gap-2"
+                                >
+                                    <Camera className="h-4 w-4" />
+                                    {isUploadingImage ? 'Uploading...' : 'Change Photo'}
+                                </Button>
+
+                                {auth.user?.avatar ? (
+                                    <Button type="button" variant="outline" onClick={handleImageDelete} className="flex items-center gap-2">
+                                        <Trash2 className="h-4 w-4" />
+                                        Remove
+                                    </Button>
+                                ) : null}
+                            </div>
+                        </div>
+
+                        <input ref={fileInputRef} type="file" accept="image/*" onChange={handleImageUpload} className="hidden" />
+
+                        <p className="text-sm text-muted-foreground">
+                            Upload a square image for best results. Maximum size: 5MB. Minimum dimensions: 100x100px.
+                        </p>
+                    </div>
                     <Form
                         {...ProfileController.update.form()}
                         options={{
@@ -40,20 +112,38 @@ export default function Profile({ mustVerifyEmail, status }: { mustVerifyEmail: 
                     >
                         {({ processing, recentlySuccessful, errors }) => (
                             <>
-                                <div className="grid gap-2">
-                                    <Label htmlFor="name">Name</Label>
+                                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                                    <div className="grid gap-2">
+                                        <Label htmlFor="first_name">First name</Label>
 
-                                    <Input
-                                        id="name"
-                                        className="mt-1 block w-full"
-                                        defaultValue={auth.user?.name}
-                                        name="name"
-                                        required
-                                        autoComplete="name"
-                                        placeholder="Full name"
-                                    />
+                                        <Input
+                                            id="first_name"
+                                            className="mt-1 block w-full"
+                                            defaultValue={auth.user?.first_name}
+                                            name="first_name"
+                                            required
+                                            autoComplete="first_name"
+                                            placeholder="First name"
+                                        />
 
-                                    <InputError className="mt-2" message={errors.name} />
+                                        <InputError className="mt-2" message={errors.first_name} />
+                                    </div>
+
+                                    <div className="grid gap-2">
+                                        <Label htmlFor="last_name">Last name</Label>
+
+                                        <Input
+                                            id="last_name"
+                                            className="mt-1 block w-full"
+                                            defaultValue={auth.user?.last_name}
+                                            name="last_name"
+                                            required
+                                            autoComplete="last_name"
+                                            placeholder="Last name"
+                                        />
+
+                                        <InputError className="mt-2" message={errors.last_name} />
+                                    </div>
                                 </div>
 
                                 <div className="grid gap-2">

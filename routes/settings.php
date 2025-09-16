@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use App\Http\Controllers\Settings\PasswordController;
 use App\Http\Controllers\Settings\ProfileController;
+use App\Http\Controllers\Settings\ProfileImageController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -13,6 +14,9 @@ Route::middleware('auth')->group(function (): void {
     Route::get('settings/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('settings/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('settings/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::post('settings/profile/image', [ProfileImageController::class, 'store'])->name('profile.image.store');
+    Route::delete('settings/profile/image', [ProfileImageController::class, 'destroy'])->name('profile.image.destroy');
 
     Route::get('settings/password', [PasswordController::class, 'edit'])->name('password.edit');
 

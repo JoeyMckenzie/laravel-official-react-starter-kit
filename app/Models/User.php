@@ -15,12 +15,14 @@ use Illuminate\Notifications\DatabaseNotification;
 use Illuminate\Notifications\DatabaseNotificationCollection;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * @property int $id
  * @property string $first_name
  * @property string $last_name
  * @property string $email
+ * @property string|null $avatar
  * @property Carbon|null $email_verified_at
  * @property string $password
  * @property string|null $remember_token
@@ -30,11 +32,13 @@ use Illuminate\Support\Carbon;
  * @property-read string $initials
  * @property-read DatabaseNotificationCollection<int, DatabaseNotification> $notifications
  * @property-read int|null $notifications_count
+ * @property-read string|null $profile_image
  *
- * @method static UserFactory factory($count = null, $state = [])
+ * @method static \Database\Factories\UserFactory factory($count = null, $state = [])
  * @method static Builder<static>|User newModelQuery()
  * @method static Builder<static>|User newQuery()
  * @method static Builder<static>|User query()
+ * @method static Builder<static>|User whereAvatar($value)
  * @method static Builder<static>|User whereCreatedAt($value)
  * @method static Builder<static>|User whereEmail($value)
  * @method static Builder<static>|User whereEmailVerifiedAt($value)
@@ -55,6 +59,7 @@ final class User extends Authenticatable implements MustVerifyEmail
     protected $appends = [
         'full_name',
         'initials',
+        'profile_image',
     ];
 
     /**
@@ -67,6 +72,7 @@ final class User extends Authenticatable implements MustVerifyEmail
         'last_name',
         'email',
         'password',
+        'avatar',
     ];
 
     /**
@@ -109,5 +115,17 @@ final class User extends Authenticatable implements MustVerifyEmail
         $lastNameInitial = mb_substr($this->last_name ?? '', 0, 1);
 
         return Attribute::make(fn (): string => $firstNameInitial.$lastNameInitial);
+    }
+
+    /**
+     * @return Attribute<?string, ?string>
+     */
+    protected function profileImage(): Attribute
+    {
+        $avatar = $this->avatar !== null
+            ? Storage::url($this->avatar)
+            : null;
+
+        return Attribute::make(fn (): ?string => $avatar);
     }
 }
