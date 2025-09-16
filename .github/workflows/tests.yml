@@ -44,6 +44,9 @@ jobs:
       - name: Install Dependencies
         run: composer install --no-interaction --prefer-dist --optimize-autoloader
 
+      - name: Generate types
+        run: composer generate:types
+
       - name: Build Assets
         run: npm run build
 
