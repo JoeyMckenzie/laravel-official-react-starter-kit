@@ -27,6 +27,7 @@
         "laravel/pint": "^1.24",
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^8.8",
+        "peckphp/peck": "^0.1.3",
         "phpstan/extension-installer": "^1.4",
         "phpstan/phpstan": "^2.1",
         "phpstan/phpstan-deprecation-rules": "^2.0",
@@ -84,7 +85,8 @@
         "check": [
             "@fmt:test",
             "@lint",
-            "@refactor:test"
+            "@refactor:test",
+            "@typos"
         ],
         "ci": [
             "@fmt:test",
@@ -102,7 +104,8 @@
         ],
         "fix": [
             "@refactor",
-            "@fmt"
+            "@fmt",
+            "@composer normalize"
         ],
         "fmt": "vendor/bin/pint -vv --parallel",
         "fmt:test": "vendor/bin/pint -vv --parallel --test",
@@ -124,7 +127,8 @@
         "test": [
             "@php artisan config:clear --ansi",
             "@php artisan test --parallel"
-        ]
+        ],
+        "typos": "vendor/bin/peck"
     },
     "$schema": "https://getcomposer.org/schema.json"
 }
