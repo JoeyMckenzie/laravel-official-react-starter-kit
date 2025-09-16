@@ -1,18 +1,25 @@
-name: tests
+name: Run tests
 
 on:
   push:
     branches:
-      - develop
       - main
+      - template/kitchen-sink
   pull_request:
     branches:
-      - develop
       - main
+      - template/kitchen-sink
 
 jobs:
   ci:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
+    strategy:
+      fail-fast: true
+      matrix:
+        os: [ ubuntu-latest ]
+        php: [ 8.4 ]
+        stability: [ prefer-lowest, prefer-stable ]
 
     steps:
       - name: Checkout
@@ -46,5 +53,11 @@ jobs:
       - name: Generate Application Key
         run: php artisan key:generate
 
-      - name: Tests
-        run: ./vendor/bin/phpunit
+      - name: Run tests with coverage
+        run: composer test:coverage
+
+      - name: Upload coverage reports to Codecov
+        if: ${{ !cancelled() && matrix.php == '8.4' && matrix.stability == 'prefer-stable' && github.ref == 'refs/heads/main' }}
+        uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}

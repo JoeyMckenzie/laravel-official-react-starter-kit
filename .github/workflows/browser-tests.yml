@@ -6,11 +6,13 @@ on:
       - pest-ci
       - develop
       - main
+      - template/kitchen-sink
   pull_request:
     branches:
       - pest-ci
       - develop
       - main
+      - template/kitchen-sink
 
 jobs:
   ci:
@@ -59,10 +61,10 @@ jobs:
 
       - name: Setup Test Environment
         run: |
-           cp vendor/laravel-labs/starter-kit-browser-tests/phpunit.xml.dist .
-           rm phpunit.xml
-           rm -Rf tests/
-           cp -rf vendor/laravel-labs/starter-kit-browser-tests/tests/ tests/
+          cp vendor/laravel-labs/starter-kit-browser-tests/phpunit.xml.dist .
+          rm phpunit.xml
+          rm -Rf tests/
+          cp -rf vendor/laravel-labs/starter-kit-browser-tests/tests/ tests/
 
       - name: Build Assets
         run: npm run build

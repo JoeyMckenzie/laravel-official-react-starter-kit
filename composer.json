@@ -91,7 +91,8 @@
         "ci": [
             "@fmt:test",
             "@lint:ci",
-            "@refactor:test"
+            "@refactor:test",
+            "@typos"
         ],
         "dev": [
             "Composer\\Config::disableProcessTimeout",
@@ -127,6 +128,10 @@
         "test": [
             "@php artisan config:clear --ansi",
             "@php artisan test --parallel"
+        ],
+        "test:coverage": [
+            "@php artisan config:clear --ansi",
+            "@php artisan test --parallel --coverage-clover coverage.xml"
         ],
         "typos": "vendor/bin/peck"
     },
