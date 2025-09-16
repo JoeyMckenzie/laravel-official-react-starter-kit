@@ -10,7 +10,8 @@
         "lint": "eslint .",
         "lint:fix": "eslint . --fix",
         "types": "tsc --noEmit",
-        "fix": "npm run fmt && npm run lint:fix"
+        "fix": "npm run fmt && npm run lint:fix",
+        "check": "npm run fmt:check && npm run lint && npm run types"
     },
     "devDependencies": {
         "@eslint/js": "^9.19.0",

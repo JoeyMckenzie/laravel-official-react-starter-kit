@@ -83,16 +83,14 @@ export default [
         },
         rules: {
             'react-hooks/rules-of-hooks': 'error',
-            'react-hooks/exhaustive-deps': 'error', // Changed from warn to error
+            'react-hooks/exhaustive-deps': 'error',
         },
     },
     {
-        // TypeScript-specific overrides
         files: ['**/*.ts', '**/*.tsx'],
         rules: {
-            // These rules are redundant with TypeScript
             'no-undef': 'off',
-            'no-unused-vars': 'off', // Use @typescript-eslint/no-unused-vars instead
+            'no-unused-vars': 'off',
         },
     },
     {
@@ -106,7 +104,7 @@ export default [
             'build',
             'resources/js/components/ui',
             'resources/js/wayfinder',
-            '*.config.js', // Ignore all config files if needed
+            '*.config.js',
         ],
     },
     prettier, // Turn off all rules that might conflict with Prettier

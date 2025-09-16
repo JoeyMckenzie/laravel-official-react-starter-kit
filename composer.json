@@ -81,10 +81,15 @@
             "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
             "@php artisan migrate --graceful --ansi"
         ],
+        "check": [
+            "@fmt:test",
+            "@lint",
+            "@refactor:test"
+        ],
         "ci": [
-            "@fmt:ci",
+            "@fmt:test",
             "@lint:ci",
-            "@refactor:ci"
+            "@refactor:test"
         ],
         "dev": [
             "Composer\\Config::disableProcessTimeout",
@@ -100,7 +105,7 @@
             "@fmt"
         ],
         "fmt": "vendor/bin/pint -vv --parallel",
-        "fmt:ci": "vendor/bin/pint -vv --parallel --test",
+        "fmt:test": "vendor/bin/pint -vv --parallel --test",
         "generate:ide-helpers": [
             "@php artisan ide-helper:generate",
             "@php artisan ide-helper:models -RW",
@@ -111,7 +116,7 @@
         "lint:ci": "vendor/bin/phpstan analyze --memory-limit=1G --error-format=github",
         "prepare:githooks": "git config core.hookspath .githooks",
         "refactor": "vendor/bin/rector",
-        "refactor:ci": "vendor/bin/rector --dry-run",
+        "refactor:test": "vendor/bin/rector --dry-run",
         "reschema": [
             "php artisan migrate:fresh --seed",
             "@generate:ide-helpers"
