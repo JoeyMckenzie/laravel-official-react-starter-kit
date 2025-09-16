@@ -29,6 +29,9 @@ jobs:
           composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
           npm install
 
+      - name: Generate types
+        run: composer generate:types
+
       - name: Lint frontend code
         run: npm run ci
 
