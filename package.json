@@ -7,11 +7,11 @@
         "dev": "vite",
         "fmt": "prettier --write resources/",
         "fmt:check": "prettier --check resources/",
-        "lint": "eslint .",
-        "lint:fix": "eslint . --fix",
+        "lint": "tsc && eslint .",
+        "lint:fix": "tsc && eslint . --fix",
         "types": "tsc --noEmit",
         "fix": "npm run fmt && npm run lint:fix",
-        "check": "npm run fmt:check && npm run lint && npm run types",
+        "check": "npm run fmt:check && npm run lint",
         "ci": "npm run ci && npm run build:ssr"
     },
     "devDependencies": {
