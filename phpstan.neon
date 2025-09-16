@@ -7,11 +7,7 @@ parameters:
         - bootstrap/app.php
         - bootstrap/providers.php
         - public/index.php
-    tmpDir: build/phpstan
+    tmpDir: .phpstan
     reportUnmatchedIgnoredErrors: true
-    checkOctaneCompatibility: true
-    checkModelProperties: true
-    ignoreErrors:
-        -
-            message: '#Dynamic call to static method Illuminate\\Http\\Request::validate\(\).#'
-            path: app/Http/Controllers/**/*.php
+    # checkOctaneCompatibility: true
+    # checkModelProperties: true

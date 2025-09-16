@@ -27,3 +27,4 @@ yarn-error.log
 /.zed
 .mcp.json
 .junie/mcp/mcp.json
+.phpstan
