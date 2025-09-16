@@ -104,8 +104,7 @@
         ],
         "fix": [
             "@refactor",
-            "@fmt",
-            "@composer normalize"
+            "@fmt"
         ],
         "fmt": "vendor/bin/pint -vv --parallel",
         "fmt:test": "vendor/bin/pint -vv --parallel --test",

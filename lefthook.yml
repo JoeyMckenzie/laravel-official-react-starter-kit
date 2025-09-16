@@ -25,3 +25,8 @@ pre-commit:
       run: npm run fix
       glob: "*.{js,ts,jsx,tsx}"
       stage_fixed: true
+
+    - name: Fix composer file
+      run: composer normalize
+      glob: "composer.json"
+      stage_fixed: true
