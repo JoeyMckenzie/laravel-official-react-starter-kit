@@ -30,7 +30,6 @@ export default [
         rules: {
             // React rules
             'react/react-in-jsx-scope': 'off',
-            'react/prop-types': 'off', // Turn off since you're using TypeScript
             'react/no-unescaped-entities': 'warn',
             'react/jsx-no-leaked-render': 'error', // Prevent 0 being rendered
             'react/jsx-key': 'error', // Require keys in lists
