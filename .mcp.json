@@ -1,0 +1,20 @@
+{
+    "mcpServers": {
+        "laravel-boost": {
+            "command": "php",
+            "args": [
+                "artisan",
+                "boost:mcp"
+            ]
+        },
+        "herd": {
+            "command": "php",
+            "args": [
+                "/path/to/herd-mcp.phar"
+            ],
+            "env": {
+                "SITE_PATH": "/path/to/laravel-official-react-starter-kit"
+            }
+        }
+    }
+}

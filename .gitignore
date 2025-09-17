@@ -27,7 +27,6 @@ yarn-error.log
 /.zed
 /.phpstan
 /.junie/mcp
-.mcp.json
 .phpstorm.meta.php
 _ide_helper.php
 .serena
