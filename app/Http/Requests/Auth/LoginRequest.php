@@ -43,11 +43,12 @@ final class LoginRequest extends FormRequest
     public function validateCredentials(): User
     {
         $this->ensureIsNotRateLimited();
+        $authProvider = Auth::getProvider();
 
         /** @var User|null $user */
-        $user = Auth::getProvider()->retrieveByCredentials($this->only('email', 'password'));
+        $user = $authProvider->retrieveByCredentials($this->only('email', 'password'));
 
-        if (! $user || ! Auth::getProvider()->validateCredentials($user, $this->only('password'))) {
+        if ($user === null || ! $authProvider->validateCredentials($user, $this->only('password'))) {
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([

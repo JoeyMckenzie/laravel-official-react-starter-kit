@@ -6,18 +6,21 @@ namespace Tests\Feature\Settings;
 
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Config;
 use Inertia\Testing\AssertableInertia as Assert;
 use Laravel\Fortify\Features;
+use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
 final class TwoFactorAuthenticationTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_two_factor_settings_page_can_be_rendered(): void
+    #[Test]
+    public function two_factor_settings_page_can_be_rendered(): void
     {
         if (! Features::canManageTwoFactorAuthentication()) {
-            $this->markTestSkipped('Two-factor authentication is not enabled.');
+            self::markTestSkipped('Two-factor authentication is not enabled.');
         }
 
         Features::twoFactorAuthentication([
@@ -36,10 +39,11 @@ final class TwoFactorAuthenticationTest extends TestCase
             );
     }
 
-    public function test_two_factor_settings_page_requires_password_confirmation_when_enabled(): void
+    #[Test]
+    public function two_factor_settings_page_requires_password_confirmation_when_enabled(): void
     {
         if (! Features::canManageTwoFactorAuthentication()) {
-            $this->markTestSkipped('Two-factor authentication is not enabled.');
+            self::markTestSkipped('Two-factor authentication is not enabled.');
         }
 
         $user = User::factory()->create();
@@ -55,10 +59,11 @@ final class TwoFactorAuthenticationTest extends TestCase
         $response->assertRedirect(route('password.confirm'));
     }
 
-    public function test_two_factor_settings_page_does_not_requires_password_confirmation_when_disabled(): void
+    #[Test]
+    public function two_factor_settings_page_does_not_requires_password_confirmation_when_disabled(): void
     {
         if (! Features::canManageTwoFactorAuthentication()) {
-            $this->markTestSkipped('Two-factor authentication is not enabled.');
+            self::markTestSkipped('Two-factor authentication is not enabled.');
         }
 
         $user = User::factory()->create();
@@ -76,13 +81,14 @@ final class TwoFactorAuthenticationTest extends TestCase
             );
     }
 
-    public function test_two_factor_settings_page_returns_forbidden_response_when_two_factor_is_disabled(): void
+    #[Test]
+    public function two_factor_settings_page_returns_forbidden_response_when_two_factor_is_disabled(): void
     {
         if (! Features::canManageTwoFactorAuthentication()) {
-            $this->markTestSkipped('Two-factor authentication is not enabled.');
+            self::markTestSkipped('Two-factor authentication is not enabled.');
         }
 
-        config(['fortify.features' => []]);
+        Config::set('fortify.features', []);
 
         $user = User::factory()->create();
 

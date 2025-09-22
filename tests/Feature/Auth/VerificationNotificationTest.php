@@ -8,13 +8,15 @@ use App\Models\User;
 use Illuminate\Auth\Notifications\VerifyEmail;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Notification;
+use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
 final class VerificationNotificationTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_sends_verification_notification(): void
+    #[Test]
+    public function sends_verification_notification(): void
     {
         Notification::fake();
 
@@ -29,7 +31,8 @@ final class VerificationNotificationTest extends TestCase
         Notification::assertSentTo($user, VerifyEmail::class);
     }
 
-    public function test_does_not_send_verification_notification_if_email_is_verified(): void
+    #[Test]
+    public function does_not_send_verification_notification_if_email_is_verified(): void
     {
         Notification::fake();
 
