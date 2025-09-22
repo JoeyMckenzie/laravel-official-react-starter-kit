@@ -7,6 +7,7 @@ namespace Tests\Feature\Auth;
 use App\Http\Controllers\Auth\ConfirmablePasswordController;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Inertia\Testing\AssertableInertia as Assert;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
@@ -26,6 +27,10 @@ final class PasswordConfirmationTest extends TestCase
             ->get(route('password.confirm'));
 
         $response->assertStatus(200);
+
+        $response->assertInertia(fn (Assert $page): Assert => $page
+            ->component('auth/confirm-password')
+        );
     }
 
     #[Test]
@@ -55,5 +60,13 @@ final class PasswordConfirmationTest extends TestCase
             ]);
 
         $response->assertSessionHasErrors();
+    }
+
+    #[Test]
+    public function password_confirmation_requires_authentication(): void
+    {
+        $response = $this->get(route('password.confirm'));
+
+        $response->assertRedirect(route('login'));
     }
 }
