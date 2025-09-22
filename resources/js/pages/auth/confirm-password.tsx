@@ -15,19 +15,35 @@ export default function ConfirmPassword() {
         >
             <Head title="Confirm password" />
 
-            <Form {...ConfirmablePasswordController.store.form()} resetOnSuccess={['password']}>
+            <Form
+                {...ConfirmablePasswordController.store.form()}
+                resetOnSuccess={['password']}
+            >
                 {({ processing, errors }) => (
                     <div className="space-y-6">
                         <div className="grid gap-2">
                             <Label htmlFor="password">Password</Label>
-                            <Input id="password" type="password" name="password" placeholder="Password" autoComplete="current-password" autoFocus />
+                            <Input
+                                id="password"
+                                type="password"
+                                name="password"
+                                placeholder="Password"
+                                autoComplete="current-password"
+                                autoFocus
+                            />
 
                             <InputError message={errors.password} />
                         </div>
 
                         <div className="flex items-center">
-                            <Button className="w-full" disabled={processing} data-test="confirm-password-button">
-                                {processing ? <LoaderCircle className="h-4 w-4 animate-spin" /> : null}
+                            <Button
+                                className="w-full"
+                                disabled={processing}
+                                data-test="confirm-password-button"
+                            >
+                                {processing ? (
+                                    <LoaderCircle className="h-4 w-4 animate-spin" />
+                                ) : null}
                                 Confirm password
                             </Button>
                         </div>

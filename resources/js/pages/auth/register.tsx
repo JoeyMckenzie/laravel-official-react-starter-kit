@@ -12,7 +12,10 @@ import AuthLayout from '@/layouts/auth-layout';
 
 export default function Register() {
     return (
-        <AuthLayout title="Create an account" description="Enter your details below to create your account">
+        <AuthLayout
+            title="Create an account"
+            description="Enter your details below to create your account"
+        >
             <Head title="Register" />
             <Form
                 {...RegisteredUserController.store.form()}
@@ -25,7 +28,9 @@ export default function Register() {
                         <div className="grid gap-6">
                             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                                 <div className="grid gap-2">
-                                    <Label htmlFor="first_name">First name</Label>
+                                    <Label htmlFor="first_name">
+                                        First name
+                                    </Label>
                                     <Input
                                         id="first_name"
                                         type="text"
@@ -36,7 +41,10 @@ export default function Register() {
                                         name="first_name"
                                         placeholder="First name"
                                     />
-                                    <InputError message={errors.first_name} className="mt-2" />
+                                    <InputError
+                                        message={errors.first_name}
+                                        className="mt-2"
+                                    />
                                 </div>
 
                                 <div className="grid gap-2">
@@ -51,7 +59,10 @@ export default function Register() {
                                         name="last_name"
                                         placeholder="Last name"
                                     />
-                                    <InputError message={errors.last_name} className="mt-2" />
+                                    <InputError
+                                        message={errors.last_name}
+                                        className="mt-2"
+                                    />
                                 </div>
                             </div>
 
@@ -84,7 +95,9 @@ export default function Register() {
                             </div>
 
                             <div className="grid gap-2">
-                                <Label htmlFor="password_confirmation">Confirm password</Label>
+                                <Label htmlFor="password_confirmation">
+                                    Confirm password
+                                </Label>
                                 <Input
                                     id="password_confirmation"
                                     type="password"
@@ -94,11 +107,20 @@ export default function Register() {
                                     name="password_confirmation"
                                     placeholder="Confirm password"
                                 />
-                                <InputError message={errors.password_confirmation} />
+                                <InputError
+                                    message={errors.password_confirmation}
+                                />
                             </div>
 
-                            <Button type="submit" className="mt-2 w-full" tabIndex={5} data-test="register-user-button">
-                                {processing ? <LoaderCircle className="h-4 w-4 animate-spin" /> : null}
+                            <Button
+                                type="submit"
+                                className="mt-2 w-full"
+                                tabIndex={5}
+                                data-test="register-user-button"
+                            >
+                                {processing ? (
+                                    <LoaderCircle className="h-4 w-4 animate-spin" />
+                                ) : null}
                                 Create account
                             </Button>
                         </div>

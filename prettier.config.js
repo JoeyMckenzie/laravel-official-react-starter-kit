@@ -4,8 +4,11 @@ const config = {
     singleQuote: true,
     singleAttributePerLine: false,
     htmlWhitespaceSensitivity: 'css',
-    printWidth: 150,
-    plugins: ['prettier-plugin-organize-imports', 'prettier-plugin-tailwindcss'],
+    printWidth: 80,
+    plugins: [
+        'prettier-plugin-organize-imports',
+        'prettier-plugin-tailwindcss',
+    ],
     tailwindFunctions: ['clsx', 'cn'],
     tailwindStylesheet: 'resources/css/app.css',
     tabWidth: 4,

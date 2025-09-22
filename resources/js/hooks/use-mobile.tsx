@@ -7,7 +7,9 @@ export function useIsMobile() {
 
     useEffect(() => {
         const breakpoint = MOBILE_BREAKPOINT - 1;
-        const mql = window.matchMedia(`(max-width: ${breakpoint.toString()}px)`);
+        const mql = window.matchMedia(
+            `(max-width: ${breakpoint.toString()}px)`,
+        );
 
         const onChange = () => {
             setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);

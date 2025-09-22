@@ -20,7 +20,8 @@ const setCookie = (name: string, value: string, days = 365) => {
 };
 
 const applyTheme = (appearance: Appearance) => {
-    const isDark = appearance === 'dark' || (appearance === 'system' && prefersDark());
+    const isDark =
+        appearance === 'dark' || (appearance === 'system' && prefersDark());
 
     document.documentElement.classList.toggle('dark', isDark);
     document.documentElement.style.colorScheme = isDark ? 'dark' : 'light';
@@ -35,12 +36,15 @@ const mediaQuery = () => {
 };
 
 const handleSystemThemeChange = () => {
-    const currentAppearance = localStorage.getItem('appearance') as Appearance | null;
+    const currentAppearance = localStorage.getItem(
+        'appearance',
+    ) as Appearance | null;
     applyTheme(currentAppearance ?? 'system');
 };
 
 export function initializeTheme() {
-    const savedAppearance = (localStorage.getItem('appearance') as Appearance | null) ?? 'system';
+    const savedAppearance =
+        (localStorage.getItem('appearance') as Appearance | null) ?? 'system';
 
     applyTheme(savedAppearance);
 
@@ -64,10 +68,16 @@ export function useAppearance() {
     }, []);
 
     useEffect(() => {
-        const savedAppearance = localStorage.getItem('appearance') as Appearance | null;
+        const savedAppearance = localStorage.getItem(
+            'appearance',
+        ) as Appearance | null;
         updateAppearance(savedAppearance ?? 'system');
 
-        return () => mediaQuery()?.removeEventListener('change', handleSystemThemeChange);
+        return () =>
+            mediaQuery()?.removeEventListener(
+                'change',
+                handleSystemThemeChange,
+            );
     }, [updateAppearance]);
 
     return { appearance, updateAppearance } as const;

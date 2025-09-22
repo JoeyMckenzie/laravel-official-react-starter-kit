@@ -25,7 +25,13 @@ const breadcrumbs: BreadcrumbItem[] = [
     },
 ];
 
-export default function Profile({ mustVerifyEmail, status }: { mustVerifyEmail: boolean; status?: string }) {
+export default function Profile({
+    mustVerifyEmail,
+    status,
+}: {
+    mustVerifyEmail: boolean;
+    status?: string;
+}) {
     const { auth } = usePage<SharedData>().props;
     const [isUploadingImage, setIsUploadingImage] = useState(false);
     const fileInputRef = useRef<HTMLInputElement>(null);
@@ -64,13 +70,19 @@ export default function Profile({ mustVerifyEmail, status }: { mustVerifyEmail: 
 
             <SettingsLayout>
                 <div className="space-y-6">
-                    <HeadingSmall title="Profile information" description="Update your name and email address" />
+                    <HeadingSmall
+                        title="Profile information"
+                        description="Update your name and email address"
+                    />
 
                     {/* Profile Image Section */}
                     <div className="space-y-4">
                         <div className="flex items-center gap-6">
                             <Avatar className="h-20 w-20">
-                                <AvatarImage src={auth.user?.profile_image} alt={auth.user?.full_name} />
+                                <AvatarImage
+                                    src={auth.user?.profile_image}
+                                    alt={auth.user?.full_name}
+                                />
                                 <AvatarFallback className="bg-neutral-200 text-xl text-black dark:bg-neutral-700 dark:text-white">
                                     {auth.user?.initials}
                                 </AvatarFallback>
@@ -80,16 +92,25 @@ export default function Profile({ mustVerifyEmail, status }: { mustVerifyEmail: 
                                 <Button
                                     type="button"
                                     variant="outline"
-                                    onClick={() => fileInputRef.current?.click()}
+                                    onClick={() =>
+                                        fileInputRef.current?.click()
+                                    }
                                     disabled={isUploadingImage}
                                     className="flex items-center gap-2"
                                 >
                                     <Camera className="h-4 w-4" />
-                                    {isUploadingImage ? 'Uploading...' : 'Change Photo'}
+                                    {isUploadingImage
+                                        ? 'Uploading...'
+                                        : 'Change Photo'}
                                 </Button>
 
                                 {auth.user?.avatar ? (
-                                    <Button type="button" variant="outline" onClick={handleImageDelete} className="flex items-center gap-2">
+                                    <Button
+                                        type="button"
+                                        variant="outline"
+                                        onClick={handleImageDelete}
+                                        className="flex items-center gap-2"
+                                    >
                                         <Trash2 className="h-4 w-4" />
                                         Remove
                                     </Button>
@@ -97,10 +118,17 @@ export default function Profile({ mustVerifyEmail, status }: { mustVerifyEmail: 
                             </div>
                         </div>
 
-                        <input ref={fileInputRef} type="file" accept="image/*" onChange={handleImageUpload} className="hidden" />
+                        <input
+                            ref={fileInputRef}
+                            type="file"
+                            accept="image/*"
+                            onChange={handleImageUpload}
+                            className="hidden"
+                        />
 
                         <p className="text-sm text-muted-foreground">
-                            Upload a square image for best results. Maximum size: 5MB. Minimum dimensions: 100x100px.
+                            Upload a square image for best results. Maximum
+                            size: 5MB. Minimum dimensions: 100x100px.
                         </p>
                     </div>
                     <Form
@@ -114,7 +142,9 @@ export default function Profile({ mustVerifyEmail, status }: { mustVerifyEmail: 
                             <>
                                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                                     <div className="grid gap-2">
-                                        <Label htmlFor="first_name">First name</Label>
+                                        <Label htmlFor="first_name">
+                                            First name
+                                        </Label>
 
                                         <Input
                                             id="first_name"
@@ -126,11 +156,16 @@ export default function Profile({ mustVerifyEmail, status }: { mustVerifyEmail: 
                                             placeholder="First name"
                                         />
 
-                                        <InputError className="mt-2" message={errors.first_name} />
+                                        <InputError
+                                            className="mt-2"
+                                            message={errors.first_name}
+                                        />
                                     </div>
 
                                     <div className="grid gap-2">
-                                        <Label htmlFor="last_name">Last name</Label>
+                                        <Label htmlFor="last_name">
+                                            Last name
+                                        </Label>
 
                                         <Input
                                             id="last_name"
@@ -142,7 +177,10 @@ export default function Profile({ mustVerifyEmail, status }: { mustVerifyEmail: 
                                             placeholder="Last name"
                                         />
 
-                                        <InputError className="mt-2" message={errors.last_name} />
+                                        <InputError
+                                            className="mt-2"
+                                            message={errors.last_name}
+                                        />
                                     </div>
                                 </div>
 
@@ -160,10 +198,14 @@ export default function Profile({ mustVerifyEmail, status }: { mustVerifyEmail: 
                                         placeholder="Email address"
                                     />
 
-                                    <InputError className="mt-2" message={errors.email} />
+                                    <InputError
+                                        className="mt-2"
+                                        message={errors.email}
+                                    />
                                 </div>
 
-                                {mustVerifyEmail && auth.user?.email_verified_at === null ? (
+                                {mustVerifyEmail &&
+                                auth.user?.email_verified_at === null ? (
                                     <div>
                                         <p className="-mt-4 text-sm text-muted-foreground">
                                             Your email address is unverified.{' '}
@@ -172,20 +214,26 @@ export default function Profile({ mustVerifyEmail, status }: { mustVerifyEmail: 
                                                 as="button"
                                                 className="text-foreground underline decoration-neutral-300 underline-offset-4 transition-colors duration-300 ease-out hover:decoration-current! dark:decoration-neutral-500"
                                             >
-                                                Click here to resend the verification email.
+                                                Click here to resend the
+                                                verification email.
                                             </Link>
                                         </p>
 
-                                        {status === 'verification-link-sent' && (
+                                        {status ===
+                                            'verification-link-sent' && (
                                             <div className="mt-2 text-sm font-medium text-green-600">
-                                                A new verification link has been sent to your email address.
+                                                A new verification link has been
+                                                sent to your email address.
                                             </div>
                                         )}
                                     </div>
                                 ) : null}
 
                                 <div className="flex items-center gap-4">
-                                    <Button disabled={processing} data-test="update-profile-button">
+                                    <Button
+                                        disabled={processing}
+                                        data-test="update-profile-button"
+                                    >
                                         Save
                                     </Button>
 
@@ -196,7 +244,9 @@ export default function Profile({ mustVerifyEmail, status }: { mustVerifyEmail: 
                                         leave="transition ease-in-out"
                                         leaveTo="opacity-0"
                                     >
-                                        <p className="text-sm text-neutral-600">Saved</p>
+                                        <p className="text-sm text-neutral-600">
+                                            Saved
+                                        </p>
                                     </Transition>
                                 </div>
                             </>
