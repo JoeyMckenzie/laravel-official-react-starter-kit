@@ -1,10 +1,9 @@
 import '../css/app.css';
 
-import { ThemeProvider } from '@/components/theme-provider';
+import { ThemeProvider, initializeTheme } from '@/components/theme-provider';
 import { createInertiaApp } from '@inertiajs/react';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { createRoot } from 'react-dom/client';
-import { initializeTheme } from './hooks/use-appearance';
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
@@ -32,4 +31,4 @@ await createInertiaApp({
 });
 
 // This will set light / dark mode on load...
-initializeTheme();
+initializeTheme('vite-ui-theme', 'system');
