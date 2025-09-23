@@ -97,4 +97,32 @@ final class TwoFactorAuthenticationTest extends TestCase
             ->get(route('two-factor.show'))
             ->assertForbidden();
     }
+
+    #[Test]
+    public function users_can_enable_two_factor_authentication(): void
+    {
+        if (! Features::canManageTwoFactorAuthentication()) {
+            self::markTestSkipped('Two-factor authentication is not enabled.');
+        }
+
+        Features::twoFactorAuthentication([
+            'confirm' => true,
+            'confirmPassword' => true,
+        ]);
+
+        $user = User::factory()->create();
+
+        $response = $this->actingAs($user)
+            ->withSession(['auth.password_confirmed_at' => time()])
+            ->post(route('two-factor.enable'));
+
+        $response->assertRedirect();
+
+        $user->refresh();
+
+        self::assertNotNull($user->two_factor_secret);
+        self::assertNotNull($user->two_factor_recovery_codes);
+        self::assertNull($user->two_factor_confirmed_at);
+        self::assertFalse($user->hasEnabledTwoFactorAuthentication());
+    }
 }
