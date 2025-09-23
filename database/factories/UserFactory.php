@@ -34,16 +34,31 @@ final class UserFactory extends Factory
             'password' => self::$password ??= Hash::make('password'),
             'remember_token' => Str::random(10),
             'avatar' => fake()->imageUrl(),
+            'two_factor_secret' => null,
+            'two_factor_recovery_codes' => null,
+            'two_factor_confirmed_at' => null,
         ];
     }
 
     /**
      * Indicate that the model's email address should be unverified.
      */
-    public function unverified(): static
+    public function unverified(): self
     {
         return $this->state(fn (array $attributes) => [
             'email_verified_at' => null,
+        ]);
+    }
+
+    /**
+     * Indicate the model's 2FA attributes should be included.
+     */
+    public function twoFactorEnabled(): self
+    {
+        return $this->state(fn (array $attributes) => [
+            'two_factor_secret' => Hash::make('secret'),
+            'two_factor_recovery_codes' => 'test-123',
+            'two_factor_confirmed_at' => now(),
         ]);
     }
 }

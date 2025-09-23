@@ -28,9 +28,7 @@ final class TwoFactorAuthenticationTest extends TestCase
             'confirmPassword' => true,
         ]);
 
-        $user = User::factory()->create([
-            'two_factor_secret' => 'secret',
-        ]);
+        $user = User::factory()->create();
 
         $this->actingAs($user)
             ->withSession(['auth.password_confirmed_at' => time()])
@@ -48,9 +46,7 @@ final class TwoFactorAuthenticationTest extends TestCase
             self::markTestSkipped('Two-factor authentication is not enabled.');
         }
 
-        $user = User::factory()->create([
-            'two_factor_secret' => 'secret',
-        ]);
+        $user = User::factory()->create();
 
         Features::twoFactorAuthentication([
             'confirm' => true,
@@ -70,9 +66,7 @@ final class TwoFactorAuthenticationTest extends TestCase
             self::markTestSkipped('Two-factor authentication is not enabled.');
         }
 
-        $user = User::factory()->create([
-            'two_factor_secret' => 'secret',
-        ]);
+        $user = User::factory()->create();
 
         Features::twoFactorAuthentication([
             'confirm' => true,
@@ -96,9 +90,7 @@ final class TwoFactorAuthenticationTest extends TestCase
 
         Config::set('fortify.features', []);
 
-        $user = User::factory()->create([
-            'two_factor_secret' => 'secret',
-        ]);
+        $user = User::factory()->create();
 
         $this->actingAs($user)
             ->withSession(['auth.password_confirmed_at' => time()])
