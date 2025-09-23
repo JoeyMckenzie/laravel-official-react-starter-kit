@@ -1,6 +1,6 @@
 {{-- .ai/guidelines/testing.blade.php --}}
 
-=== testing rules ===
+=== Testing rules ===
 
 ## Test Structure
 - Feature tests: Multiple component interactions

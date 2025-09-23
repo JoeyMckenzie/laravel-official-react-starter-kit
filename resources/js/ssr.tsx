@@ -1,3 +1,4 @@
+import { ThemeProvider } from '@/components/theme-provider';
 import { createInertiaApp } from '@inertiajs/react';
 import createServer from '@inertiajs/react/server';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
@@ -15,8 +16,10 @@ createServer((page) =>
                 `./pages/${name}.tsx`,
                 import.meta.glob('./pages/**/*.tsx'),
             ),
-        setup: ({ App, props }) => {
-            return <App {...props} />;
-        },
+        setup: ({ App, props }) => (
+            <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
+                <App {...props} />
+            </ThemeProvider>
+        ),
     }),
 );
