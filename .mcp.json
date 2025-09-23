@@ -10,10 +10,10 @@
         "herd": {
             "command": "php",
             "args": [
-                "/path/to/herd-mcp.phar"
+                "/Users/joeymckenzie/Library/Application Support/Herd/bin//herd-mcp.phar"
             ],
             "env": {
-                "SITE_PATH": "/path/to/laravel-official-react-starter-kit"
+                "SITE_PATH": "/Users/joeymckenzie/code/github.com/joeymckenzie/laravel-official-react-starter-kit"
             }
         }
     }
