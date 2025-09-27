@@ -18,9 +18,5 @@
     "testFramework": "phpunit",
     "phpUnit": {
         "customPath": "vendor/bin/phpunit"
-    },
-    "staticAnalysisTool": "phpstan",
-    "phpStan": {
-        "customPath": "vendor/bin/phpstan"
     }
 }
