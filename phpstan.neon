@@ -15,6 +15,7 @@ parameters:
     reportUnmatchedIgnoredErrors: true
     checkOctaneCompatibility: true
     checkModelProperties: true
+    treatPhpDocTypesAsCertain: false
     ignoreErrors:
         -
             message: '#Dynamic call to static method Illuminate\\Http\\Request::validate\(\).#'

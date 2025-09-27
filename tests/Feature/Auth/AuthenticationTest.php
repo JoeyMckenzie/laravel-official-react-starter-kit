@@ -8,6 +8,8 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\RateLimiter;
+use Illuminate\Support\Facades\Session;
+use Inertia\Testing\AssertableInertia;
 use Laravel\Fortify\Features;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Test;
@@ -24,7 +26,7 @@ final class AuthenticationTest extends TestCase
         $response = $this->get(route('login'));
 
         $response->assertStatus(200);
-        $response->assertInertia(fn ($page) => $page
+        $response->assertInertia(fn (AssertableInertia $page): AssertableInertia => $page
             ->component('auth/login')
             ->has('canResetPassword')
             ->where('canResetPassword', true)
@@ -45,7 +47,7 @@ final class AuthenticationTest extends TestCase
         $response->assertRedirect(route('dashboard', absolute: false));
 
         // Verify session was regenerated for security
-        $this->assertNotNull($this->app['session']->getId());
+        self::assertNotNull(Session::getId());
     }
 
     #[Test]
@@ -99,7 +101,7 @@ final class AuthenticationTest extends TestCase
         $user = User::factory()->create();
 
         // Get initial session ID to verify it changes
-        $initialSessionId = $this->app['session']->getId();
+        $initialSessionId = Session::getId();
 
         $response = $this->actingAs($user)->post(route('logout'));
 
@@ -107,7 +109,7 @@ final class AuthenticationTest extends TestCase
         $response->assertRedirect(route('home'));
 
         // Verify session was invalidated and token regenerated
-        $this->assertNotEquals($initialSessionId, $this->app['session']->getId());
+        self::assertNotSame($initialSessionId, Session::getId());
     }
 
     #[Test]
@@ -138,7 +140,7 @@ final class AuthenticationTest extends TestCase
             ->get(route('login'));
 
         $response->assertStatus(200);
-        $response->assertInertia(fn ($page) => $page
+        $response->assertInertia(fn (AssertableInertia $page): AssertableInertia => $page
             ->component('auth/login')
             ->where('status', 'test-status')
         );
@@ -182,7 +184,7 @@ final class AuthenticationTest extends TestCase
         $user = User::factory()->create();
 
         // Store initial session ID
-        $initialSessionId = $this->app['session']->getId();
+        $initialSessionId = Session::getId();
 
         $this->post(route('login.store'), [
             'email' => $user->email,
@@ -190,7 +192,7 @@ final class AuthenticationTest extends TestCase
         ]);
 
         // Session ID should change after successful login
-        $this->assertNotEquals($initialSessionId, $this->app['session']->getId());
+        self::assertNotSame($initialSessionId, Session::getId());
     }
 
     #[Test]
@@ -201,13 +203,13 @@ final class AuthenticationTest extends TestCase
         $this->actingAs($user);
 
         // Store session data and CSRF token
-        $this->app['session']->put('test_data', 'should_be_cleared');
-        $initialToken = $this->app['session']->token();
+        Session::put('test_data', 'should_be_cleared');
+        $initialToken = Session::token();
 
         $this->post(route('logout'));
 
         // Session should be invalidated and token regenerated
-        $this->assertNotEquals($initialToken, $this->app['session']->token());
-        $this->assertNull($this->app['session']->get('test_data'));
+        self::assertNotSame($initialToken, Session::token());
+        self::assertNull(Session::get('test_data'));
     }
 }
