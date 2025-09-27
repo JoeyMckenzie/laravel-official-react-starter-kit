@@ -140,6 +140,10 @@
             "@php artisan config:clear --ansi",
             "vendor/bin/infection"
         ],
+        "test:mutate:ci": [
+            "@php artisan config:clear --ansi",
+            "vendor/bin/infection --logger-github=true"
+        ],
         "typos": "vendor/bin/peck"
     },
     "$schema": "https://getcomposer.org/schema.json"
