@@ -1,6 +1,6 @@
 {{-- .ai/guidelines/testing.blade.php --}}
 
-=== testing rules ===
+=== Testing rules ===
 
 ## Critical Requirements
 - **All test classes MUST extend `Tests\TestCase`**

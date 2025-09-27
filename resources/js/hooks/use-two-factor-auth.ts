@@ -21,9 +21,7 @@ const fetchJson = async <T>(url: string): Promise<T> => {
         throw new Error(`Failed to fetch: ${String(response.status)}`);
     }
 
-    const data = (await response.json()) as T;
-
-    return data;
+    return (await response.json()) as T;
 };
 
 export const useTwoFactorAuth = () => {

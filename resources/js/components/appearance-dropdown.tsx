@@ -1,3 +1,4 @@
+import { useTheme } from '@/components/theme-provider';
 import { Button } from '@/components/ui/button';
 import {
     DropdownMenu,
@@ -5,7 +6,6 @@ import {
     DropdownMenuItem,
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { useAppearance } from '@/hooks/use-appearance';
 import { Monitor, Moon, Sun } from 'lucide-react';
 import type { HTMLAttributes } from 'react';
 
@@ -13,10 +13,10 @@ export default function AppearanceToggleDropdown({
     className = '',
     ...props
 }: HTMLAttributes<HTMLDivElement>) {
-    const { appearance, updateAppearance } = useAppearance();
+    const { theme, setTheme } = useTheme();
 
     const getCurrentIcon = () => {
-        switch (appearance) {
+        switch (theme) {
             case 'dark':
                 return <Moon className="h-5 w-5" />;
             case 'light':
@@ -42,7 +42,7 @@ export default function AppearanceToggleDropdown({
                 <DropdownMenuContent align="end">
                     <DropdownMenuItem
                         onClick={() => {
-                            updateAppearance('light');
+                            setTheme('light');
                         }}
                     >
                         <span className="flex items-center gap-2">
@@ -52,7 +52,7 @@ export default function AppearanceToggleDropdown({
                     </DropdownMenuItem>
                     <DropdownMenuItem
                         onClick={() => {
-                            updateAppearance('dark');
+                            setTheme('dark');
                         }}
                     >
                         <span className="flex items-center gap-2">
@@ -62,7 +62,7 @@ export default function AppearanceToggleDropdown({
                     </DropdownMenuItem>
                     <DropdownMenuItem
                         onClick={() => {
-                            updateAppearance('system');
+                            setTheme('system');
                         }}
                     >
                         <span className="flex items-center gap-2">
