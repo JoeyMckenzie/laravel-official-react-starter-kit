@@ -3,7 +3,7 @@
     "type": "module",
     "scripts": {
         "build": "tsc && vite build",
-        "build:ssr": "tsc && vite build && vite build --ssr",
+        "build:ssr": "tsc && vite build --ssr",
         "dev": "vite",
         "fmt": "prettier --write resources/",
         "fmt:check": "prettier --check resources/",

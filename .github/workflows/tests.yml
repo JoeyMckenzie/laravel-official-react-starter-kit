@@ -48,7 +48,7 @@ jobs:
         run: composer generate:types
 
       - name: Build Assets
-        run: npm run build
+        run: npm run build:ssr
 
       - name: Copy Environment File
         run: cp .env.example .env
