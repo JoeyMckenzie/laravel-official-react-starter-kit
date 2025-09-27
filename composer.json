@@ -22,6 +22,7 @@
         "driftingly/rector-laravel": "^2.0",
         "ergebnis/composer-normalize": "^2.48",
         "fakerphp/faker": "^1.24",
+        "infection/infection": "^0.31.2",
         "larastan/larastan": "^3.7",
         "laravel/boost": "^1.1",
         "laravel/pail": "^1.2.3",
@@ -54,6 +55,7 @@
     "config": {
         "allow-plugins": {
             "ergebnis/composer-normalize": true,
+            "infection/extension-installer": true,
             "pestphp/pest-plugin": true,
             "php-http/discovery": true,
             "phpstan/extension-installer": true
@@ -133,6 +135,10 @@
         "test:coverage": [
             "@php artisan config:clear --ansi",
             "@php artisan test --parallel --coverage-clover coverage.xml"
+        ],
+        "test:mutate": [
+            "@php artisan config:clear --ansi",
+            "vendor/bin/infection -j$(sysctl -n hw.ncpu)"
         ],
         "typos": "vendor/bin/peck"
     },

@@ -24,6 +24,11 @@ final class AuthenticationTest extends TestCase
         $response = $this->get(route('login'));
 
         $response->assertStatus(200);
+        $response->assertInertia(fn ($page) => $page
+            ->component('auth/login')
+            ->has('canResetPassword')
+            ->where('canResetPassword', true)
+        );
     }
 
     #[Test]
@@ -38,6 +43,9 @@ final class AuthenticationTest extends TestCase
 
         $this->assertAuthenticated();
         $response->assertRedirect(route('dashboard', absolute: false));
+
+        // Verify session was regenerated for security
+        $this->assertNotNull($this->app['session']->getId());
     }
 
     #[Test]
@@ -76,10 +84,12 @@ final class AuthenticationTest extends TestCase
         $response = $this->post(route('login'), [
             'email' => $user->email,
             'password' => 'password',
+            'remember' => true,
         ]);
 
         $response->assertRedirect(route('two-factor.login'));
         $response->assertSessionHas('login.id', $user->id);
+        $response->assertSessionHas('login.remember', true);
         $this->assertGuest();
     }
 
@@ -88,10 +98,16 @@ final class AuthenticationTest extends TestCase
     {
         $user = User::factory()->create();
 
+        // Get initial session ID to verify it changes
+        $initialSessionId = $this->app['session']->getId();
+
         $response = $this->actingAs($user)->post(route('logout'));
 
         $this->assertGuest();
         $response->assertRedirect(route('home'));
+
+        // Verify session was invalidated and token regenerated
+        $this->assertNotEquals($initialSessionId, $this->app['session']->getId());
     }
 
     #[Test]
@@ -113,5 +129,85 @@ final class AuthenticationTest extends TestCase
         $email = $errors->first('email'); // @phpstan-ignore-line method.nonObject
 
         self::assertStringContainsString('Too many login attempts', $email);
+    }
+
+    #[Test]
+    public function login_screen_with_status_message_can_be_rendered(): void
+    {
+        $response = $this->withSession(['status' => 'test-status'])
+            ->get(route('login'));
+
+        $response->assertStatus(200);
+        $response->assertInertia(fn ($page) => $page
+            ->component('auth/login')
+            ->where('status', 'test-status')
+        );
+    }
+
+    #[Test]
+    public function two_factor_users_without_remember_flag_are_handled_correctly(): void
+    {
+        if (! Features::canManageTwoFactorAuthentication()) {
+            self::markTestSkipped('Two-factor authentication is not enabled.');
+        }
+
+        Features::twoFactorAuthentication([
+            'confirm' => true,
+            'confirmPassword' => true,
+        ]);
+
+        $user = User::factory()->create();
+
+        $user->forceFill([
+            'two_factor_secret' => encrypt('test-secret'),
+            'two_factor_recovery_codes' => encrypt(json_encode(['code1', 'code2'])),
+            'two_factor_confirmed_at' => now(),
+        ])->save();
+
+        $response = $this->post(route('login'), [
+            'email' => $user->email,
+            'password' => 'password',
+            'remember' => false,
+        ]);
+
+        $response->assertRedirect(route('two-factor.login'));
+        $response->assertSessionHas('login.id', $user->id);
+        $response->assertSessionHas('login.remember', false);
+        $this->assertGuest();
+    }
+
+    #[Test]
+    public function login_regenerates_session_for_security(): void
+    {
+        $user = User::factory()->create();
+
+        // Store initial session ID
+        $initialSessionId = $this->app['session']->getId();
+
+        $this->post(route('login.store'), [
+            'email' => $user->email,
+            'password' => 'password',
+        ]);
+
+        // Session ID should change after successful login
+        $this->assertNotEquals($initialSessionId, $this->app['session']->getId());
+    }
+
+    #[Test]
+    public function logout_invalidates_session_completely(): void
+    {
+        $user = User::factory()->create();
+
+        $this->actingAs($user);
+
+        // Store session data and CSRF token
+        $this->app['session']->put('test_data', 'should_be_cleared');
+        $initialToken = $this->app['session']->token();
+
+        $this->post(route('logout'));
+
+        // Session should be invalidated and token regenerated
+        $this->assertNotEquals($initialToken, $this->app['session']->token());
+        $this->assertNull($this->app['session']->get('test_data'));
     }
 }

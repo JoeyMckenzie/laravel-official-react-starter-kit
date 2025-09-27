@@ -27,6 +27,9 @@ final class EmailVerificationTest extends TestCase
         $response = $this->actingAs($user)->get(route('verification.notice'));
 
         $response->assertStatus(200);
+        $response->assertInertia(fn ($page) => $page
+            ->component('auth/verify-email')
+        );
     }
 
     #[Test]
@@ -125,5 +128,30 @@ final class EmailVerificationTest extends TestCase
 
         self::assertTrue($user->fresh()?->hasVerifiedEmail());
         Event::assertNotDispatched(Verified::class);
+    }
+
+    #[Test]
+    public function unauthenticated_user_cannot_access_verification_prompt(): void
+    {
+        $response = $this->get(route('verification.notice'));
+
+        $response->assertStatus(302);
+        $response->assertRedirect('/login');
+    }
+
+    #[Test]
+    public function verification_screen_with_status_message_can_be_rendered(): void
+    {
+        $user = User::factory()->unverified()->create();
+
+        $response = $this->actingAs($user)
+            ->withSession(['status' => 'verification-link-sent'])
+            ->get(route('verification.notice'));
+
+        $response->assertStatus(200);
+        $response->assertInertia(fn ($page) => $page
+            ->component('auth/verify-email')
+            ->where('status', 'verification-link-sent')
+        );
     }
 }

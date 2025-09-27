@@ -10,11 +10,22 @@
         "herd": {
             "command": "php",
             "args": [
-                "/path/to/herd-mcp.phar"
+                "/Users/jmckenzie/Library/Application Support/Herd/bin//herd-mcp.phar"
             ],
             "env": {
-                "SITE_PATH": "/path/to/laravel-official-react-starter-kit"
+                "SITE_PATH": "/Users/jmckenzie/github.com/joeymckenzie/laravel-official-react-starter-kit"
             }
+        },
+        "serena": {
+            "command": "uvx",
+            "args": [
+                "--from",
+                "git+https://github.com/oraios/serena",
+                "serena",
+                "start-mcp-server",
+                "--context",
+                "codex"
+            ]
         }
     }
 }

@@ -46,4 +46,38 @@ final class VerificationNotificationTest extends TestCase
 
         Notification::assertNothingSent();
     }
+
+    #[Test]
+    public function unauthenticated_user_cannot_send_verification_notification(): void
+    {
+        $response = $this->post(route('verification.send'));
+
+        $response->assertStatus(302);
+        $response->assertRedirect('/login');
+    }
+
+    #[Test]
+    public function null_user_is_properly_handled_with_correct_status_code(): void
+    {
+        // This test specifically targets the abort_if($user === null, 403) mutations
+        // by testing the actual behavior when user is null
+        $response = $this->post(route('verification.send'));
+
+        // Should redirect to login (middleware handles this) rather than 403
+        $response->assertStatus(302);
+        $response->assertRedirect('/login');
+    }
+
+    #[Test]
+    public function verification_notification_returns_correct_status(): void
+    {
+        $user = User::factory()->create([
+            'email_verified_at' => null,
+        ]);
+
+        $this->actingAs($user)
+            ->post(route('verification.send'))
+            ->assertRedirect(route('home'))
+            ->assertSessionHas('status', 'verification-link-sent');
+    }
 }

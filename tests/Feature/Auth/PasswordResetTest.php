@@ -24,6 +24,9 @@ final class PasswordResetTest extends TestCase
         $response = $this->get(route('password.request'));
 
         $response->assertStatus(200);
+        $response->assertInertia(fn ($page) => $page
+            ->component('auth/forgot-password')
+        );
     }
 
     #[Test]
@@ -93,5 +96,37 @@ final class PasswordResetTest extends TestCase
         ]);
 
         $response->assertSessionHasErrors('email');
+    }
+
+    #[Test]
+    public function password_reset_screen_with_status_message_can_be_rendered(): void
+    {
+        $response = $this->withSession(['status' => 'passwords.sent'])
+            ->get(route('password.request'));
+
+        $response->assertStatus(200);
+        $response->assertInertia(fn ($page) => $page
+            ->component('auth/forgot-password')
+            ->where('status', 'passwords.sent')
+        );
+    }
+
+    #[Test]
+    public function password_reset_request_validates_email_field(): void
+    {
+        $response = $this->post(route('password.email'), []);
+
+        $response->assertSessionHasErrors('email');
+    }
+
+    #[Test]
+    public function password_reset_request_for_nonexistent_email_still_returns_success_message(): void
+    {
+        $response = $this->post(route('password.email'), [
+            'email' => 'nonexistent@example.com',
+        ]);
+
+        $response->assertRedirect()
+            ->assertSessionHas('status', __('A reset link will be sent if the account exists.'));
     }
 }

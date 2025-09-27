@@ -68,4 +68,71 @@ final class PasswordUpdateTest extends TestCase
             ->assertSessionHasErrors('current_password')
             ->assertRedirect(route('password.edit'));
     }
+
+    #[Test]
+    public function password_update_requires_current_password(): void
+    {
+        $user = User::factory()->create();
+
+        $response = $this
+            ->actingAs($user)
+            ->from(route('password.edit'))
+            ->put(route('password.update'), [
+                'password' => 'new-password',
+                'password_confirmation' => 'new-password',
+            ]);
+
+        $response
+            ->assertSessionHasErrors('current_password')
+            ->assertRedirect(route('password.edit'));
+    }
+
+    #[Test]
+    public function password_update_requires_new_password(): void
+    {
+        $user = User::factory()->create();
+
+        $response = $this
+            ->actingAs($user)
+            ->from(route('password.edit'))
+            ->put(route('password.update'), [
+                'current_password' => 'password',
+                'password_confirmation' => 'new-password',
+            ]);
+
+        $response
+            ->assertSessionHasErrors('password')
+            ->assertRedirect(route('password.edit'));
+    }
+
+    #[Test]
+    public function password_update_requires_confirmation(): void
+    {
+        $user = User::factory()->create();
+
+        $response = $this
+            ->actingAs($user)
+            ->from(route('password.edit'))
+            ->put(route('password.update'), [
+                'current_password' => 'password',
+                'password' => 'new-password',
+                'password_confirmation' => 'different-password',
+            ]);
+
+        $response
+            ->assertSessionHasErrors('password')
+            ->assertRedirect(route('password.edit'));
+    }
+
+    #[Test]
+    public function unauthenticated_user_cannot_update_password(): void
+    {
+        $response = $this->put(route('password.update'), [
+            'current_password' => 'password',
+            'password' => 'new-password',
+            'password_confirmation' => 'new-password',
+        ]);
+
+        $response->assertRedirect('/login');
+    }
 }

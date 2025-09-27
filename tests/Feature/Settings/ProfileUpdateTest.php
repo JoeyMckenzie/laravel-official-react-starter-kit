@@ -26,6 +26,11 @@ final class ProfileUpdateTest extends TestCase
             ->get(route('profile.edit'));
 
         $response->assertOk();
+        $response->assertInertia(fn ($page) => $page
+            ->component('settings/profile')
+            ->has('mustVerifyEmail')
+            ->where('mustVerifyEmail', true)
+        );
     }
 
     #[Test]
@@ -111,5 +116,46 @@ final class ProfileUpdateTest extends TestCase
             ->assertRedirect(route('profile.edit'));
 
         self::assertNotNull($user->fresh());
+    }
+
+    #[Test]
+    public function profile_page_displays_status_message(): void
+    {
+        $user = User::factory()->create();
+
+        $response = $this
+            ->actingAs($user)
+            ->withSession(['status' => 'profile-updated'])
+            ->get(route('profile.edit'));
+
+        $response->assertOk();
+        $response->assertInertia(fn ($page) => $page
+            ->component('settings/profile')
+            ->where('status', 'profile-updated')
+        );
+    }
+
+    #[Test]
+    public function unauthenticated_user_cannot_access_profile_page(): void
+    {
+        $response = $this->get(route('profile.edit'));
+
+        $response->assertRedirect('/login');
+    }
+
+    #[Test]
+    public function profile_update_requires_all_fields(): void
+    {
+        $user = User::factory()->create();
+
+        $response = $this
+            ->actingAs($user)
+            ->patch(route('profile.update'), []);
+
+        $response->assertSessionHasErrors([
+            'first_name',
+            'last_name',
+            'email',
+        ]);
     }
 }
