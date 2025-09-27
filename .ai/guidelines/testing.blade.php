@@ -2,10 +2,6 @@
 
 === testing rules ===
 
-## Test Structure
-- Feature tests: Multiple component interactions
-- Unit tests: Individual components
-
 ## Critical Requirements
 - **All test classes MUST extend `Tests\TestCase`**
 - **All code changes must be tested**

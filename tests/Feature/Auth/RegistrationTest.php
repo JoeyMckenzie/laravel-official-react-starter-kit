@@ -43,13 +43,19 @@ final class RegistrationTest extends TestCase
         $response->assertRedirect(route('dashboard', absolute: false));
 
         // Verify user was created with correct data
+        /** @var User $user */
         $user = User::where('email', 'test@example.com')->first();
-        $this->assertNotNull($user);
-        $this->assertEquals('Test', $user->first_name);
-        $this->assertEquals('User', $user->last_name);
+        self::assertNotNull($user);
+        self::assertSame('Test', $user->first_name);
+        self::assertSame('User', $user->last_name);
 
         // Verify Registered event was dispatched
-        Event::assertDispatched(Registered::class, fn ($event): bool => $event->user->id === $user->id);
+        Event::assertDispatched(Registered::class, function (Registered $event) use ($user): bool {
+            /** @var User $eventUser */
+            $eventUser = $event->user;
+
+            return $eventUser->id === $user->id;
+        });
     }
 
     #[Test]

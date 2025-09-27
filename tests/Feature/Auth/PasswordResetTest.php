@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Notification;
+use Inertia\Testing\AssertableInertia;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
@@ -24,7 +25,7 @@ final class PasswordResetTest extends TestCase
         $response = $this->get(route('password.request'));
 
         $response->assertStatus(200);
-        $response->assertInertia(fn ($page) => $page
+        $response->assertInertia(fn (AssertableInertia $page): AssertableInertia => $page
             ->component('auth/forgot-password')
         );
     }
@@ -105,7 +106,7 @@ final class PasswordResetTest extends TestCase
             ->get(route('password.request'));
 
         $response->assertStatus(200);
-        $response->assertInertia(fn ($page) => $page
+        $response->assertInertia(fn (AssertableInertia $page): AssertableInertia => $page
             ->component('auth/forgot-password')
             ->where('status', 'passwords.sent')
         );

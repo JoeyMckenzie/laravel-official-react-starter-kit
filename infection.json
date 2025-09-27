@@ -7,13 +7,20 @@
             "database/seeders"
         ]
     },
+    "timeout": 10,
+    "threads": "max",
     "logs": {
         "text": "storage/logs/infection.log"
     },
     "mutators": {
         "@default": true
     },
+    "testFramework": "phpunit",
     "phpUnit": {
         "customPath": "vendor/bin/phpunit"
+    },
+    "staticAnalysisTool": "phpstan",
+    "phpStan": {
+        "customPath": "vendor/bin/phpstan"
     }
 }

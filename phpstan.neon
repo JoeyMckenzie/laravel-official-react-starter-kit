@@ -24,8 +24,5 @@ parameters:
             message: '#Dynamic call to static method Illuminate\\Testing\\TestResponse<Symfony\\Component\\HttpFoundation\\Response>::assertInertia\(\).#'
             path: tests/**/*.php
         -
-            message: "#Casting to string something that's already string.#"
-            path: tests/Feature/Auth/EmailVerificationTest.php
-        -
             message: '#Method App\\Http\\Requests\\[a-zA-Z]+\\[a-zA-Z]+::authorize\(\) never returns false so the return type can be changed to true.#'
             path: app/Http/Requests/**/*.php

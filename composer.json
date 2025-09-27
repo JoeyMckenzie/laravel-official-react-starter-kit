@@ -138,7 +138,7 @@
         ],
         "test:mutate": [
             "@php artisan config:clear --ansi",
-            "vendor/bin/infection -j$(sysctl -n hw.ncpu)"
+            "vendor/bin/infection"
         ],
         "typos": "vendor/bin/peck"
     },

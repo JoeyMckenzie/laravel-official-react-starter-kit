@@ -10,6 +10,7 @@ use Illuminate\Auth\Events\Verified;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\URL;
+use Inertia\Testing\AssertableInertia;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
@@ -27,7 +28,7 @@ final class EmailVerificationTest extends TestCase
         $response = $this->actingAs($user)->get(route('verification.notice'));
 
         $response->assertStatus(200);
-        $response->assertInertia(fn ($page) => $page
+        $response->assertInertia(fn (AssertableInertia $page): AssertableInertia => $page
             ->component('auth/verify-email')
         );
     }
@@ -149,7 +150,7 @@ final class EmailVerificationTest extends TestCase
             ->get(route('verification.notice'));
 
         $response->assertStatus(200);
-        $response->assertInertia(fn ($page) => $page
+        $response->assertInertia(fn (AssertableInertia $page): AssertableInertia => $page
             ->component('auth/verify-email')
             ->where('status', 'verification-link-sent')
         );

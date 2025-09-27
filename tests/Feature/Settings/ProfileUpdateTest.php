@@ -7,6 +7,7 @@ namespace Tests\Feature\Settings;
 use App\Http\Controllers\Settings\ProfileController;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Inertia\Testing\AssertableInertia;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
@@ -26,7 +27,7 @@ final class ProfileUpdateTest extends TestCase
             ->get(route('profile.edit'));
 
         $response->assertOk();
-        $response->assertInertia(fn ($page) => $page
+        $response->assertInertia(fn (AssertableInertia $page): AssertableInertia => $page
             ->component('settings/profile')
             ->has('mustVerifyEmail')
             ->where('mustVerifyEmail', true)
@@ -129,7 +130,7 @@ final class ProfileUpdateTest extends TestCase
             ->get(route('profile.edit'));
 
         $response->assertOk();
-        $response->assertInertia(fn ($page) => $page
+        $response->assertInertia(fn (AssertableInertia $page): AssertableInertia => $page
             ->component('settings/profile')
             ->where('status', 'profile-updated')
         );
