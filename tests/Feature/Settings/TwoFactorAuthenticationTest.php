@@ -28,7 +28,9 @@ final class TwoFactorAuthenticationTest extends TestCase
             'confirmPassword' => true,
         ]);
 
-        $user = User::factory()->create();
+        $user = User::factory()
+            ->withoutTwoFactor()
+            ->create();
 
         $this->actingAs($user)
             ->withSession(['auth.password_confirmed_at' => time()])
@@ -110,7 +112,9 @@ final class TwoFactorAuthenticationTest extends TestCase
             'confirmPassword' => true,
         ]);
 
-        $user = User::factory()->create();
+        $user = User::factory()
+            ->withoutTwoFactor()
+            ->create();
 
         $response = $this->actingAs($user)
             ->withSession(['auth.password_confirmed_at' => time()])
