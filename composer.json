@@ -24,7 +24,7 @@
         "fakerphp/faker": "^1.24",
         "infection/infection": "^0.31.2",
         "larastan/larastan": "^3.7",
-        "laravel/boost": "^1.1",
+        "laravel/boost": "^1.3",
         "laravel/pail": "^1.2.3",
         "laravel/pint": "^1.24",
         "mockery/mockery": "^1.6",
