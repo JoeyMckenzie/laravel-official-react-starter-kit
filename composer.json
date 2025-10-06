@@ -36,7 +36,8 @@
         "phpstan/phpstan-phpunit": "^2.0",
         "phpstan/phpstan-strict-rules": "^2.0",
         "phpunit/phpunit": "^12.3",
-        "rector/rector": "^2.1"
+        "rector/rector": "^2.1",
+        "tomasvotruba/type-coverage": "^2.0"
     },
     "minimum-stability": "stable",
     "prefer-stable": true,
