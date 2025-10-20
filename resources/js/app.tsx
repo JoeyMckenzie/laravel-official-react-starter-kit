@@ -1,6 +1,6 @@
 import '../css/app.css';
 
-import { ThemeProvider, initializeTheme } from '@/components/theme-provider';
+import { ThemeProvider } from '@/components/theme-provider';
 import { createInertiaApp } from '@inertiajs/react';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { StrictMode } from 'react';

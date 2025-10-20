@@ -8,7 +8,6 @@ import typescript from 'typescript-eslint';
 /** @type {import('eslint').Linter.Config[]} */
 export default [
     js.configs.recommended,
-    ...reactHooks.configs.flat.recommended,
     ...typescript.configs.recommendedTypeChecked,
     ...typescript.configs.strictTypeChecked,
     ...typescript.configs.stylisticTypeChecked,
@@ -37,13 +36,19 @@ export default [
             'react/jsx-no-useless-fragment': 'error', // Remove unnecessary fragments
             'react/self-closing-comp': 'error', // Enforce self-closing tags
             'react/jsx-boolean-value': ['error', 'never'], // <Component active /> instead of <Component active={true} />
-            'react/jsx-curly-brace-presence': ['error', { props: 'never', children: 'never' }],
+            'react/jsx-curly-brace-presence': [
+                'error',
+                { props: 'never', children: 'never' },
+            ],
             'react/no-array-index-key': 'warn', // Warn about using array index as key
             'react/no-unused-state': 'error',
             'react/jsx-no-bind': ['warn', { allowArrowFunctions: true }], // Prevent inline functions in JSX
 
             // TypeScript-specific rules for better type safety
-            '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+            '@typescript-eslint/no-unused-vars': [
+                'error',
+                { argsIgnorePattern: '^_' },
+            ],
             '@typescript-eslint/no-explicit-any': 'error',
             '@typescript-eslint/prefer-nullish-coalescing': 'error',
             '@typescript-eslint/prefer-optional-chain': 'error',
@@ -53,7 +58,10 @@ export default [
             '@typescript-eslint/prefer-as-const': 'error',
             '@typescript-eslint/no-unnecessary-type-assertion': 'error',
             '@typescript-eslint/consistent-type-imports': 'error', // Use `import type`
-            '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
+            '@typescript-eslint/consistent-type-definitions': [
+                'error',
+                'interface',
+            ],
 
             // General JavaScript rules for bug prevention
             'no-console': 'warn', // Remove console.logs in production

@@ -307,7 +307,14 @@ export default function TwoFactorSetupModal({
     }, [onClose, resetModalState]);
 
     return (
-        <Dialog open={isOpen} onOpenChange={(open) => !open && handleClose()}>
+        <Dialog
+            open={isOpen}
+            onOpenChange={(open) => {
+                if (!open) {
+                    handleClose();
+                }
+            }}
+        >
             <DialogContent className="sm:max-w-md">
                 <DialogHeader className="flex items-center justify-center">
                     <GridScanIcon />
