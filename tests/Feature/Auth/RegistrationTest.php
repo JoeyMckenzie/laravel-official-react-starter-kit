@@ -4,20 +4,14 @@ declare(strict_types=1);
 
 namespace Tests\Feature\Auth;
 
-use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Models\User;
 use Illuminate\Auth\Events\Registered;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Event;
-use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
-#[CoversClass(RegisteredUserController::class)]
 final class RegistrationTest extends TestCase
 {
-    use RefreshDatabase;
-
     #[Test]
     public function registration_screen_can_be_rendered(): void
     {

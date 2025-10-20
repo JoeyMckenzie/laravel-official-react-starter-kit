@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Tests\Feature\Auth;
 
 use App\Models\User;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Inertia\Testing\AssertableInertia as Assert;
 use Laravel\Fortify\Features;
 use PHPUnit\Framework\Attributes\Test;
@@ -13,8 +12,6 @@ use Tests\TestCase;
 
 final class TwoFactorChallengeTest extends TestCase
 {
-    use RefreshDatabase;
-
     #[Test]
     public function two_factor_challenge_redirects_to_login_when_not_authenticated(): void
     {

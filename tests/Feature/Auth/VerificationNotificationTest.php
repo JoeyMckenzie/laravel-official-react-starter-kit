@@ -6,15 +6,12 @@ namespace Tests\Feature\Auth;
 
 use App\Models\User;
 use Illuminate\Auth\Notifications\VerifyEmail;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Notification;
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
 final class VerificationNotificationTest extends TestCase
 {
-    use RefreshDatabase;
-
     #[Test]
     public function sends_verification_notification(): void
     {

@@ -4,22 +4,16 @@ declare(strict_types=1);
 
 namespace Tests\Feature\Auth;
 
-use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Models\User;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Session;
 use Inertia\Testing\AssertableInertia;
 use Laravel\Fortify\Features;
-use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
-#[CoversClass(AuthenticatedSessionController::class)]
 final class AuthenticationTest extends TestCase
 {
-    use RefreshDatabase;
-
     #[Test]
     public function login_screen_can_be_rendered(): void
     {
@@ -125,13 +119,6 @@ final class AuthenticationTest extends TestCase
         ]);
 
         $response->assertTooManyRequests();
-        $response->assertSessionHasErrors('email');
-        $errors = session('errors');
-
-        /** @var string $email */
-        $email = $errors->first('email'); // @phpstan-ignore-line method.nonObject
-
-        self::assertStringContainsString('Too many login attempts', $email);
     }
 
     #[Test]

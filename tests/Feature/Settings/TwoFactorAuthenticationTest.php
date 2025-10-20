@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Tests\Feature\Settings;
 
 use App\Models\User;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Config;
 use Inertia\Testing\AssertableInertia as Assert;
 use Laravel\Fortify\Features;
@@ -14,8 +13,6 @@ use Tests\TestCase;
 
 final class TwoFactorAuthenticationTest extends TestCase
 {
-    use RefreshDatabase;
-
     #[Test]
     public function two_factor_settings_page_can_be_rendered(): void
     {

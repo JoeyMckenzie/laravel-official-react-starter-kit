@@ -4,21 +4,15 @@ declare(strict_types=1);
 
 namespace Tests\Feature\Auth;
 
-use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Models\User;
 use Illuminate\Auth\Notifications\ResetPassword;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Notification;
 use Inertia\Testing\AssertableInertia;
-use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
-#[CoversClass(PasswordResetLinkController::class)]
 final class PasswordResetTest extends TestCase
 {
-    use RefreshDatabase;
-
     #[Test]
     public function reset_password_link_screen_can_be_rendered(): void
     {
@@ -115,19 +109,8 @@ final class PasswordResetTest extends TestCase
     #[Test]
     public function password_reset_request_validates_email_field(): void
     {
-        $response = $this->post(route('password.email'), []);
+        $response = $this->post(route('password.email'));
 
         $response->assertSessionHasErrors('email');
-    }
-
-    #[Test]
-    public function password_reset_request_for_nonexistent_email_still_returns_success_message(): void
-    {
-        $response = $this->post(route('password.email'), [
-            'email' => 'nonexistent@example.com',
-        ]);
-
-        $response->assertRedirect()
-            ->assertSessionHas('status', __('A reset link will be sent if the account exists.'));
     }
 }

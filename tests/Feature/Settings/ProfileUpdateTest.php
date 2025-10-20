@@ -6,7 +6,6 @@ namespace Tests\Feature\Settings;
 
 use App\Http\Controllers\Settings\ProfileController;
 use App\Models\User;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Inertia\Testing\AssertableInertia;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Test;
@@ -15,8 +14,6 @@ use Tests\TestCase;
 #[CoversClass(ProfileController::class)]
 final class ProfileUpdateTest extends TestCase
 {
-    use RefreshDatabase;
-
     #[Test]
     public function profile_page_is_displayed(): void
     {

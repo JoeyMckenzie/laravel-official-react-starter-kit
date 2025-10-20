@@ -6,7 +6,6 @@ namespace Tests\Feature\Settings;
 
 use App\Http\Controllers\Settings\ProfileImageController;
 use App\Models\User;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -16,8 +15,6 @@ use Tests\TestCase;
 #[CoversClass(ProfileImageController::class)]
 final class ProfileImageUploadTest extends TestCase
 {
-    use RefreshDatabase;
-
     #[Test]
     public function user_can_upload_profile_image(): void
     {

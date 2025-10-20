@@ -4,22 +4,16 @@ declare(strict_types=1);
 
 namespace Tests\Feature\Auth;
 
-use App\Http\Controllers\Auth\EmailVerificationPromptController;
 use App\Models\User;
 use Illuminate\Auth\Events\Verified;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\URL;
 use Inertia\Testing\AssertableInertia;
-use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
-#[CoversClass(EmailVerificationPromptController::class)]
 final class EmailVerificationTest extends TestCase
 {
-    use RefreshDatabase;
-
     #[Test]
     public function email_verification_screen_can_be_rendered(): void
     {

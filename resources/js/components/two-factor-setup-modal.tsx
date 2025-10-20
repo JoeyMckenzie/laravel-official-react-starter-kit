@@ -64,78 +64,74 @@ function TwoFactorSetupStep({
     manualSetupKey: string | null;
     buttonText: string;
     onNextStep: () => void;
-    errors: string[];
+    errors: string[] | null;
 }) {
     const [copiedText, copy] = useClipboard();
     const IconComponent = copiedText === manualSetupKey ? Check : Copy;
 
-    if (errors.length) {
+    if (errors && errors.length > 0) {
         return <AlertError errors={errors} />;
     }
 
-    return (
+    return errors?.length ? (
+        <AlertError errors={errors} />
+    ) : (
         <>
-            {errors?.length ? (
-                <AlertError errors={errors} />
-            ) : (
-                <>
-                    <div className="mx-auto flex max-w-md overflow-hidden">
-                        <div className="border-border mx-auto aspect-square w-64 rounded-lg border">
-                            <div className="z-10 flex h-full w-full items-center justify-center p-5">
-                                {qrCodeSvg ? (
-                                    <div
-                                        dangerouslySetInnerHTML={{
-                                            __html: qrCodeSvg,
-                                        }}
-                                    />
-                                ) : (
-                                    <Spinner />
-                                )}
-                            </div>
+            <div className="mx-auto flex max-w-md overflow-hidden">
+                <div className="border-border mx-auto aspect-square w-64 rounded-lg border">
+                    <div className="z-10 flex h-full w-full items-center justify-center p-5">
+                        {qrCodeSvg ? (
+                            <div
+                                dangerouslySetInnerHTML={{
+                                    __html: qrCodeSvg,
+                                }}
+                            />
+                        ) : (
+                            <Spinner />
+                        )}
+                    </div>
+                </div>
+            </div>
+
+            <div className="flex w-full gap-5">
+                <Button className="w-full" onClick={onNextStep}>
+                    {buttonText}
+                </Button>
+            </div>
+
+            <div className="relative flex w-full items-center justify-center">
+                <div className="bg-border absolute inset-0 top-1/2 h-px w-full" />
+                <span className="bg-card relative px-2 py-1">
+                    or, enter the code manually
+                </span>
+            </div>
+
+            <div className="flex w-full space-x-2">
+                <div className="border-border flex w-full items-stretch overflow-hidden rounded-xl border">
+                    {!manualSetupKey ? (
+                        <div className="bg-muted flex h-full w-full items-center justify-center p-3">
+                            <Spinner />
                         </div>
-                    </div>
-
-                    <div className="flex w-full gap-5">
-                        <Button className="w-full" onClick={onNextStep}>
-                            {buttonText}
-                        </Button>
-                    </div>
-
-                    <div className="relative flex w-full items-center justify-center">
-                        <div className="bg-border absolute inset-0 top-1/2 h-px w-full" />
-                        <span className="bg-card relative px-2 py-1">
-                            or, enter the code manually
-                        </span>
-                    </div>
-
-                    <div className="flex w-full space-x-2">
-                        <div className="border-border flex w-full items-stretch overflow-hidden rounded-xl border">
-                            {!manualSetupKey ? (
-                                <div className="bg-muted flex h-full w-full items-center justify-center p-3">
-                                    <Spinner />
-                                </div>
-                            ) : (
-                                <>
-                                    <input
-                                        type="text"
-                                        readOnly
-                                        value={manualSetupKey}
-                                        className="bg-background text-foreground h-full w-full p-3 outline-none"
-                                    />
-                                    <button
-                                        onClick={() => {
-                                            void copy(manualSetupKey);
-                                        }}
-                                        className="border-border hover:bg-muted border-l px-3"
-                                    >
-                                        <IconComponent className="w-4" />
-                                    </button>
-                                </>
-                            )}
-                        </div>
-                    </div>
-                </>
-            )}
+                    ) : (
+                        <>
+                            <input
+                                type="text"
+                                readOnly
+                                value={manualSetupKey}
+                                className="bg-background text-foreground h-full w-full p-3 outline-none"
+                            />
+                            <button
+                                onClick={() => {
+                                    void copy(manualSetupKey);
+                                }}
+                                className="border-border hover:bg-muted border-l px-3"
+                            >
+                                <IconComponent className="w-4" />
+                            </button>
+                        </>
+                    )}
+                </div>
+            </div>
         </>
     );
 }
