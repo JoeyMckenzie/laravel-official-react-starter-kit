@@ -8,6 +8,7 @@ import typescript from 'typescript-eslint';
 /** @type {import('eslint').Linter.Config[]} */
 export default [
     js.configs.recommended,
+    ...reactHooks.configs.flat.recommended,
     ...typescript.configs.recommendedTypeChecked,
     ...typescript.configs.strictTypeChecked,
     ...typescript.configs.stylisticTypeChecked,
