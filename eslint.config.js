@@ -28,23 +28,20 @@ export default [
             },
         },
         rules: {
-            // React rules
             'react/react-in-jsx-scope': 'off',
             'react/no-unescaped-entities': 'warn',
-            'react/jsx-no-leaked-render': 'error', // Prevent 0 being rendered
-            'react/jsx-key': 'error', // Require keys in lists
-            'react/jsx-no-useless-fragment': 'error', // Remove unnecessary fragments
-            'react/self-closing-comp': 'error', // Enforce self-closing tags
-            'react/jsx-boolean-value': ['error', 'never'], // <Component active /> instead of <Component active={true} />
+            'react/jsx-no-leaked-render': 'error',
+            'react/jsx-key': 'error',
+            'react/jsx-no-useless-fragment': 'error',
+            'react/self-closing-comp': 'error',
+            'react/jsx-boolean-value': ['error', 'never'],
             'react/jsx-curly-brace-presence': [
                 'error',
                 { props: 'never', children: 'never' },
             ],
-            'react/no-array-index-key': 'warn', // Warn about using array index as key
+            'react/no-array-index-key': 'warn',
             'react/no-unused-state': 'error',
-            'react/jsx-no-bind': ['warn', { allowArrowFunctions: true }], // Prevent inline functions in JSX
-
-            // TypeScript-specific rules for better type safety
+            'react/jsx-no-bind': ['warn', { allowArrowFunctions: true }],
             '@typescript-eslint/no-unused-vars': [
                 'error',
                 { argsIgnorePattern: '^_' },
@@ -53,29 +50,27 @@ export default [
             '@typescript-eslint/prefer-nullish-coalescing': 'error',
             '@typescript-eslint/prefer-optional-chain': 'error',
             '@typescript-eslint/no-non-null-assertion': 'error',
-            '@typescript-eslint/no-floating-promises': 'error', // Catch unhandled promises
+            '@typescript-eslint/no-floating-promises': 'error',
             '@typescript-eslint/await-thenable': 'error',
             '@typescript-eslint/prefer-as-const': 'error',
             '@typescript-eslint/no-unnecessary-type-assertion': 'error',
-            '@typescript-eslint/consistent-type-imports': 'error', // Use `import type`
+            '@typescript-eslint/consistent-type-imports': 'error',
             '@typescript-eslint/consistent-type-definitions': [
                 'error',
                 'interface',
             ],
-
-            // General JavaScript rules for bug prevention
-            'no-console': 'warn', // Remove console.logs in production
+            'no-console': 'warn',
             'no-debugger': 'error',
             'no-alert': 'error',
             'no-duplicate-imports': 'error',
             'no-unused-expressions': 'error',
             'prefer-const': 'error',
             'no-var': 'error',
-            eqeqeq: 'error', // Require === instead of ==
+            eqeqeq: 'error',
             'no-implicit-coercion': 'error',
             'no-return-assign': 'error',
             'no-sequences': 'error',
-            radix: 'error', // Require radix in parseInt()
+            radix: 'error',
             'no-throw-literal': 'error',
             'prefer-promise-reject-errors': 'error',
         },
@@ -115,5 +110,5 @@ export default [
             '*.config.js',
         ],
     },
-    prettier, // Turn off all rules that might conflict with Prettier
+    prettier,
 ];
