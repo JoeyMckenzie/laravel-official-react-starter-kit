@@ -53,7 +53,7 @@ final class UserFactory extends Factory
     /**
      * Indicate that the model does not have two-factor authentication configured.
      */
-    public function withoutTwoFactor(): static
+    public function withoutTwoFactor(): self
     {
         return $this->state(fn (array $attributes) => [
             'two_factor_secret' => null,
