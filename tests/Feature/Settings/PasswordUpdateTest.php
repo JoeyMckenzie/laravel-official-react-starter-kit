@@ -24,7 +24,7 @@ final class PasswordUpdateTest extends TestCase
 
         $response = $this
             ->actingAs($user)
-            ->get(route('password.edit'));
+            ->get(route('user-password.edit'));
 
         $response->assertStatus(200);
     }
@@ -36,8 +36,8 @@ final class PasswordUpdateTest extends TestCase
 
         $response = $this
             ->actingAs($user)
-            ->from(route('password.edit'))
-            ->put(route('password.update'), [
+            ->from(route('user-password.edit'))
+            ->put(route('user-password.update'), [
                 'current_password' => 'password',
                 'password' => 'new-password',
                 'password_confirmation' => 'new-password',
@@ -45,7 +45,7 @@ final class PasswordUpdateTest extends TestCase
 
         $response
             ->assertSessionHasNoErrors()
-            ->assertRedirect(route('password.edit'));
+            ->assertRedirect(route('user-password.edit'));
 
         self::assertTrue(Hash::check('new-password', $user->refresh()->password));
     }
@@ -57,8 +57,8 @@ final class PasswordUpdateTest extends TestCase
 
         $response = $this
             ->actingAs($user)
-            ->from(route('password.edit'))
-            ->put(route('password.update'), [
+            ->from(route('user-password.edit'))
+            ->put(route('user-password.update'), [
                 'current_password' => 'wrong-password',
                 'password' => 'new-password',
                 'password_confirmation' => 'new-password',
@@ -66,7 +66,7 @@ final class PasswordUpdateTest extends TestCase
 
         $response
             ->assertSessionHasErrors('current_password')
-            ->assertRedirect(route('password.edit'));
+            ->assertRedirect(route('user-password.edit'));
     }
 
     #[Test]

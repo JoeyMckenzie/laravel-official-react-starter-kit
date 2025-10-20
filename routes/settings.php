@@ -19,11 +19,11 @@ Route::middleware('auth')->group(function (): void {
     Route::post('settings/profile/image', [ProfileImageController::class, 'store'])->name('profile.image.store');
     Route::delete('settings/profile/image', [ProfileImageController::class, 'destroy'])->name('profile.image.destroy');
 
-    Route::get('settings/password', [PasswordController::class, 'edit'])->name('password.edit');
+    Route::get('settings/password', [PasswordController::class, 'edit'])->name('user-password.edit');
 
     Route::put('settings/password', [PasswordController::class, 'update'])
         ->middleware('throttle:6,1')
-        ->name('password.update');
+        ->name('user-password.update');
 
     Route::get('settings/appearance', fn () => Inertia::render('settings/appearance'))->name('appearance.edit');
 

@@ -17,9 +17,10 @@ import { OTP_MAX_LENGTH } from '@/hooks/use-two-factor-auth';
 import { confirm } from '@/routes/two-factor';
 import { Form } from '@inertiajs/react';
 import { REGEXP_ONLY_DIGITS } from 'input-otp';
-import { Check, Copy, Loader2, ScanLine } from 'lucide-react';
+import { Check, Copy, ScanLine } from 'lucide-react';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import AlertError from './alert-error';
+import { Spinner } from './ui/spinner';
 
 const OTP_SLOT_KEYS = Array.from(
     { length: OTP_MAX_LENGTH },
@@ -28,13 +29,13 @@ const OTP_SLOT_KEYS = Array.from(
 
 function GridScanIcon() {
     return (
-        <div className="mb-3 rounded-full border border-border bg-card p-0.5 shadow-sm">
-            <div className="relative overflow-hidden rounded-full border border-border bg-muted p-2.5">
+        <div className="border-border bg-card mb-3 rounded-full border p-0.5 shadow-sm">
+            <div className="border-border bg-muted relative overflow-hidden rounded-full border p-2.5">
                 <div className="absolute inset-0 grid grid-cols-5 opacity-50">
                     {Array.from({ length: 5 }, (_, i) => (
                         <div
                             key={`col-${String(i + 1)}`}
-                            className="border-r border-border last:border-r-0"
+                            className="border-border border-r last:border-r-0"
                         />
                     ))}
                 </div>
@@ -42,11 +43,11 @@ function GridScanIcon() {
                     {Array.from({ length: 5 }, (_, i) => (
                         <div
                             key={`row-${String(i + 1)}`}
-                            className="border-b border-border last:border-b-0"
+                            className="border-border border-b last:border-b-0"
                         />
                     ))}
                 </div>
-                <ScanLine className="relative z-20 size-6 text-foreground" />
+                <ScanLine className="text-foreground relative z-20 size-6" />
             </div>
         </div>
     );
@@ -74,63 +75,67 @@ function TwoFactorSetupStep({
 
     return (
         <>
-            <div className="mx-auto flex max-w-md overflow-hidden">
-                <div className="mx-auto aspect-square w-64 rounded-lg border border-border">
-                    <div className="z-10 flex h-full w-full items-center justify-center p-5">
-                        {qrCodeSvg ? (
-                            <div
-                                dangerouslySetInnerHTML={{
-                                    __html: qrCodeSvg,
-                                }}
-                            />
-                        ) : (
-                            <Loader2 className="flex size-4 animate-spin" />
-                        )}
-                    </div>
-                </div>
-            </div>
-
-            <div className="flex w-full gap-5">
-                <Button className="w-full" onClick={onNextStep}>
-                    {buttonText}
-                </Button>
-            </div>
-
-            <div className="relative flex w-full items-center justify-center">
-                <div className="absolute inset-0 top-1/2 h-px w-full bg-border" />
-                <span className="relative bg-card px-2 py-1">
-                    or, enter the code manually
-                </span>
-            </div>
-
-            <div className="flex w-full gap-2">
-                <div className="flex w-full items-stretch overflow-hidden rounded-xl border border-border">
-                    {!manualSetupKey ? (
-                        <div className="flex h-full w-full items-center justify-center bg-muted p-3">
-                            <Loader2 className="size-4 animate-spin" />
+            {errors?.length ? (
+                <AlertError errors={errors} />
+            ) : (
+                <>
+                    <div className="mx-auto flex max-w-md overflow-hidden">
+                        <div className="border-border mx-auto aspect-square w-64 rounded-lg border">
+                            <div className="z-10 flex h-full w-full items-center justify-center p-5">
+                                {qrCodeSvg ? (
+                                    <div
+                                        dangerouslySetInnerHTML={{
+                                            __html: qrCodeSvg,
+                                        }}
+                                    />
+                                ) : (
+                                    <Spinner />
+                                )}
+                            </div>
                         </div>
-                    ) : (
-                        <>
-                            <input
-                                type="text"
-                                readOnly
-                                value={manualSetupKey}
-                                className="h-full w-full bg-background p-3 text-foreground outline-none"
-                            />
-                            <button
-                                onClick={() => {
-                                    void copy(manualSetupKey);
-                                }}
-                                className="border-l border-border px-3 hover:bg-muted"
-                                type="button"
-                                aria-label="Copy setup key"
-                            >
-                                <IconComponent className="w-4" />
-                            </button>
-                        </>
-                    )}
-                </div>
-            </div>
+                    </div>
+
+                    <div className="flex w-full gap-5">
+                        <Button className="w-full" onClick={onNextStep}>
+                            {buttonText}
+                        </Button>
+                    </div>
+
+                    <div className="relative flex w-full items-center justify-center">
+                        <div className="bg-border absolute inset-0 top-1/2 h-px w-full" />
+                        <span className="bg-card relative px-2 py-1">
+                            or, enter the code manually
+                        </span>
+                    </div>
+
+                    <div className="flex w-full space-x-2">
+                        <div className="border-border flex w-full items-stretch overflow-hidden rounded-xl border">
+                            {!manualSetupKey ? (
+                                <div className="bg-muted flex h-full w-full items-center justify-center p-3">
+                                    <Spinner />
+                                </div>
+                            ) : (
+                                <>
+                                    <input
+                                        type="text"
+                                        readOnly
+                                        value={manualSetupKey}
+                                        className="bg-background text-foreground h-full w-full p-3 outline-none"
+                                    />
+                                    <button
+                                        onClick={() => {
+                                            void copy(manualSetupKey);
+                                        }}
+                                        className="border-border hover:bg-muted border-l px-3"
+                                    >
+                                        <IconComponent className="w-4" />
+                                    </button>
+                                </>
+                            )}
+                        </div>
+                    </div>
+                </>
+            )}
         </>
     );
 }

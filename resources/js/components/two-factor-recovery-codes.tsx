@@ -65,7 +65,7 @@ export default function TwoFactorRecoveryCodes({
                 </CardDescription>
             </CardHeader>
             <CardContent>
-                <div className="flex flex-col gap-3 select-none sm:flex-row sm:items-center sm:justify-between">
+                <div className="flex select-none flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                     <Button
                         onClick={() => {
                             void toggleCodesVisibility();
@@ -114,7 +114,7 @@ export default function TwoFactorRecoveryCodes({
                             <>
                                 <div
                                     ref={codesSectionRef}
-                                    className="grid gap-1 rounded-lg bg-muted p-4 font-mono text-sm"
+                                    className="bg-muted grid gap-1 rounded-lg p-4 font-mono text-sm"
                                     role="list"
                                     aria-label="Recovery codes"
                                 >
@@ -137,7 +137,7 @@ export default function TwoFactorRecoveryCodes({
                                                 (_, index) => (
                                                     <div
                                                         key={`placeholder-${String(index + 1)}`}
-                                                        className="h-4 animate-pulse rounded bg-muted-foreground/20"
+                                                        className="bg-muted-foreground/20 h-4 animate-pulse rounded"
                                                         aria-hidden="true"
                                                     />
                                                 ),
@@ -146,7 +146,7 @@ export default function TwoFactorRecoveryCodes({
                                     )}
                                 </div>
 
-                                <div className="text-xs text-muted-foreground select-none">
+                                <div className="text-muted-foreground select-none text-xs">
                                     <p id="regenerate-warning">
                                         Each recovery code can be used once to
                                         access your account and will be removed

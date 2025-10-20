@@ -117,13 +117,14 @@ final class AuthenticationTest extends TestCase
     {
         $user = User::factory()->create();
 
-        RateLimiter::increment(implode('|', [$user->email, '127.0.0.1']), amount: 10);
+        RateLimiter::increment(md5('login'.implode('|', [$user->email, '127.0.0.1'])), amount: 5);
 
         $response = $this->post(route('login.store'), [
             'email' => $user->email,
             'password' => 'wrong-password',
         ]);
 
+        $response->assertTooManyRequests();
         $response->assertSessionHasErrors('email');
         $errors = session('errors');
 
