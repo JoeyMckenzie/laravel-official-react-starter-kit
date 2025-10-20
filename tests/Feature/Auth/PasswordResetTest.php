@@ -113,4 +113,52 @@ final class PasswordResetTest extends TestCase
 
         $response->assertSessionHasErrors('email');
     }
+
+    #[Test]
+    public function password_reset_requires_password_field(): void
+    {
+        // Arrange
+        Notification::fake();
+
+        $user = User::factory()->create();
+
+        $this->post(route('password.email'), ['email' => $user->email]);
+
+        // Act & Assert
+        Notification::assertSentTo($user, ResetPassword::class, function (ResetPassword $notification) use ($user) {
+            $response = $this->post(route('password.update'), [
+                'token' => $notification->token,
+                'email' => $user->email,
+                'password_confirmation' => 'password',
+            ]);
+
+            $response->assertSessionHasErrors('password');
+
+            return true;
+        });
+    }
+
+    #[Test]
+    public function password_reset_requires_password_confirmation(): void
+    {
+        // Arrange
+        Notification::fake();
+
+        $user = User::factory()->create();
+
+        $this->post(route('password.email'), ['email' => $user->email]);
+
+        // Act & Assert
+        Notification::assertSentTo($user, ResetPassword::class, function (ResetPassword $notification) use ($user) {
+            $response = $this->post(route('password.update'), [
+                'token' => $notification->token,
+                'email' => $user->email,
+                'password' => 'newpassword',
+            ]);
+
+            $response->assertSessionHasErrors('password');
+
+            return true;
+        });
+    }
 }

@@ -156,4 +156,24 @@ final class ProfileUpdateTest extends TestCase
             'email',
         ]);
     }
+
+    #[Test]
+    public function password_is_required_to_delete_account(): void
+    {
+        // Arrange
+        $user = User::factory()->create();
+
+        // Act
+        $response = $this
+            ->actingAs($user)
+            ->from(route('profile.edit'))
+            ->delete(route('profile.destroy'), []);
+
+        // Assert
+        $response
+            ->assertSessionHasErrors('password')
+            ->assertRedirect(route('profile.edit'));
+
+        self::assertNotNull($user->fresh());
+    }
 }

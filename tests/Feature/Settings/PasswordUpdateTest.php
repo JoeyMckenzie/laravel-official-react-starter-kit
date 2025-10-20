@@ -65,4 +65,67 @@ final class PasswordUpdateTest extends TestCase
             ->assertSessionHasErrors('current_password')
             ->assertRedirect(route('user-password.edit'));
     }
+
+    #[Test]
+    public function current_password_is_required_to_update_password(): void
+    {
+        // Arrange
+        $user = User::factory()->create();
+
+        // Act
+        $response = $this
+            ->actingAs($user)
+            ->from(route('user-password.edit'))
+            ->put(route('user-password.update'), [
+                'password' => 'new-password',
+                'password_confirmation' => 'new-password',
+            ]);
+
+        // Assert
+        $response
+            ->assertSessionHasErrors('current_password')
+            ->assertRedirect(route('user-password.edit'));
+    }
+
+    #[Test]
+    public function password_field_is_required_to_update_password(): void
+    {
+        // Arrange
+        $user = User::factory()->create();
+
+        // Act
+        $response = $this
+            ->actingAs($user)
+            ->from(route('user-password.edit'))
+            ->put(route('user-password.update'), [
+                'current_password' => 'password',
+                'password_confirmation' => 'new-password',
+            ]);
+
+        // Assert
+        $response
+            ->assertSessionHasErrors('password')
+            ->assertRedirect(route('user-password.edit'));
+    }
+
+    #[Test]
+    public function password_confirmation_is_required_to_update_password(): void
+    {
+        // Arrange
+        $user = User::factory()->create();
+
+        // Act
+        $response = $this
+            ->actingAs($user)
+            ->from(route('user-password.edit'))
+            ->put(route('user-password.update'), [
+                'current_password' => 'password',
+                'password' => 'new-password',
+            ]);
+
+        // Assert
+        $response
+            ->assertSessionHasErrors('password')
+            ->assertRedirect(route('user-password.edit'));
+    }
 }
