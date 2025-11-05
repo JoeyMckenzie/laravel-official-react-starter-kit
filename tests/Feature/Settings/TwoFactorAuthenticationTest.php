@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Tests\Feature\Settings;
 
-use App\Models\User;
+use App\Domains\Auth\Models\User;
 use Illuminate\Support\Facades\Config;
 use Inertia\Testing\AssertableInertia as Assert;
 use Laravel\Fortify\Features;

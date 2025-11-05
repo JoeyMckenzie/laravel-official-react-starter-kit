@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Controllers\Settings;
+namespace App\Domains\Settings\Http\Controllers;
 
+use App\Domains\Auth\Models\User;
+use App\Domains\Settings\Http\Requests\ProfileUpdateRequest;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Settings\ProfileUpdateRequest;
-use App\Models\User;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;

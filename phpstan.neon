@@ -19,10 +19,10 @@ parameters:
     ignoreErrors:
         -
             message: '#Dynamic call to static method Illuminate\\Http\\Request::validate\(\).#'
-            path: app/Http/Controllers/**/*.php
+            path: app/Domains/**/Http/Controllers/*.php
         -
             message: '#Dynamic call to static method Illuminate\\Testing\\TestResponse<Symfony\\Component\\HttpFoundation\\Response>::assertInertia\(\).#'
             path: tests/**/*.php
         -
-            message: '#Parameter \#1 \$input \(array<model property of App\\Models\\User, string>\) of method App\\Actions\\Fortify\\CreateNewUser::create\(\) should be compatible with parameter \$input \(array\) of method Laravel\\Fortify\\Contracts\\CreatesNewUsers::create\(\)#'
-            path: app/Actions/Fortify/CreateNewUser.php
+            message: '#Parameter \#1 \$input \(array<model property of App\\Domains\\Auth\\Models\\User, string>\) of method App\\Domains\\Auth\\Actions\\Fortify\\CreateNewUser::create\(\) should be compatible with parameter \$input \(array\) of method Laravel\\Fortify\\Contracts\\CreatesNewUsers::create\(\)#'
+            path: app/Domains/Auth/Actions/Fortify/CreateNewUser.php

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Models;
+namespace App\Domains\Auth\Models;
 
 use Carbon\CarbonImmutable;
 use Database\Factories\UserFactory;
@@ -93,6 +93,11 @@ final class User extends Authenticatable implements MustVerifyEmail
         'two_factor_recovery_codes',
         'remember_token',
     ];
+
+    protected static function newFactory(): UserFactory
+    {
+        return UserFactory::new();
+    }
 
     /**
      * Get the attributes that should be cast.

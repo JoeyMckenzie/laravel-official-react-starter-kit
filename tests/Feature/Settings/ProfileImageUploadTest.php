@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Tests\Feature\Settings;
 
-use App\Http\Controllers\Settings\ProfileImageController;
-use App\Models\User;
+use App\Domains\Auth\Models\User;
+use App\Domains\Settings\Http\Controllers\ProfileImageController;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 use PHPUnit\Framework\Attributes\CoversClass;

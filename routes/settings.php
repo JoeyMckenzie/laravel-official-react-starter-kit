@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-use App\Http\Controllers\Settings\PasswordController;
-use App\Http\Controllers\Settings\ProfileController;
-use App\Http\Controllers\Settings\ProfileImageController;
-use App\Http\Controllers\Settings\TwoFactorAuthenticationController;
+use App\Domains\Settings\Http\Controllers\PasswordController;
+use App\Domains\Settings\Http\Controllers\ProfileController;
+use App\Domains\Settings\Http\Controllers\ProfileImageController;
+use App\Domains\Settings\Http\Controllers\TwoFactorAuthenticationController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 

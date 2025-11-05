@@ -1,5 +1,8 @@
-import ProfileController from '@/actions/App/Http/Controllers/Settings/ProfileController';
-import ProfileImageController from '@/actions/App/Http/Controllers/Settings/ProfileImageController';
+import { update } from '@/actions/App/Domains/Settings/Http/Controllers/ProfileController';
+import {
+    destroy,
+    store,
+} from '@/actions/App/Domains/Settings/Http/Controllers/ProfileImageController';
 import { send } from '@/routes/verification';
 import { type BreadcrumbItem, type SharedData } from '@/types';
 import { Transition } from '@headlessui/react';
@@ -54,14 +57,14 @@ export default function Profile({
         const formData = new FormData();
         formData.append('image', file);
 
-        router.post(ProfileImageController.store().url, formData, {
+        router.post(store().url, formData, {
             onSuccess: handleImageCallback,
             onError: () => handleImageCallback,
         });
     };
 
     const handleImageDelete = () => {
-        router.delete(ProfileImageController.destroy().url);
+        router.delete(destroy().url);
     };
 
     return (
@@ -132,7 +135,7 @@ export default function Profile({
                         </p>
                     </div>
                     <Form
-                        {...ProfileController.update.form()}
+                        {...update.form()}
                         options={{
                             preserveScroll: true,
                         }}

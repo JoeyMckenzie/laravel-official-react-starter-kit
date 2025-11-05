@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Tests\Feature;
 
-use App\Models\User;
+use App\Domains\Auth\Models\User;
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 

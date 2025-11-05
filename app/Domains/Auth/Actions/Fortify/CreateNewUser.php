@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Actions\Fortify;
+namespace App\Domains\Auth\Actions\Fortify;
 
-use App\Models\User;
+use App\Domains\Auth\Models\User;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Laravel\Fortify\Contracts\CreatesNewUsers;

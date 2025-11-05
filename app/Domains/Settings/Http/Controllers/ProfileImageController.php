@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Controllers\Settings;
+namespace App\Domains\Settings\Http\Controllers;
 
+use App\Domains\Auth\Models\User;
 use App\Http\Controllers\Controller;
-use App\Models\User;
 use Illuminate\Contracts\Filesystem\Factory as Filesystem;
 use Illuminate\Contracts\Filesystem\Filesystem as Storage;
 use Illuminate\Http\RedirectResponse;

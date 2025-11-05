@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Tests\Feature\Settings;
 
-use App\Http\Controllers\Settings\PasswordController;
-use App\Models\User;
+use App\Domains\Auth\Models\User;
+use App\Domains\Settings\Http\Controllers\PasswordController;
 use Illuminate\Support\Facades\Hash;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Test;
