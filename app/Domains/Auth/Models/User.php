@@ -114,26 +114,26 @@ final class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
-     * @return Attribute<string, string>
+     * @return Attribute<non-falsy-string, never>
      */
     protected function fullName(): Attribute
     {
-        return Attribute::make(fn (): string => "$this->first_name $this->last_name");
+        return Attribute::get(fn (): string => "$this->first_name $this->last_name");
     }
 
     /**
-     * @return Attribute<string, string>
+     * @return Attribute<string, never>
      */
     protected function initials(): Attribute
     {
         $firstNameInitial = mb_substr($this->first_name ?? '', 0, 1);
         $lastNameInitial = mb_substr($this->last_name ?? '', 0, 1);
 
-        return Attribute::make(fn (): string => $firstNameInitial.$lastNameInitial);
+        return Attribute::get(fn (): string => $firstNameInitial.$lastNameInitial);
     }
 
     /**
-     * @return Attribute<?string, ?string>
+     * @return Attribute<?string, never>
      */
     protected function profileImage(): Attribute
     {
@@ -141,6 +141,6 @@ final class User extends Authenticatable implements MustVerifyEmail
             ? Storage::url($this->avatar)
             : null;
 
-        return Attribute::make(fn (): ?string => $avatar);
+        return Attribute::get(fn (): ?string => $avatar);
     }
 }
