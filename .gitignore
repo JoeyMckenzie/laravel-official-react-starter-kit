@@ -34,3 +34,4 @@ _ide_helper.php
 coverage.xml
 .DS_Store
 .worktrees
+/docs/plans
