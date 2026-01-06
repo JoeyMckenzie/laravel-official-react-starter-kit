@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use Rector\Config\RectorConfig;
+use Rector\Php83\Rector\ClassMethod\AddOverrideAttributeToOverriddenMethodsRector;
 use RectorLaravel\Set\LaravelSetProvider;
 
 return RectorConfig::configure()
@@ -17,6 +18,9 @@ return RectorConfig::configure()
         __DIR__.'/tests',
     ])
     ->withSetProviders(LaravelSetProvider::class)
+    ->withConfiguredRule(AddOverrideAttributeToOverriddenMethodsRector::class, [
+        'allow_override_empty_method' => false,
+    ])
     ->withComposerBased(laravel: true)
     ->withPhpSets(php84: true)
     ->withTypeCoverageLevel(10)
