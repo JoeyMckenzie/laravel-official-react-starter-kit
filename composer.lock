@@ -1292,16 +1292,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v12.45.0",
+            "version": "v12.46.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "9dfd2afc48f2519bfdbe6862dfb9849491c673ad"
+                "reference": "9dcff48d25a632c1fadb713024c952fec489c4ae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/9dfd2afc48f2519bfdbe6862dfb9849491c673ad",
-                "reference": "9dfd2afc48f2519bfdbe6862dfb9849491c673ad",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/9dcff48d25a632c1fadb713024c952fec489c4ae",
+                "reference": "9dcff48d25a632c1fadb713024c952fec489c4ae",
                 "shasum": ""
             },
             "require": {
@@ -1510,7 +1510,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2026-01-06T15:24:52+00:00"
+            "time": "2026-01-07T23:26:53+00:00"
         },
         {
             "name": "laravel/prompts",
@@ -8058,16 +8058,16 @@
         },
         {
             "name": "infection/infection",
-            "version": "0.32.1",
+            "version": "0.32.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/infection/infection.git",
-                "reference": "b5c2dc7dd7615c90edf56924df09d39170c2817d"
+                "reference": "df90353784ab0505f07502770f59f8fabef24d8c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/infection/infection/zipball/b5c2dc7dd7615c90edf56924df09d39170c2817d",
-                "reference": "b5c2dc7dd7615c90edf56924df09d39170c2817d",
+                "url": "https://api.github.com/repos/infection/infection/zipball/df90353784ab0505f07502770f59f8fabef24d8c",
+                "reference": "df90353784ab0505f07502770f59f8fabef24d8c",
                 "shasum": ""
             },
             "require": {
@@ -8178,7 +8178,7 @@
             ],
             "support": {
                 "issues": "https://github.com/infection/infection/issues",
-                "source": "https://github.com/infection/infection/tree/0.32.1"
+                "source": "https://github.com/infection/infection/tree/0.32.2"
             },
             "funding": [
                 {
@@ -8190,7 +8190,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2026-01-05T18:10:44+00:00"
+            "time": "2026-01-07T13:28:58+00:00"
         },
         {
             "name": "infection/mutator",
@@ -8472,16 +8472,16 @@
         },
         {
             "name": "laravel/boost",
-            "version": "v1.8.7",
+            "version": "v1.8.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/boost.git",
-                "reference": "7a5709a8134ed59d3e7f34fccbd74689830e296c"
+                "reference": "1f2c2d41b5216618170fb6730ec13bf894c5bffd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/boost/zipball/7a5709a8134ed59d3e7f34fccbd74689830e296c",
-                "reference": "7a5709a8134ed59d3e7f34fccbd74689830e296c",
+                "url": "https://api.github.com/repos/laravel/boost/zipball/1f2c2d41b5216618170fb6730ec13bf894c5bffd",
+                "reference": "1f2c2d41b5216618170fb6730ec13bf894c5bffd",
                 "shasum": ""
             },
             "require": {
@@ -8534,7 +8534,7 @@
                 "issues": "https://github.com/laravel/boost/issues",
                 "source": "https://github.com/laravel/boost"
             },
-            "time": "2025-12-19T15:04:12+00:00"
+            "time": "2026-01-07T18:43:11+00:00"
         },
         {
             "name": "laravel/mcp",
