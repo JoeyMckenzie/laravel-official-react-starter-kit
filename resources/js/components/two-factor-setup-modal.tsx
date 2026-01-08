@@ -20,6 +20,7 @@ import { REGEXP_ONLY_DIGITS } from 'input-otp';
 import { Check, Copy, ScanLine } from 'lucide-react';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import AlertError from './alert-error';
+import { useTheme } from './theme-provider';
 import { Spinner } from './ui/spinner';
 
 const OTP_SLOT_KEYS = Array.from(
@@ -66,6 +67,7 @@ function TwoFactorSetupStep({
     onNextStep: () => void;
     errors: string[] | null;
 }) {
+    const { theme } = useTheme();
     const [copiedText, copy] = useClipboard();
     const IconComponent = copiedText === manualSetupKey ? Check : Copy;
 
@@ -84,6 +86,12 @@ function TwoFactorSetupStep({
                             <div
                                 dangerouslySetInnerHTML={{
                                     __html: qrCodeSvg,
+                                }}
+                                style={{
+                                    filter:
+                                        theme === 'dark'
+                                            ? 'invert(1) brightness(1.5)'
+                                            : undefined,
                                 }}
                             />
                         ) : (
