@@ -9,7 +9,7 @@ use App\Domains\Settings\Http\Controllers\TwoFactorAuthenticationController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-Route::middleware('auth')->group(function (): void {
+Route::middleware(['auth', 'verified'])->group(function (): void {
     Route::redirect('settings', '/settings/profile');
 
     Route::get('settings/profile', [ProfileController::class, 'edit'])->name('profile.edit');

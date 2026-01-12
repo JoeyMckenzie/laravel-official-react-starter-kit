@@ -30,7 +30,7 @@ final class AuthenticationTest extends TestCase
     #[Test]
     public function users_can_authenticate_using_the_login_screen(): void
     {
-        $user = User::factory()->withoutTwoFactor()->create();
+        $user = User::factory()->create();
 
         $response = $this->post(route('login.store'), [
             'email' => $user->email,
